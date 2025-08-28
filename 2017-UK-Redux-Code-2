@@ -950,7 +950,7 @@
  charisma -= 0.6
  console.log("Leave: " + leave + "\nRemain: " + remain + "\nLeft: " + left + "\nRight: " + right +
  "\nPrivacy: " + privacy + "\nSecurity: " + security + "\nProgressive: " + progressive + "\nConservative: " + conservative +
- "\nWorking: " + working + "/nProfessional: " + professional + "\nCharisma: " + charisma);
+ "\nWorking: " + working + "\nProfessional: " + professional + "\nCharisma: " + charisma);
  }    	
  
  // Answer Specific Reputation Variables
