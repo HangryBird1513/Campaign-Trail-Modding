@@ -3256,17 +3256,8 @@ element.innerHTML = seatsummary;
     observerRunning = false;
 }
 
-let observerRunning = false;
-
-var element = document.getElementById('controlElement');
-if (!element) {
-	let singleObserver = new MutationObserver(handleMutations);
-	singleObserver.observe(document.documentElement, { childList: true, subtree: true });
-	var controlElement = document.createElement('div');
-	controlElement.style.display = 'none';
-	controlElement.id = 'controlElement';
-	document.body.appendChild(controlElement);
-}
+let singleObserver = new MutationObserver(handleMutations);
+singleObserver.observe(document.documentElement, { childList: true, subtree: true });
 
 //Timeline-specific candidate colours - Allows me to change the colour of the player's party independently across timelines.
 campaignTrail_temp.candidate_json[0].fields.color_hex = '#4098E3'
