@@ -3154,6 +3154,69 @@ function openHeadquarter() {
     b.style.color = 'black';
     b.style.margin = '8px';
     hqDiv.appendChild(b); 
+
+    let c = document.createElement('p');
+    c.innerHTML = 'Left: ' + left;
+    // c.style.flexGrow = '0.1';  // Make h3 take up the maximum space available
+    c.style.color = 'black';
+    c.style.margin = '8px';
+    hqDiv.appendChild(c); 
+
+    let d = document.createElement('p');
+    d.innerHTML = 'Right: ' + right;
+    // d.style.flexGrow = '0.1';  // Make h3 take up the maximum space available
+    d.style.color = 'black';
+    d.style.margin = '8px';
+    hqDiv.appendChild(d); 
+
+    let e = document.createElement('p');
+    e.innerHTML = 'Privacy: ' + privacy;
+    // e.style.flexGrow = '0.1';  // Make h3 take up the maximum space available
+    e.style.color = 'black';
+    e.style.margin = '8px';
+    hqDiv.appendChild(e); 
+
+    let f = document.createElement('p');
+    f.innerHTML = 'Security: ' + security;
+    // f.style.flexGrow = '0.1';  // Make h3 take up the maximum space available
+    f.style.color = 'black';
+    f.style.margin = '8px';
+    hqDiv.appendChild(f); 
+
+    let g = document.createElement('p');
+    g.innerHTML = 'Progressive: ' + progressive;
+    // g.style.flexGrow = '0.1';  // Make h3 take up the maximum space available
+    g.style.color = 'black';
+    g.style.margin = '8px';
+    hqDiv.appendChild(g); 
+
+    let h = document.createElement('p');
+    h.innerHTML = 'Conservative: ' + conservative;
+    // h.style.flexGrow = '0.1';  // Make h3 take up the maximum space available
+    h.style.color = 'black';
+    h.style.margin = '8px';
+    hqDiv.appendChild(h); 
+
+    let i = document.createElement('p');
+    i.innerHTML = 'Working: ' + working;
+    // i.style.flexGrow = '0.1';  // Make h3 take up the maximum space available
+    i.style.color = 'black';
+    i.style.margin = '8px';
+    hqDiv.appendChild(i); 
+
+    let j = document.createElement('p');
+    j.innerHTML = 'Professional: ' + professional;
+    // j.style.flexGrow = '0.1';  // Make h3 take up the maximum space available
+    j.style.color = 'black';
+    j.style.margin = '8px';
+    hqDiv.appendChild(j); 
+
+    let k = document.createElement('p');
+    k.innerHTML = 'Charisma: ' + charisma;
+    // k.style.flexGrow = '0.1';  // Make h3 take up the maximum space available
+    k.style.color = 'black';
+    k.style.margin = '8px';
+    hqDiv.appendChild(k); 
 }
 
 async function handleMutations(mutationsList, observer) {
