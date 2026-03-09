@@ -4454,11 +4454,8 @@ function openHeadquarter() {
 
 
     let patienceLabel = document.createElement('h2');
-    patienceLabel.innerHTML = "<span class='mytooltip'>Olaf's Merkelism<span class='mytooltiptext'>While there seems to be a certain wind of change in the country, the chancellor herself has high approval ratings. Your demeanor has sometimes been compared to that of your boss - maybe emulating her style of composure and patience can open up new opportunities...</span></span>";
-    if (campaignTrail_temp.bigshot_mode){
-        patienceLabel.innerHTML = "<span class='mytooltip'>Olaf's Merkelism<span class='mytooltiptext'>While there seems to be a certain wind of change in the country, the chancellor herself has high approval ratings. Your demeanor has sometimes been compared to that of your boss - maybe emulating her style of composure and patience can open up new opportunities...<br>Current Merkelism:"+merkelism+"<br>Unity:"+unity+"<br>Competence:"+competence+"<br>Aggressive:"+aggressive+"</span></span>";
+    patienceLabel.innerHTML = "<span class='mytooltip'>Olaf's Merkelism<span class='mytooltiptext'>While there seems to be a certain wind of change in the country, the chancellor herself has high approval ratings. Your demeanor has sometimes been compared to that of your boss - maybe emulating her style of composure and patience can open up new opportunities...<br>Current Merkelism:"+merkelism+"<br>Unity:"+unity+"<br>Competence:"+competence+"<br>Aggressive:"+aggressive+"</span></span>";
 
-    }
     patienceLabel.className = 'happy-box';
     patienceLabel.style.padding = '1em';
     patienceLabel.style.textAlign = 'center';
