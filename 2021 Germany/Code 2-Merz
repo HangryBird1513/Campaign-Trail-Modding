@@ -1644,20 +1644,6 @@ function changeIssueEffect(answer, issue, changeScore, changeImportance) {
 
 // style stuff here
 // These functions handle a specific mutation task
-async function changeChart(processedNodes) {
-    const elementIDs = ["overall_vote_statistics", "state_result_data_summary", "overall_details_container"];
-    for(let id of elementIDs) {
-        let element = document.getElementById(id);
-        if (element && !processedNodes.has(element)) {
-            let overallthing = element.innerHTML;
-            overallthing = overallthing.replace("Electoral Votes","Seats");
-            overallthing = overallthing.replace("Candidate","Party");
-            element.innerHTML = overallthing;
-            processedNodes.add(element);
-        }
-    }
-}
-
 campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.ibb.co/JFGz6mx/cdu.jpg';
 
 function modifyVisitContent() {
