@@ -5019,7 +5019,7 @@ var pictureDict = {
     5: "https://i.ibb.co/F7Lv0zv/Merz-happy-cropped.jpg",
     6: "https://i.ibb.co/CWVL86y/Merz-speech-2-cropped.jpg",
     7: "https://i.ibb.co/WsTk18q/Merz-speech-3-cropped.jpg",
-    8: "https://i.ibb.co/przHgRG/Baerbock-cropped.jpg",
+    8: "https://i.ibb.co/K2r6Yb3/Habeck-cropped.jpg",
     9: "https://i.ibb.co/LpQxprP/Kretschmer-Russland-cropped.jpg",
     10: "https://i.ibb.co/7vS3Hbq/Fl-chtlinge-1-cropped.webp",
     11: "https://i.ibb.co/y6XsHcZ/FFF-cropped.jpg",
@@ -5028,24 +5028,24 @@ var pictureDict = {
     14: "https://i.ibb.co/hYQCJ16/NATO-Flag-cropped.png",
     15: "https://i.ibb.co/mHwwy7p/Merz-talk-2-cropped.jpg",
     16: "https://i.ibb.co/zxvJCxh/Haselhoff-cropped.webp",
-    17: "https://i.ibb.co/fCRCY8Q/Baerbock-Sad-cropped.jpg",
+    17: "https://i.ibb.co/cxJTQSD/Habeck-sad-cropped.jpg",
     18: "https://i.ibb.co/MNLjBz2/Digitalization-cropped.jpg",
-    19: "https://i.ibb.co/0cY6kF7/Mieten-cropped.jpg",
-    20: "https://i.ibb.co/D9rndYc/Ahrtal-1-cropped.jpg",
-    21: "https://i.ibb.co/ZmXLYKj/Ahrtal-2-cropped.jpg",
+    19: "https://i.ibb.co/b6q2vXG/afdeast-cropped.jpg",
+    20: "https://i.ibb.co/0cY6kF7/Mieten-cropped.jpg",
+    21: "https://i.ibb.co/D9rndYc/Ahrtal-1-cropped.jpg",
     22: "https://i.ibb.co/ZmXLYKj/Ahrtal-2-cropped.jpg",
-    23: "https://i.ibb.co/VwQb9gJ/vaccination-Campaign-cropped.jpg",
-    24: "https://i.ibb.co/h8hJ98x/Merz-young-cropped.jpg",
-    25: "https://i.ibb.co/27F6jsV/Merz-talk-1-cropped.jpg",
-    26: "https://i.ibb.co/S0f7qms/Merz-speech-1-cropped.webp",
-    27: "https://i.ibb.co/mHwwy7p/Merz-talk-2-cropped.jpg",
-    28: "https://i.ibb.co/z4pJXpv/Afghanistan-cropped.jpg",
-    29: "https://i.ibb.co/F7Lv0zv/Merz-happy-cropped.jpg",
-    30: "https://i.ibb.co/g7gz33d/triell-logo-cropped.jpg",
-    31: "https://i.ibb.co/SPfvcv5/vierkampf-cropped.jpg",
-    32: "https://i.ibb.co/NmpkszL/Merz-wahlkampf-cropped.webp"
-    // 33:
-    // 34:
+    23: "https://i.ibb.co/ZmXLYKj/Ahrtal-2-cropped.jpg",
+    24: "https://i.ibb.co/VwQb9gJ/vaccination-Campaign-cropped.jpg",
+    25: "https://i.ibb.co/h8hJ98x/Merz-young-cropped.jpg",
+    26: "https://i.ibb.co/27F6jsV/Merz-talk-1-cropped.jpg",
+    27: "https://i.ibb.co/S0f7qms/Merz-speech-1-cropped.webp",
+    28: "https://i.ibb.co/mHwwy7p/Merz-talk-2-cropped.jpg",
+    29: "https://i.ibb.co/Lxp3QGT/silhouette-cropped.jpg", // placeholder
+    30: "https://i.ibb.co/z4pJXpv/Afghanistan-cropped.jpg",
+    31: "https://i.ibb.co/F7Lv0zv/Merz-happy-cropped.jpg",
+    32: "https://i.ibb.co/g7gz33d/triell-logo-cropped.jpg",
+    33: "https://i.ibb.co/SPfvcv5/vierkampf-cropped.jpg",
+    34: "https://i.ibb.co/NmpkszL/Merz-wahlkampf-cropped.webp"
 };
 function preloadImages(pictureDict) {
     for (var key in pictureDict) {
