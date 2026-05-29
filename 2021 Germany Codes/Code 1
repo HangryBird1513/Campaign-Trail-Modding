@@ -1909,8 +1909,5 @@ campaignTrail_temp.achievements = {
         "description": "Form a coalition from second place.",
         "cannotBeCheated": true
     }
-
 }
-
-
 }
