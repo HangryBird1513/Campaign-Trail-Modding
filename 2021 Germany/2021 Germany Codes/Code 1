@@ -22,7 +22,7 @@ var bulletPointDict = {
   4: "The answers will also affect other elements of your campaign, leading to unique developments in the election.",
   5: "Walk the fine line between appealing to your base and winning the most votes.",
   6: "Additionally, you can hire advisors who can assist with your campaign in various ways.",
-  7: "Post-election, negotiate a coalition agreement that will hopefully satisfy both you and your partner(s)."
+  7: "Post-election, negotiate a coalition agreement that will hopefully satisfy you, your partner(s), and the German people."
 };
 for (const key in bulletPointDict) {
   document.querySelector(`#inner_window_1 ul li:nth-child(${key})`).textContent = bulletPointDict[key];
