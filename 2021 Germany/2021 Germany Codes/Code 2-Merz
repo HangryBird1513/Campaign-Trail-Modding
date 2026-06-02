@@ -1728,10 +1728,9 @@ cyoAdventure = function(a) {
     }
 
     //only chart a full campaign
-    if(ans > 4101 && ans < 4500){
+    if(campaignTrail_temp.player_answers.length === 35){
         charts.push("line");
     }
-
     else
     {
         return false
@@ -1985,7 +1984,7 @@ function modifyVisitContent() {
   }
 }
 
-// Solve Problem ASAP
+//
 function addLeaderColumn(table) {    
     // Double-check that Leader column doesn't exist
     const headerRow = table.querySelector('tr:first-child');
