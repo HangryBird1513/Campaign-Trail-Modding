@@ -102,9 +102,14 @@ campaignTrail_temp.game_start_logging_id = '3662498';
       { id: 15, name: 'Green-Yellow Coalition', weight: 1.9, parties: [79, 303], impossibleCoalitions: [5, 6]}
     ];
     const partyLeaders = [
-    { party: 77, leaderName: 'Merz'},
-    { party: 78, leaderName: 'Mützenich'},
-    { party: 79, leaderName: 'Habeck'}];
+        { party: 77, partyName: 'CDU／CSU', leaderName: 'Merz', fullLeaderName: 'Friedrich Merz'},
+        { party: 78, partyName: 'SPD', leaderName: 'Mützenich', fullLeaderName: 'Rolf Mützenich'},
+        { party: 79, partyName: 'Green Party', leaderName: 'Habeck', fullLeaderName: 'Robert Habeck'},
+        { party: 303, partyName: 'FDP', leaderName: 'Lindner', fullLeaderName: 'Christian Lindner'},
+        { party: 304, partyName: 'The Left', leaderName: 'Wissler', fullLeaderName: 'Janine Wissler'},
+        { party: 305, partyName: 'AfD', leaderName: 'Weidel', fullLeaderName: 'Alice Weidel'},
+        { party: 306, partyName: 'Others', leaderName: 'Various', fullLeaderName: 'Various'}
+    ];    
 
     const seats = [102, 117, 29, 25, 5, 16, 50, 16, 73, 155, 36, 9, 38, 18, 28, 19];
     var possibleCoalitions = [];
@@ -1978,6 +1983,35 @@ function modifyVisitContent() {
   }
 }
 
+// Solve Problem ASAP
+function addLeaderColumn(table) {    
+    // Add header for Leader column
+    const headerRow = table.querySelector('tr:first-child');
+
+    const leaderHeader = document.createElement('th');
+    leaderHeader.textContent = 'Leader';
+    headerRow.insertBefore(leaderHeader, headerRow.children[1]);
+    
+    // Add leader data to each party row
+    const dataRows = table.querySelectorAll('tr:not(:first-child)');
+    dataRows.forEach(row => {
+        const partyCell = row.querySelector('td:first-child');
+        if (partyCell) {
+            const partyText = partyCell.textContent.trim();
+            const partyData = partyLeaders.find(p => partyText.includes(p.partyName));
+            
+            const leaderCell = document.createElement('td');
+            if (partyData) {
+                leaderCell.textContent = partyData.fullLeaderName;
+            } else {
+                leaderCell.textContent = 'Unknown';
+            }
+            
+            row.insertBefore(leaderCell, row.children[1]);
+        }
+    });
+}
+
 async function changeChart(processedNodes) {
     const elementIDs = ["overall_vote_statistics", "state_result_data_summary", "overall_details_container"];
     for(let id of elementIDs) {
@@ -1987,6 +2021,7 @@ async function changeChart(processedNodes) {
             overallthing = overallthing.replace("Electoral Votes","Seats");
             overallthing = overallthing.replace("Candidate","Party");
             element.innerHTML = overallthing;
+            addLeaderColumn(document.querySelector(`#${id} table`));
             processedNodes.add(element);
         }
     }
