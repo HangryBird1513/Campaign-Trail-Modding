@@ -1985,9 +1985,17 @@ function modifyVisitContent() {
 
 // Solve Problem ASAP
 function addLeaderColumn(table) {    
-    // Add header for Leader column
+    // Double-check that Leader column doesn't exist
     const headerRow = table.querySelector('tr:first-child');
+    const leaderHeaderExists = Array.from(headerRow.children).some(th => 
+        th.textContent.trim() === 'Leader'
+    );
+                    
+    if (leaderHeaderExists) {
+        return; // Column already exists, exit early
+    }
 
+    // Add header for Leader column
     const leaderHeader = document.createElement('th');
     leaderHeader.textContent = 'Leader';
     headerRow.insertBefore(leaderHeader, headerRow.children[1]);
@@ -2013,15 +2021,27 @@ function addLeaderColumn(table) {
 }
 
 async function changeChart(processedNodes) {
-    const elementIDs = ["overall_vote_statistics", "state_result_data_summary", "overall_details_container"];
+    const elementIDs = ["overall_vote_statistics", "state_result_data_summary", "overall_election_details"];
     for(let id of elementIDs) {
         let element = document.getElementById(id);
+
+        // Check for the final results table
+        if (element) {
+            const headerRow = element.querySelector('tr:first-child');
+            const leaderHeaderExists = Array.from(headerRow.children).some(th => 
+                th.textContent.trim() === 'Leader'
+            );
+    
+            if (!leaderHeaderExists) {
+                addLeaderColumn(element);
+            }
+        }
+
         if (element && !processedNodes.has(element)) {
             let overallthing = element.innerHTML;
             overallthing = overallthing.replace("Electoral Votes","Seats");
             overallthing = overallthing.replace("Candidate","Party");
             element.innerHTML = overallthing;
-            addLeaderColumn(document.querySelector(`#${id} table`));
             processedNodes.add(element);
         }
     }
