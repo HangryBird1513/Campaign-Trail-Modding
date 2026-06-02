@@ -104,12 +104,14 @@ campaignTrail_temp.game_start_logging_id = '3662498';
     const partyLeaders = [
         { party: 77, partyName: 'CDU／CSU', leaderName: 'Merz', fullLeaderName: 'Friedrich Merz'},
         { party: 78, partyName: 'SPD', leaderName: 'Mützenich', fullLeaderName: 'Rolf Mützenich'},
-        { party: 79, partyName: 'Green Party', leaderName: 'Habeck', fullLeaderName: 'Robert Habeck'},
-        { party: 303, partyName: 'FDP', leaderName: 'Lindner', fullLeaderName: 'Christian Lindner'},
-        { party: 304, partyName: 'The Left', leaderName: 'Wissler', fullLeaderName: 'Janine Wissler'},
-        { party: 305, partyName: 'AfD', leaderName: 'Weidel', fullLeaderName: 'Alice Weidel'},
-        { party: 306, partyName: 'Others', leaderName: 'Various', fullLeaderName: 'Various'}
+        { party: 79, partyName: 'Green Party', leaderName: 'Habeck', fullLeaderName: 'Robert Habeck'}
     ];    
+    const otherPartyLeaders = [
+        { partyName: 'FDP', fullLeaderName: 'Christian Lindner'},
+        { partyName: 'The Left', fullLeaderName: 'Janine Wissler & Dietmar Bartsch'},
+        { partyName: 'AfD', fullLeaderName: 'Alice Weidel & Tino Chrupalla'},
+        { partyName: 'Others', fullLeaderName: 'Various'}
+    ];
 
     const seats = [102, 117, 29, 25, 5, 16, 50, 16, 73, 155, 36, 9, 38, 18, 28, 19];
     var possibleCoalitions = [];
@@ -1988,7 +1990,7 @@ function addLeaderColumn(table) {
     // Double-check that Leader column doesn't exist
     const headerRow = table.querySelector('tr:first-child');
     const leaderHeaderExists = Array.from(headerRow.children).some(th => 
-        th.textContent.trim() === 'Leader'
+        th.textContent.trim() === 'Leader(s)'
     );
                     
     if (leaderHeaderExists) {
@@ -1997,7 +1999,7 @@ function addLeaderColumn(table) {
 
     // Add header for Leader column
     const leaderHeader = document.createElement('th');
-    leaderHeader.textContent = 'Leader';
+    leaderHeader.textContent = 'Leader(s)';
     headerRow.insertBefore(leaderHeader, headerRow.children[1]);
     
     // Add leader data to each party row
@@ -2006,14 +2008,10 @@ function addLeaderColumn(table) {
         const partyCell = row.querySelector('td:first-child');
         if (partyCell) {
             const partyText = partyCell.textContent.trim();
-            const partyData = partyLeaders.find(p => partyText.includes(p.partyName));
-            
             const leaderCell = document.createElement('td');
-            if (partyData) {
-                leaderCell.textContent = partyData.fullLeaderName;
-            } else {
-                leaderCell.textContent = 'Unknown';
-            }
+
+            const partyData = partyLeaders.find(p => partyText.includes(p.partyName)) || otherPartyLeaders.find(p => partyText.includes(p.partyName));
+            leaderCell.textContent = partyData?.fullLeaderName || 'Unknown';
             
             row.insertBefore(leaderCell, row.children[1]);
         }
@@ -2027,22 +2025,23 @@ async function changeChart(processedNodes) {
 
         // Check for the final results table
         if (element) {
+            let overallthing = element.innerHTML;
+            overallthing = overallthing.replace("Electoral Votes","Seats");
+            overallthing = overallthing.replace("Candidate","Party");
+            element.innerHTML = overallthing;
+
             const headerRow = element.querySelector('tr:first-child');
             const leaderHeaderExists = Array.from(headerRow.children).some(th => 
-                th.textContent.trim() === 'Leader'
+                th.textContent.trim() === 'Leader(s)'
             );
     
             if (!leaderHeaderExists) {
                 addLeaderColumn(element);
             }
-        }
-
-        if (element && !processedNodes.has(element)) {
-            let overallthing = element.innerHTML;
-            overallthing = overallthing.replace("Electoral Votes","Seats");
-            overallthing = overallthing.replace("Candidate","Party");
-            element.innerHTML = overallthing;
-            processedNodes.add(element);
+            
+            if (!processedNodes.has(element)) {
+                processedNodes.add(element);
+            }
         }
     }
 }
