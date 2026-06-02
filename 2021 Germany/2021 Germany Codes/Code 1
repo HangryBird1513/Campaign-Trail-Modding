@@ -1708,6 +1708,39 @@ function paginateContent() {
                     margin-right: auto;
                   }
             }
+            #overall_vote_statistics table{
+              width: 80%;
+            }
+            
+            /* Assign percentage widths to the 5 columns so they equal the total width */
+            #overall_vote_statistics th:nth-child(1) { width: 15%; } /* Party */
+            #overall_vote_statistics th:nth-child(2) { width: 25%; } /* Leader(s) */
+            #overall_vote_statistics th:nth-child(3) { width: 10%; } /* Seats */
+            #overall_vote_statistics th:nth-child(4) { width: 15%; } /* Popular Votes */
+            #overall_vote_statistics th:nth-child(5) { width: 15%; } /* Popular Vote % */
+
+            #state_result_data_summary table{
+              width: 80%;
+            }
+            
+            /* Assign percentage widths to the 5 columns so they equal the total width */
+            #state_result_data_summary th:nth-child(1) { width: 15%; } /* Party */
+            #state_result_data_summary th:nth-child(2) { width: 25%; } /* Leader */
+            #state_result_data_summary th:nth-child(3) { width: 15%; } /* Popular Votes */
+            #state_result_data_summary th:nth-child(4) { width: 15%; } /* Popular Vote % */
+            #state_result_data_summary th:nth-child(5) { width: 10%; } /* Seats */
+            
+
+            #overall_details_container table{
+              width: 80%;
+            }
+            
+            /* Assign percentage widths to the 5 columns so they equal the total width */
+            #overall_details_container th:nth-child(1) { width: 15%; } /* Party */
+            #overall_details_container th:nth-child(2) { width: 25%; } /* Leader */
+            #overall_details_container th:nth-child(3) { width: 10%; } /* Seats */
+            #overall_details_container th:nth-child(4) { width: 15%; } /* Popular Votes */
+            #overall_details_container th:nth-child(5) { width: 15%; } /* Popular Vote % */
             `;
 
             document.head.appendChild(style);
