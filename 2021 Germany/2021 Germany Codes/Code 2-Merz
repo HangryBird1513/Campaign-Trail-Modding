@@ -1657,11 +1657,15 @@ cyoAdventure = function(a) {
     }
     if ([4000, 4003].includes(ans)) {
        LaschetTime = true;
+       partyLeaders[0].leaderName = 'Laschet';
+       partyLeaders[0].fullLeaderName = 'Armin Laschet';
        campaignTrail_temp.question_number=34;
 
     }
     if ([4023, 4025].includes(ans)) {
        SoederTime = true;
+       partyLeaders[0].leaderName = 'Söder';
+       partyLeaders[0].fullLeaderName = 'Markus Söder';
        campaignTrail_temp.question_number=34;
     }
 
@@ -4647,32 +4651,25 @@ else if (type==="bar"){
       container.style.background ='rgba(255, 255, 255, 0.5)';
 };
 
-var buttonAdded = false
 function addMyButton(){
-
     if(document.getElementById("map_footer")&&e.initDC){
 
-        const existingButton = document.getElementById("chart_button");
-        if (existingButton) {
+        if (document.getElementById("chart_button")) {
             return;
         }
 
-        if (!buttonAdded) {
-            buttonAdded=true;
-            const buttonrow = document.getElementById("map_footer");
-            const chartButton = document.createElement("button");
-            chartButton.textContent = "Election Charts";
-            chartButton.id = "chart_button";
-            chartButton.class = "final_menu_button"
-            chartButton.addEventListener("click", function() {
-              charting(0);
-            });
-            buttonrow.insertBefore(chartButton, buttonrow.children[buttonrow.children.length - 1]);
-        }
-        else {
-            // reconnect the observer
-            buttonAdded=false;
-        }
+        const buttonrow = document.getElementById("map_footer");
+        const chartButton = document.createElement("button");
+
+        chartButton.textContent = "Election Charts";
+        chartButton.id = "chart_button";
+        chartButton.className = "final_menu_button"
+
+        chartButton.addEventListener("click", function() {
+            charting(0);
+        });
+
+        buttonrow.insertBefore(chartButton, buttonrow.children[buttonrow.children.length - 1]);
     }
 }
 
