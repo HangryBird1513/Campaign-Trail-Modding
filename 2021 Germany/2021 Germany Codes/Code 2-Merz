@@ -4933,29 +4933,23 @@ function createPollingBarChart(polling) {
 
 }
 
-var campaignButtonAdded = false;
 function addCampaignChartButton() {
     if (document.getElementById("map_footer") && document.getElementById("resume_questions_button")) {
-        const existingButton = document.getElementById("campaign_chart_button");
-        if (existingButton) {
+        if (document.getElementById("campaign_chart_button")) {
             return;
         }
 
-        if (!campaignButtonAdded) {
-            campaignButtonAdded = true;
-            const buttonrow = document.getElementById("map_footer");
-            const campaignChartButton = document.createElement("button");
-            campaignChartButton.textContent = "Current Polls";
-            campaignChartButton.id = "campaign_chart_button";
-            campaignChartButton.addEventListener("click", function() {
-                campaignCharting();
-            });
-            buttonrow.insertBefore(campaignChartButton, buttonrow.children[buttonrow.children.length - 2]);
-        }
-        else {
-            // reconnect the observer
-            campaignButtonAdded = false;
-        }
+        const buttonrow = document.getElementById("map_footer");
+        const campaignChartButton = document.createElement("button");
+
+        campaignChartButton.textContent = "Current Polls";
+        campaignChartButton.id = "campaign_chart_button";
+            
+        campaignChartButton.addEventListener("click", function() {
+            campaignCharting();
+        });
+
+        buttonrow.insertBefore(campaignChartButton, buttonrow.children[buttonrow.children.length - 2]);
     }
 }
 
