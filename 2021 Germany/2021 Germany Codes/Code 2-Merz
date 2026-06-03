@@ -4122,7 +4122,6 @@ let advisorsList = [
 
 if (!campaignTrail_temp.staff_mode){
     advisorZiemiak.status = "active";
-    advisorSpahn.status= "acvtive"
 }
 
 campaignTrail_temp.answers_json.forEach(answer => {
