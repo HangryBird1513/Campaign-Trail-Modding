@@ -5209,6 +5209,7 @@ if(!campaignTrail_temp.loaded){
     for (let i = 0; i < 5; i++) {
         campaignTrail_temp.issues_json[i].fields.name = issueTooltips[i];
     }
+    }
     
     campaignTrail_temp.global_parameter_json[0].fields.question_count = 35;
     
