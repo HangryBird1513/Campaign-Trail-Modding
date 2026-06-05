@@ -5193,20 +5193,21 @@ if(!campaignTrail_temp.loaded){
     applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
     applyTooltipsToObject(extraQuestions);
 
-    // "Pandemic Policy Stance" tooltip
-    campaignTrail_temp.issues_json[0].fields.name = "<span class=\'mytooltip\'>Pandemic Policy Stance<span class=\'mytooltiptext\'>Since 2020, the deadly and highly contagious Corona-Virus has plagued Germany. Restrictive measures implemented to combat it have shaped the German's lifes for almost 2 years now. While resistance against lockdowns has been mostly relegated to the cultural Right, others finally wish to see an end to the pandemic.</span></span>";
-        
-    // "Climate Change" tooltip
-    campaignTrail_temp.issues_json[1].fields.name = "<span class=\'mytooltip\'>Climate Change<span class=\'mytooltiptext\'>The environment has been a topic in German politics going back to the 70's and 80's. Since the 'climate summers' of 2018 and 2019, the state of climate change has been highly salient once more, catapulting the Greens into national prominence.</span></span>";
-            
-    // "Foreign Policy" tooltip
-    campaignTrail_temp.issues_json[2].fields.name = "<span class=\'mytooltip\'>Foreign Policy<span class=\'mytooltiptext\'>The scars of Germany's history have healed since 1949, but they are nonetheless deeply imbued within the national consciousness, partly due to its partition until 1990. While many now view Germany as the leader of Europe, others are much more weary of western interventionism.</span></span>";
-            
-    // "Economy" tooltip
-    campaignTrail_temp.issues_json[3].fields.name = "<span class=\'mytooltip\'>Economy<span class=\'mytooltiptext\'>Germany remains an economic powerhouse, but the prominent export-sector significantly suffered from Covid. While people are generally prosperous, economic growth and modernization efforts have been in somewhat of a slump, while East Germany is still far from catching up with the West.</span></span>";
-            
-    // "Urbanization" tooltip
-    campaignTrail_temp.issues_json[4].fields.name = "<span class=\'mytooltip\'>Urbanization<span class=\'mytooltiptext\'>The modern divide between the cultural Left and Right in western countries has increasingly become one between cosmopolitan city dwellers and traditionalist rural folk. Factors such as public transportation, education and the amount of refugees and immigrants often strongly correlate with urbanization levels.</span></span>";
+    //
+    const issueTooltips = [
+        "<span class=\'mytooltip\'>Pandemic Policy Stance<span class=\'mytooltiptext\'>Since 2020, the deadly and highly contagious Corona-Virus has plagued Germany. Restrictive measures implemented to combat it have shaped the German's lifes for almost 2 years now. While resistance against lockdowns has been mostly relegated to the cultural Right, others finally wish to see an end to the pandemic.</span></span>",
+
+        "<span class=\'mytooltip\'>Climate Change<span class=\'mytooltiptext\'>The environment has been a topic in German politics going back to the 70's and 80's. Since the 'climate summers' of 2018 and 2019, the state of climate change has been highly salient once more, catapulting the Greens into national prominence.</span></span>",
+
+        "<span class=\'mytooltip\'>Foreign Policy<span class=\'mytooltiptext\'>The scars of Germany's history have healed since 1949, but they are nonetheless deeply imbued within the national consciousness, partly due to its partition until 1990. While many now view Germany as the leader of Europe, others are much more weary of western interventionism.</span></span>",
+
+        "<span class=\'mytooltip\'>Economy<span class=\'mytooltiptext\'>Germany remains an economic powerhouse, but the prominent export-sector significantly suffered from Covid. While people are generally prosperous, economic growth and modernization efforts have been in somewhat of a slump, while East Germany is still far from catching up with the West.</span></span>",
+
+        "<span class=\'mytooltip\'>Urbanization<span class=\'mytooltiptext\'>The modern divide between the cultural Left and Right in western countries has increasingly become one between cosmopolitan city dwellers and traditionalist rural folk. Factors such as public transportation, education and the amount of refugees and immigrants often strongly correlate with urbanization levels.</span></span>"
+    ];
+
+    for (let i = 0; i < 5; i++) {
+        campaignTrail_temp.issues_json[i].fields.name = issueTooltips[i];
     }
     
     campaignTrail_temp.global_parameter_json[0].fields.question_count = 35;
