@@ -5207,7 +5207,7 @@ if(!campaignTrail_temp.loaded){
     ];
 
     for (let i = 0; i < 5; i++) {
-        campaignTrail_temp.issues_json[i].fields.name = "<span class=\'mytooltip\'>" + campaignTrail_temp.issues_json[i].fields.name + "<span class=\'mytooltiptext\'>" + issueTooltips[i] + "</span></span>";
+        campaignTrail_temp.issues_json[i].fields.name = "<span class=\'mytooltip\'>" + campaignTrail_temp.issues_json[i].fields.name + "<span class=\'issuetooltiptext\'>" + issueTooltips[i] + "</span></span>";
     }
 
     // 
