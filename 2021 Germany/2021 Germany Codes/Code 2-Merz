@@ -5195,20 +5195,94 @@ if(!campaignTrail_temp.loaded){
 
     //
     const issueTooltips = [
-        "<span class=\'mytooltip\'>Pandemic Policy Stance<span class=\'mytooltiptext\'>Since 2020, the deadly and highly contagious Corona-Virus has plagued Germany. Restrictive measures implemented to combat it have shaped the German's lifes for almost 2 years now. While resistance against lockdowns has been mostly relegated to the cultural Right, others finally wish to see an end to the pandemic.</span></span>",
+        "Since 2020, the deadly and highly contagious Corona-Virus has plagued Germany. Restrictive measures implemented to combat it have shaped the German's lifes for almost 2 years now. While resistance against lockdowns has been mostly relegated to the cultural Right, others finally wish to see an end to the pandemic.",
 
-        "<span class=\'mytooltip\'>Climate Change<span class=\'mytooltiptext\'>The environment has been a topic in German politics going back to the 70's and 80's. Since the 'climate summers' of 2018 and 2019, the state of climate change has been highly salient once more, catapulting the Greens into national prominence.</span></span>",
+        "The environment has been a topic in German politics going back to the 70's and 80's. Since the 'climate summers' of 2018 and 2019, the state of climate change has been highly salient once more, catapulting the Greens into national prominence.",
 
-        "<span class=\'mytooltip\'>Foreign Policy<span class=\'mytooltiptext\'>The scars of Germany's history have healed since 1949, but they are nonetheless deeply imbued within the national consciousness, partly due to its partition until 1990. While many now view Germany as the leader of Europe, others are much more weary of western interventionism.</span></span>",
+        "The scars of Germany's history have healed since 1949, but they are nonetheless deeply imbued within the national consciousness, partly due to its partition until 1990. While many now view Germany as the leader of Europe, others are much more weary of western interventionism.",
 
-        "<span class=\'mytooltip\'>Economy<span class=\'mytooltiptext\'>Germany remains an economic powerhouse, but the prominent export-sector significantly suffered from Covid. While people are generally prosperous, economic growth and modernization efforts have been in somewhat of a slump, while East Germany is still far from catching up with the West.</span></span>",
+        "Germany remains an economic powerhouse, but the prominent export-sector significantly suffered from Covid. While people are generally prosperous, economic growth and modernization efforts have been in somewhat of a slump, while East Germany is still far from catching up with the West.",
 
-        "<span class=\'mytooltip\'>Urbanization<span class=\'mytooltiptext\'>The modern divide between the cultural Left and Right in western countries has increasingly become one between cosmopolitan city dwellers and traditionalist rural folk. Factors such as public transportation, education and the amount of refugees and immigrants often strongly correlate with urbanization levels.</span></span>"
+        "The modern divide between the cultural Left and Right in western countries has increasingly become one between cosmopolitan city dwellers and traditionalist rural folk. Factors such as public transportation, education and the amount of refugees and immigrants often strongly correlate with urbanization levels."
     ];
 
     for (let i = 0; i < 5; i++) {
-        campaignTrail_temp.issues_json[i].fields.name = issueTooltips[i];
+        campaignTrail_temp.issues_json[i].fields.name = "<span class=\'mytooltip\'>" + campaignTrail_temp.issues_json[i].fields.name + "<span class=\'mytooltiptext\'>" + issueTooltips[i] + "</span></span>";
     }
+
+    // 
+    const partyTooltips = [
+        {partyName: 'CDU／CSU', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://i.ibb.co/Lxp3QGT/silhouette-cropped.jpg">Placeholder`},
+        {partyName: 'SPD', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://i.ibb.co/Lxp3QGT/silhouette-cropped.jpg">Placeholder`},
+        {partyName: 'Green Party', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://i.ibb.co/Lxp3QGT/silhouette-cropped.jpg">Placeholder`},
+        {partyName: 'FDP', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/2020-02-14_Christian_Lindner_%28Bundestagsprojekt_2020%29_by_Sandro_Halank%E2%80%932.jpg/960px-2020-02-14_Christian_Lindner_%28Bundestagsprojekt_2020%29_by_Sandro_Halank%E2%80%932.jpg">Placeholder`},
+        {partyName: 'The Left', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Die_Linke_Leadership_2021.jpg">Placeholder`},
+        {partyName: 'AfD', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/AfD_leadership_2021.jpg">Placeholder`},
+        {partyName: 'Others', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Stefan_Seidler_2015.jpg/960px-Stefan_Seidler_2015.jpg">Placeholder`}
+    ];
+
+    // 
+    partyTooltips.forEach(p => {
+        p.tooltipObject.className = 'maptooltiptext';
+        document.body.appendChild(p.tooltipObject);
+    });
+
+    //
+    function initializePartyTooltips() {
+        const partySupportEstimates = document.querySelectorAll("#overall_result ul");
+
+        if (partySupportEstimates) {
+            partySupportEstimates.forEach(element => {
+                let overallthing = element.innerHTML;
+                // 
+                if (!overallthing.includes('class="mytooltip"')) {
+                    partyTooltips.forEach(p => {
+                        overallthing = overallthing.replace(p.partyName, `<span class='mytooltip' party-name='${p.partyName}'>${p.partyName}</span>`);
+
+                        p.tooltipObject.innerHTML = p.tooltipText;
+                    });
+                    element.innerHTML = overallthing;
+                    createPartyTooltipEvents(element);
+                }
+            })
+        }
+    }
+
+    function createPartyTooltipEvents(partySupportEstimate) {
+        partySupportEstimate.querySelectorAll('.mytooltip').forEach(element => {
+            const partyNameAttribute = element.getAttribute('party-name');
+            if (partyNameAttribute){
+                //
+                const partyTooltip = partyTooltips.find(p => p.partyName === partyNameAttribute).tooltipObject;
+
+                element.addEventListener('mouseenter', () => {
+                    // 
+                    const rect = element.getBoundingClientRect();
+                        
+                    // 
+                    const elementTop = rect.top + window.scrollY;
+                    const elementLeft = rect.left + window.scrollX;
+                    
+                    // 
+                    partyTooltip.style.left = `${elementLeft - partyTooltip.offsetWidth - 10}px`;
+                    
+                    // 
+                    partyTooltip.style.top = `${elementTop + (rect.height / 2) - (partyTooltip.offsetHeight / 2)}px`;
+
+                    partyTooltip.style.transitionDelay = '0.5s';
+                    partyTooltip.style.opacity = '1';
+                });
+    
+                element.addEventListener('mouseleave', () => {
+                    partyTooltip.style.transitionDelay = '0s';
+                    partyTooltip.style.opacity = '0';
+                });
+            }
+        });
+    }
+
+    window.setInterval(initializePartyTooltips, 200);
+
     }
     
     campaignTrail_temp.global_parameter_json[0].fields.question_count = 35;
