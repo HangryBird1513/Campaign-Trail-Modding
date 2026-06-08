@@ -5223,7 +5223,7 @@ if(!campaignTrail_temp.loaded){
 
     // 
     partyTooltips.forEach(p => {
-        p.tooltipObject.className = 'maptooltiptext';
+        p.tooltipObject.className = 'partytooltiptext';
         document.body.appendChild(p.tooltipObject);
     });
 
@@ -5234,8 +5234,11 @@ if(!campaignTrail_temp.loaded){
         if (partySupportEstimates) {
             partySupportEstimates.forEach(element => {
                 let overallthing = element.innerHTML;
-                // 
+                //                
                 if (!overallthing.includes('class="mytooltip"')) {
+                    //
+                    overallResultObserver.disconnect();
+
                     partyTooltips.forEach(p => {
                         overallthing = overallthing.replace(p.partyName, `<span class='mytooltip' party-name='${p.partyName}'>${p.partyName}</span>`);
 
@@ -5243,6 +5246,9 @@ if(!campaignTrail_temp.loaded){
                     });
                     element.innerHTML = overallthing;
                     createPartyTooltipEvents(element);
+
+                    //
+                    overallResultObserver.observe(document.documentElement, { childList: true, subtree: true });
                 }
             })
         }
@@ -5257,17 +5263,17 @@ if(!campaignTrail_temp.loaded){
 
                 element.addEventListener('mouseenter', () => {
                     // 
-                    const rect = element.getBoundingClientRect();
+                    const elementRect = element.getBoundingClientRect();
                         
                     // 
-                    const elementTop = rect.top + window.scrollY;
-                    const elementLeft = rect.left + window.scrollX;
+                    const elementTop = elementRect.top + window.scrollY;
+                    const elementLeft = elementRect.left + window.scrollX;
                     
                     // 
                     partyTooltip.style.left = `${elementLeft - partyTooltip.offsetWidth - 10}px`;
                     
                     // 
-                    partyTooltip.style.top = `${elementTop + (rect.height / 2) - (partyTooltip.offsetHeight / 2)}px`;
+                    partyTooltip.style.top = `${elementTop + (elementRect.height / 2) - (partyTooltip.offsetHeight / 2)}px`;
 
                     partyTooltip.style.transitionDelay = '0.5s';
                     partyTooltip.style.opacity = '1';
@@ -5281,8 +5287,12 @@ if(!campaignTrail_temp.loaded){
         });
     }
 
-    window.setInterval(initializePartyTooltips, 200);
-
+    const overallResultObserver = new MutationObserver((mutations) => {
+        if (document.getElementById("overall_result")) {
+            initializePartyTooltips();
+        }
+    });    
+    overallResultObserver.observe(document.documentElement, { childList: true, subtree: true });
     }
     
     campaignTrail_temp.global_parameter_json[0].fields.question_count = 35;
