@@ -1548,7 +1548,7 @@ function paginateContent() {
             transition-delay: 0.5s;
         }
 
-        .maptooltiptext {
+        .partytooltiptext {
           width: 240px;  
           text-shadow: none;
           background-color: lightblue;
@@ -1568,7 +1568,7 @@ function paginateContent() {
           font-style: normal !important;
         }
       
-        .maptooltiptext img {
+        .partytooltiptext img {
           max-width: 240px;
           height: auto;
         }
