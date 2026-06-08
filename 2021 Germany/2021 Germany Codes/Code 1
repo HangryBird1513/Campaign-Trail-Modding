@@ -1548,6 +1548,40 @@ function paginateContent() {
             transition-delay: 0.5s;
         }
 
+        .mytooltip .issuetooltiptext{
+          width: 240px;  /* Adjust as needed */
+          text-shadow: none;
+          background-color: lightblue;
+          color: black;
+          text-align: center;
+          border-radius: 6px;
+          padding: 10px;
+          position: absolute;
+          z-index: 99;
+          top: 50%;
+          right: 100%;
+          transform: translateY(-50%); 
+          margin-right: 10px;
+          opacity: 0;
+          transition: opacity 0.3s;
+          border: 1px solid black;
+          pointer-events: none;
+          font-size:13px !important;
+          line-height:1.5em !important;
+          font-weight:normal !important;
+          font-style: normal !important;
+        }
+
+        .mytooltip .issuetooltiptext img {
+          max-width: 240px;
+          height: auto;
+        }
+
+        .mytooltip:hover .issuetooltiptext {
+          opacity: 1;
+          transition-delay: 0.5s;
+        }
+
         .partytooltiptext {
           width: 240px;  
           text-shadow: none;
