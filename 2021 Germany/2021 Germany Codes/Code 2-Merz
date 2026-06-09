@@ -5239,8 +5239,8 @@ if(!campaignTrail_temp.loaded){
     });
 
     //
-    function initializePartyTooltips() {
-        const partySupportEstimates = document.querySelectorAll("#overall_result ul");
+    function initializePartyTooltips(partyTooltipElement) {
+        const partySupportEstimates = partyTooltipElement.querySelectorAll("ul");
 
         if (partySupportEstimates) {
             partySupportEstimates.forEach(element => {
@@ -5248,7 +5248,7 @@ if(!campaignTrail_temp.loaded){
                 //                
                 if (!overallthing.includes('class="mytooltip"')) {
                     //
-                    overallResultObserver.disconnect();
+                    partyTooltipObserver.disconnect();
 
                     partyTooltips.forEach(p => {
                         overallthing = overallthing.replace(p.partyName, `<span class='mytooltip' party-name='${p.partyName}'>${p.partyName}</span>`);
@@ -5259,7 +5259,7 @@ if(!campaignTrail_temp.loaded){
                     createPartyTooltipEvents(element);
 
                     //
-                    overallResultObserver.observe(document.documentElement, { childList: true, subtree: true });
+                    partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
                 }
             })
         }
@@ -5270,7 +5270,7 @@ if(!campaignTrail_temp.loaded){
             const partyNameAttribute = element.getAttribute('party-name');
             if (partyNameAttribute){
                 //
-                const partyTooltip = partyTooltips.find(p => p.partyName === partyNameAttribute).tooltipObject;
+                const partyTooltipObject = partyTooltips.find(p => p.partyName === partyNameAttribute).tooltipObject;
 
                 element.addEventListener('mouseenter', () => {
                     // 
@@ -5281,29 +5281,34 @@ if(!campaignTrail_temp.loaded){
                     const elementLeft = elementRect.left + window.scrollX;
                     
                     // 
-                    partyTooltip.style.left = `${elementLeft - partyTooltip.offsetWidth - 10}px`;
+                    partyTooltipObject.style.left = `${elementLeft - partyTooltipObject.offsetWidth - 10}px`;
                     
                     // 
-                    partyTooltip.style.top = `${elementTop + (elementRect.height / 2) - (partyTooltip.offsetHeight / 2)}px`;
+                    partyTooltipObject.style.top = `${elementTop + (elementRect.height / 2) - (partyTooltipObject.offsetHeight / 2)}px`;
 
-                    partyTooltip.style.transitionDelay = '0.5s';
-                    partyTooltip.style.opacity = '1';
+                    partyTooltipObject.style.transitionDelay = '0.5s';
+                    partyTooltipObject.style.opacity = '1';
                 });
     
                 element.addEventListener('mouseleave', () => {
-                    partyTooltip.style.transitionDelay = '0s';
-                    partyTooltip.style.opacity = '0';
+                    partyTooltipObject.style.transitionDelay = '0s';
+                    partyTooltipObject.style.opacity = '0';
                 });
             }
         });
     }
 
-    const overallResultObserver = new MutationObserver((mutations) => {
-        if (document.getElementById("overall_result")) {
-            initializePartyTooltips();
+    const partyTooltipObserver = new MutationObserver((mutations) => {
+        const overallResultElement = document.getElementById("overall_result");
+        if (overallResultElement) {
+            initializePartyTooltips(overallResultElement);
+        }
+        const stateResultElement = document.getElementById("state_result");
+        if (stateResultElement) {
+            initializePartyTooltips(stateResultElement);
         }
     });    
-    overallResultObserver.observe(document.documentElement, { childList: true, subtree: true });
+    partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
     }
     
     campaignTrail_temp.global_parameter_json[0].fields.question_count = 35;
