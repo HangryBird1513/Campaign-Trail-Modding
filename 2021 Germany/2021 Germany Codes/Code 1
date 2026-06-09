@@ -1572,11 +1572,6 @@ function paginateContent() {
           font-style: normal !important;
         }
 
-        .mytooltip .issuetooltiptext img {
-          max-width: 240px;
-          height: auto;
-        }
-
         .mytooltip:hover .issuetooltiptext {
           opacity: 1;
           transition-delay: 0.5s;
@@ -1603,7 +1598,7 @@ function paginateContent() {
         }
       
         .partytooltiptext img {
-          max-width: 240px;
+          max-width: 120px;
           height: auto;
         }
 
