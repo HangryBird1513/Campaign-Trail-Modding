@@ -108,6 +108,17 @@ if(!campaignTrail_temp.loaded){
             { partyName: 'AfD', fullLeaderName: 'Alice Weidel & Tino Chrupalla'},
             { partyName: 'Others', fullLeaderName: 'Various'}
         ];
+
+        //
+        const partyTooltips = [
+            {partyName: 'CDU／CSU', tooltipObject: null, tooltipText: `<img src="https://i.imgur.com/XGtdJT9.jpg"><br>The incumbent CDU/CSU has governed Germany for nearly 16 years and seems to be in a good position to do so for another 4 years. Whoever they select as their chancellor candidate must balance continuity with the public's growing desire for change.`},
+            {partyName: 'SPD', tooltipObject: null, tooltipText: `<img src="https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Social-Democratic-Party-of-Germany-SPD-Logo-2021-768x432.png"><br>The ailing SPD seems to be on the verge of a historic defeat, having slumped to a distant third place in the polls. Whoever they select as their chancellor candidate must find a way to drastically reverse the party's desperate situation.`},
+            {partyName: 'Green Party', tooltipObject: null, tooltipText: `<img src="https://i.ibb.co/tQmtGBz/Greens.png"><br>The insurgent Greens have seemingly usurped the SPD as Germany’s main center-left party. Whoever they select as their chancellor candidate must cement the party's momentum and grow it further to overtake the CDU/CSU as well.`},
+            {partyName: 'FDP', tooltipObject: null, tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/2020-02-14_Christian_Lindner_%28Bundestagsprojekt_2020%29_by_Sandro_Halank%E2%80%932.jpg/960px-2020-02-14_Christian_Lindner_%28Bundestagsprojekt_2020%29_by_Sandro_Halank%E2%80%932.jpg"><br><b>FDP Lead Candidate<br><br>Christian Lindner</b>`},
+            {partyName: 'The Left', tooltipObject: null, tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Die_Linke_Leadership_2021.jpg"><br><b>The Left Lead Candidates<br><br>Janine Wissler & Dietmar Bartsch</b>`},
+            {partyName: 'AfD', tooltipObject: null, tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/AfD_leadership_2021.jpg"><br><b>AfD Lead Candidates<br><br>Alice Weidel & Tino Chrupalla</b>`},
+            {partyName: 'Others', tooltipObject: null, tooltipText: `<img src="https://i.ibb.co/Lxp3QGT/silhouette-cropped.jpg"><br>Germany has various other parties that are quite the colorful cast of characters. The more notable ones include, but aren't limited to, the Danish-minority South-Schleswig-Voter's Association party and the liberal-conservative and decentralist Free Voters party.`}
+        ];
     
         const seats = [102, 117, 29, 25, 5, 16, 50, 16, 73, 155, 36, 9, 38, 18, 28, 19];
         var possibleCoalitions = [];
@@ -1563,16 +1574,6 @@ if(!campaignTrail_temp.loaded){
            }
         }
     
-        // testing: 4104 for insider and 4105 for outsider
-        if (ans === 4104)
-        {
-            campaignPersona = "insider"
-        }
-        if (ans === 4105)
-        {
-            campaignPersona = "outsider"
-        }
-    
         //mood
         if (playerPolling < 0.15) {
             mood = "Panicked"
@@ -1655,6 +1656,9 @@ if(!campaignTrail_temp.loaded){
            LaschetTime = true;
            partyLeaders[0].leaderName = 'Laschet';
            partyLeaders[0].fullLeaderName = 'Armin Laschet';
+            if (e.displayTooltips){
+                partyTooltips[0].tooltipText = `<img src="https://i.ibb.co/z4HQGwg/laschet2.jpg"><br><b>CDU/CSU Lead Candidate<br><br>Armin Laschet</b>`;
+            }
            campaignTrail_temp.question_number=34;
     
         }
@@ -1662,7 +1666,25 @@ if(!campaignTrail_temp.loaded){
            SoederTime = true;
            partyLeaders[0].leaderName = 'Söder';
            partyLeaders[0].fullLeaderName = 'Markus Söder';
+            if (e.displayTooltips){
+                partyTooltips[0].tooltipText = `<img src="https://i.ibb.co/NZ4NSY9/Markus-S-der.jpg"><br><b>CDU/CSU Lead Candidate<br><br>Markus Söder</b>`;
+            }
            campaignTrail_temp.question_number=34;
+        }
+
+        // testing: partyTooltips cyoa
+        if (e.displayTooltips && campaignTrail_temp.question_number === 2){
+            partyTooltips[0].tooltipText = `<img src="https://i.ibb.co/P4hnWXb/Merz.jpg"><br><b>CDU/CSU Lead Candidate<br><br>Friedrich Merz</b>`;
+            partyTooltips[1].tooltipText = `<img src="https://i.ibb.co/bjhJKXD/m-tzenich-cropped.jpg"><br><b>SPD Lead Candidate<br><br>Rolf Mützenich</b>`;
+            partyTooltips[2].tooltipText = `<img src="https://i.ibb.co/VBZWCSM/habeck.jpg"><br><b>Green Party Lead Candidate<br><br>Robert Habeck</b>`;
+        }        
+
+        // testing: 4104 for insider and 4105 for outsider
+        if (ans === 4104){
+            campaignPersona = "insider"
+        }
+        if (ans === 4105){
+            campaignPersona = "outsider"
         }
     
         //coalition weight adjustments here
@@ -1731,8 +1753,7 @@ if(!campaignTrail_temp.loaded){
         if(campaignTrail_temp.player_answers.length === 35){
             charts.push("line");
         }
-        else
-        {
+        else{
             return false
         }
     }
@@ -5196,33 +5217,23 @@ if(!campaignTrail_temp.loaded){
     //
     const issueTooltips = [
         "Since 2020, the deadly and highly contagious Corona-Virus has plagued Germany. Restrictive measures implemented to combat it have shaped the German's lifes for almost 2 years now. While resistance against lockdowns has been mostly relegated to the cultural Right, others finally wish to see an end to the pandemic.",
-
+        
         "The environment has been a topic in German politics going back to the 70's and 80's. Since the 'climate summers' of 2018 and 2019, the state of climate change has been highly salient once more, catapulting the Greens into national prominence.",
-
+        
         "The scars of Germany's history have healed since 1949, but they are nonetheless deeply imbued within the national consciousness, partly due to its partition until 1990. While many now view Germany as the leader of Europe, others are much more weary of western interventionism.",
-
+        
         "Germany remains an economic powerhouse, but the prominent export-sector significantly suffered from Covid. While people are generally prosperous, economic growth and modernization efforts have been in somewhat of a slump, while East Germany is still far from catching up with the West.",
-
+        
         "The modern divide between the cultural Left and Right in western countries has increasingly become one between cosmopolitan city dwellers and traditionalist rural folk. Factors such as public transportation, education and the amount of refugees and immigrants often strongly correlate with urbanization levels."
     ];
-
+        
     for (let i = 0; i < 5; i++) {
         campaignTrail_temp.issues_json[i].fields.name = "<span class=\'mytooltip\'>" + campaignTrail_temp.issues_json[i].fields.name + "<span class=\'issuetooltiptext\'>" + issueTooltips[i] + "</span></span>";
     }
-
-    // 
-    const partyTooltips = [
-        {partyName: 'CDU／CSU', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://i.ibb.co/Lxp3QGT/silhouette-cropped.jpg">Placeholder`},
-        {partyName: 'SPD', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://i.ibb.co/Lxp3QGT/silhouette-cropped.jpg">Placeholder`},
-        {partyName: 'Green Party', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://i.ibb.co/Lxp3QGT/silhouette-cropped.jpg">Placeholder`},
-        {partyName: 'FDP', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/2020-02-14_Christian_Lindner_%28Bundestagsprojekt_2020%29_by_Sandro_Halank%E2%80%932.jpg/960px-2020-02-14_Christian_Lindner_%28Bundestagsprojekt_2020%29_by_Sandro_Halank%E2%80%932.jpg">Placeholder`},
-        {partyName: 'The Left', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Die_Linke_Leadership_2021.jpg">Placeholder`},
-        {partyName: 'AfD', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/AfD_leadership_2021.jpg">Placeholder`},
-        {partyName: 'Others', tooltipObject: document.createElement('div'), tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Stefan_Seidler_2015.jpg/960px-Stefan_Seidler_2015.jpg">Placeholder`}
-    ];
-
+        
     // 
     partyTooltips.forEach(p => {
+        p.tooltipObject = document.createElement('div');
         p.tooltipObject.className = 'partytooltiptext';
         document.body.appendChild(p.tooltipObject);
     });
