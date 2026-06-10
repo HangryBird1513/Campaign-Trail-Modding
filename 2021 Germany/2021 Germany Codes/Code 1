@@ -1144,8 +1144,8 @@ function paginateContent() {
         removeCandidateSummary();
         modifyAllocationForm();
         changeOpponentSelectionDescription();
-        applyColorStyles();
         addCoalitionDifficultyDropdown();
+        applyColorStyles();
         resultReplacer();
         paginateContent();
 
@@ -1159,7 +1159,7 @@ function paginateContent() {
 
     // Ensure we don't re-enter applyColorStyles
     function applyColorStyles() {
-        let wordsToFind = ['Advisor Mode?','Change Election Night?', 'Select coalition difficulty:', 'Please select the election you will run in:', 'This scenario was made by', 'Please select your party:', 'Please select your candidate:', 'How would you like the seats to be allocated?', 'Select campaign difficulty:', 'Enable tooltips?'];
+        let wordsToFind = ['Please select the election you will run in:', 'This scenario was made by', 'Please select your party:', 'Please select your candidate:', 'How would you like the seats to be allocated?', 'Select campaign difficulty:', 'Select coalition difficulty:', 'Change Election Night?', 'Advisor Mode?', 'Enable tooltips?'];
 
         walkAndReplace(document.body, wordsToFind);
     }
