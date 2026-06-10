@@ -5261,8 +5261,6 @@ if(!campaignTrail_temp.loaded){
 
                     partyTooltips.forEach(p => {
                         overallthing = overallthing.replace(p.partyName, `<span class='mytooltip' party-name='${p.partyName}'>${p.partyName}</span>`);
-
-                        // p.tooltipObject.innerHTML = p.tooltipText;
                     });
                     element.innerHTML = overallthing;
                     createPartyTooltipEvents(element);
