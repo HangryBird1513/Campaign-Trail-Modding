@@ -1656,9 +1656,6 @@ if(!campaignTrail_temp.loaded){
            LaschetTime = true;
            partyLeaders[0].leaderName = 'Laschet';
            partyLeaders[0].fullLeaderName = 'Armin Laschet';
-            if (e.displayTooltips){
-                partyTooltips[0].tooltipText = `<img src="https://i.ibb.co/z4HQGwg/laschet2.jpg"><br><b>CDU/CSU Lead Candidate<br><br>Armin Laschet</b>`;
-            }
            campaignTrail_temp.question_number=34;
     
         }
@@ -1666,18 +1663,8 @@ if(!campaignTrail_temp.loaded){
            SoederTime = true;
            partyLeaders[0].leaderName = 'Söder';
            partyLeaders[0].fullLeaderName = 'Markus Söder';
-            if (e.displayTooltips){
-                partyTooltips[0].tooltipText = `<img src="https://i.ibb.co/NZ4NSY9/Markus-S-der.jpg"><br><b>CDU/CSU Lead Candidate<br><br>Markus Söder</b>`;
-            }
            campaignTrail_temp.question_number=34;
-        }
-
-        // testing: partyTooltips cyoa
-        if (e.displayTooltips && campaignTrail_temp.question_number === 2){
-            partyTooltips[0].tooltipText = `<img src="https://i.ibb.co/P4hnWXb/Merz.jpg"><br><b>CDU/CSU Lead Candidate<br><br>Friedrich Merz</b>`;
-            partyTooltips[1].tooltipText = `<img src="https://i.ibb.co/bjhJKXD/m-tzenich-cropped.jpg"><br><b>SPD Lead Candidate<br><br>Rolf Mützenich</b>`;
-            partyTooltips[2].tooltipText = `<img src="https://i.ibb.co/VBZWCSM/habeck.jpg"><br><b>Green Party Lead Candidate<br><br>Robert Habeck</b>`;
-        }        
+        }    
 
         // testing: 4104 for insider and 4105 for outsider
         if (ans === 4104){
@@ -1686,7 +1673,28 @@ if(!campaignTrail_temp.loaded){
         if (ans === 4105){
             campaignPersona = "outsider"
         }
-    
+
+        // testing: partyTooltips cyoa
+        if (e.displayTooltips) {                
+            if (campaignTrail_temp.question_number === 0){
+                partyTooltips[0].tooltipText = `<img src="https://i.ibb.co/P4hnWXb/Merz.jpg"><br><b>CDU/CSU Lead Candidate<br><br>Friedrich Merz</b>`;
+                partyTooltips[1].tooltipText = `<img src="https://i.ibb.co/bjhJKXD/m-tzenich-cropped.jpg"><br><b>SPD Lead Candidate<br><br>Rolf Mützenich</b>`;
+                partyTooltips[2].tooltipText = `<img src="https://i.ibb.co/VBZWCSM/habeck.jpg"><br><b>Green Party Lead Candidate<br><br>Robert Habeck</b>`;
+            
+                for (let i = 0; i < 3; i++) {
+                    partyTooltips[i].tooltipObject.innerHTML = partyTooltips[i].tooltipText;
+                }
+            }
+            if (LaschetTime){
+                partyTooltips[0].tooltipText = `<img src="https://i.ibb.co/z4HQGwg/laschet2.jpg"><br><b>CDU/CSU Lead Candidate<br><br>Armin Laschet</b>`;
+                partyTooltips[0].tooltipObject.innerHTML = partyTooltips[0].tooltipText;
+            }
+            if (SoederTime){
+                partyTooltips[0].tooltipText = `<img src="https://i.ibb.co/NZ4NSY9/Markus-S-der.jpg"><br><b>CDU/CSU Lead Candidate<br><br>Markus Söder</b>`;
+                partyTooltips[0].tooltipObject.innerHTML = partyTooltips[0].tooltipText;
+            }
+        }
+
         //coalition weight adjustments here
         if (ans === 4034) {
            coalitions.forEach(coalition => {
@@ -2039,7 +2047,7 @@ if(!campaignTrail_temp.loaded){
     }
     
     async function changeChart(processedNodes) {
-        const elementIDs = ["overall_vote_statistics", "state_result_data_summary", "overall_election_details"];
+        const elementIDs = ["overall_vote_statistics", "state_result_data_summary", "overall_election_details"]; 
         for(let id of elementIDs) {
             let element = document.getElementById(id);
     
@@ -5235,6 +5243,7 @@ if(!campaignTrail_temp.loaded){
     partyTooltips.forEach(p => {
         p.tooltipObject = document.createElement('div');
         p.tooltipObject.className = 'partytooltiptext';
+        p.tooltipObject.innerHTML = p.tooltipText;
         document.body.appendChild(p.tooltipObject);
     });
 
@@ -5253,7 +5262,7 @@ if(!campaignTrail_temp.loaded){
                     partyTooltips.forEach(p => {
                         overallthing = overallthing.replace(p.partyName, `<span class='mytooltip' party-name='${p.partyName}'>${p.partyName}</span>`);
 
-                        p.tooltipObject.innerHTML = p.tooltipText;
+                        // p.tooltipObject.innerHTML = p.tooltipText;
                     });
                     element.innerHTML = overallthing;
                     createPartyTooltipEvents(element);
@@ -5308,6 +5317,7 @@ if(!campaignTrail_temp.loaded){
             initializePartyTooltips(stateResultElement);
         }
     });    
+
     partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
     }
     
