@@ -291,11 +291,11 @@ if (!element) {
             timeTracker.appendChild(volumeSlider);
             updatePositionDisplay();
             function updatePositionDisplay() {
-                positionDisplay.innerHTML = "<b>Time:</b> " + toTime(audio.currentTime) + "<br>";
+                positionDisplay.innerHTML = "<br><b>Time:</b> " + toTime(audio.currentTime) + "<br>";
                 timeSlider.value = audio.duration ? audio.currentTime / audio.duration : 0;
             }
             function changeTime() {
-                positionDisplay.innerHTML = "<b>Time:</b> " + toTime(audio.currentTime) + "<br>";
+                positionDisplay.innerHTML = "<br><b>Time:</b> " + toTime(audio.currentTime) + "<br>";
                 audio.currentTime = timeSlider.value * audio.duration;
             }
             updateVolume = event => {
@@ -311,7 +311,7 @@ if (!element) {
             trackSel = document.createElement("div");
             trackSel.id = "trackSelParent";
             let z = `<br><br><br><br><br><br><br><br><br><br><br><br><div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;overflow-y: scroll;overflow-x: hidden;height:200px; width:400px;background-color:#6699CC;float:right;">`
-            z += `<b><select id='selectSoundtrack'><option value='` + soundtracks[e.selectedSoundtrack].name + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>"
+            z += `<b><select id='selectSoundtrack' style='width: 100%;'><option value='` + soundtracks[e.selectedSoundtrack].name + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>"
             for (i in soundtracks) {
                 if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
                     z += `<option value='` + soundtracks[i].name + `'>` + soundtracks[i].name + `</option>`
