@@ -2018,11 +2018,11 @@ if(!campaignTrail_temp.loaded){
         let headerElement = document.querySelector("#overall_result h3");
     
         if (headerElement && !processedNodes.has(headerElement)){
-            let headerText = headerElement.innerHTML;
+            let headerText = headerElement.textContent;
     
             if (headerText === "ELECTORAL VOTES"){
                 headerText = "NATIONAL RESULTS";
-                headerElement.innerHTML = headerText;
+                headerElement.textContent = headerText;
                 processedNodes.add(headerElement);
             }
         }
