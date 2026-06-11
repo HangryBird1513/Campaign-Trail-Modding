@@ -2014,6 +2014,21 @@ if(!campaignTrail_temp.loaded){
     }
     
     //
+    async function changeOverallResultHeader(processedNodes){
+        let headerElement = document.querySelector("#overall_result h3");
+    
+        if (headerElement && !processedNodes.has(headerElement)){
+            let headerText = headerElement.innerHTML;
+    
+            if (headerText === "ELECTORAL VOTES"){
+                headerText = "NATIONAL RESULTS";
+                headerElement.innerHTML = headerText;
+                processedNodes.add(headerElement);
+            }
+        }
+    }
+
+    //
     function addLeaderColumn(table) {    
         // Double-check that Leader column doesn't exist
         const headerRow = table.querySelector('tr:first-child');
@@ -2046,7 +2061,7 @@ if(!campaignTrail_temp.loaded){
         });
     }
     
-    async function changeChart(processedNodes) {
+    async function changeTable(processedNodes) {
         const elementIDs = ["overall_vote_statistics", "state_result_data_summary", "overall_election_details"]; 
         for(let id of elementIDs) {
             let element = document.getElementById(id);
@@ -4268,7 +4283,8 @@ if(!campaignTrail_temp.loaded){
     
         observer.disconnect();
         removeElectoralVotesZero()
-        await changeChart(processedNodes);
+        await changeOverallResultHeader(processedNodes);
+        await changeTable(processedNodes);
         await adjustMcaHeight(processedNodes);
         modifyVisitContent();
     
