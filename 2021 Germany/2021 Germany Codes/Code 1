@@ -117,7 +117,7 @@ if (!element) {
     var div = document.createElement('div');
     div.style.position = 'absolute';
     div.style.left = '50%';
-    div.style.transform = 'translate(-50%, 0)';  // Center the div
+    div.style.transform = 'translate(-50%, -10%)';  // Center the div
     div.appendChild(wrapper);
 
     // Add the div to the bar
