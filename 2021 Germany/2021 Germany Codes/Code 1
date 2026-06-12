@@ -18,7 +18,7 @@
 document.querySelector('#inner_window_1 h3').innerHTML = `Do you have what it takes to win a Bundestagswahl?`;
 
 document.querySelector("#inner_window_1 ul").innerHTML = `
-<li>Select a year, a party, and a candidate to find out.</li><li>You will answer questions about your platform and positions, and also about your campaign strategy.</li><li>The answers will affect your popularity for better or worse, both nationally and in individual states.</li><li>The answers will also affect other elements of your campaign, leading to unique developments in the election.</li><li>Walk the fine line between appealing to your base and winning the most votes.</li><li>Additionally, you can hire advisors who can assist with your campaign in various ways.</li><li>Post-election, negotiate a coalition agreement that will hopefully satisfy you and your partner(s), and the German people.</li>
+<li>Select a year, a party, and a candidate to find out.</li><li>You will answer questions about your platform and positions, and also about your campaign strategy.</li><li>The answers will affect your popularity for better or worse, both nationally and in individual states.</li><li>The answers will also affect other elements of your campaign, leading to unique developments in the election.</li><li>Walk the fine line between appealing to your base and winning the most votes.</li><li>Post-election, negotiate a coalition agreement that will hopefully satisfy you, your partner(s), and the German people.</li><li>Good luck on The Campaign Trail!</li>
 `;
 
 campaignTrail_temp.election_json = JSON.parse("[{\"model\": \"campaign_trail.election\", \"pk\": 9, \"fields\": {\"year\": 2021, \"summary\": \"<h2><b>Germany 2021 - Between Decades</b></h2><p>Germany stands at a crossroads. For the last 16 years, it has been governed by the popular <b>Angela Merkel</b> - a figure some describe as patient, rational and gravitational, larger than life. Others believe her to be a “chancellor of standstill”, responsible for the economic and cultural malaise in which the largest economy of Europe finds itself at the onset of the 2020’s. After leading four cabinets, she is now preparing to step down - a historic milestone in the history of the Republic, as the <b>Federal Election of 2021</b> is poised to be the first in which no incumbent chancellor will be defending their position. Not only that: it seems as though three parties might be able to lead the next government, with different characters vying to reform the country in their own image, to lead Germany into a <i>Decade</i> of their own vision.</p><p>All of this happens as the <b>SARS-CoV-2</b> virus ravages the country, changing the lives of people around the world like few crises of this century. Not only that: the cultural cleavage, the persistent development of a split in western societies, permeates Germany just as much. The number one issue for many cosmopolitanists is <b>climate change</b> and the transition to renewable energies, catapulting the Greens to the front of the political scene. On the other side, many blue collar workers and rural traditionalists feel <b>alienated</b>, particularly in East Germany - culminating in the electoral success of the AfD.<br>Anyone seeking to succeed Merkel will have to navigate this unique political moment between <b>Unity, <span style='color: red;'>Justice</span> and <span style='color: #8B8000;'>Freedom</span></b>.</p>\", \"image_url\": \"https://jetsimon.com/cts-media/public/2021DE_init_0.png\", \"winning_electoral_vote_number\": 368, \"advisor_url\": \"https://i.ibb.co/PQrG6fR/advisors.jpg\", \"recommended_reading\": \"\", \"has_visits\": 0, \"no_electoral_majority_image\": \"/static/images/2012-no-majority.jpg\", \"site_description\":\"After 16 years of Angela Merkel's stable but stagnant stewardship of Germany, the country stands at a crossroads.<br>As Covid-19 dominates everyday life, as populism takes hold in alienated parts of society and awareness about climate change grows in others, three candidates are battling it out to determine the future of the Federal Republic.<br>Which party will lead the country to frame the next decade? The incumbent CDU/CSU, the ailing Social Democrats or the ascendant Greens?<br>Determine it yourself in this extensive mod, full of unique gameplay.\"}}]");
@@ -43,7 +43,7 @@ campaignTrail_temp.premier_ab_test_version = -1;
 RecReading = true;
 campaignTrail_temp.election_json[0].fields.recommended_reading = "<div style='color: black; overflow: auto'><h3 style='margin-top: 0.5em;'>Do you want to learn more about...</h4><b>The German electoral system?</b><br><a href='https://www.bmi.bund.de/EN/topics/constitution/electoral-law/voting-system/voting-system-node.html' target='_blank'>Brief explanation (English)</a><br><a href='https://www.wahlrecht.de/bundestag/index.htm' target='_blank'>Thourough explanation (German)</a><br><br><b>The Parties?</b><br><a href='https://www.dw.com/en/spd-green-party-fdp-cdu-left-party-afd/a-38085900' target='_blank'>Overview over all major parties (English)</a><br><a href='https://archiv.wahl-o-mat.de/bundestagswahl2021/app/main_app.html' target='_blank'>Wahl-O-Mat - What do all parties think and who matches best with you (German)</a><br><a href='https://www.bundestagswahl-bw.de/wahlprogramm-cdu' target='_blank'>CDU/CSU electoral program 2021 (German)</a><br><a href='https://www.cdu-dresden.de/aktuelles/2021/cdu-csu-wahlprogramm-englisch' target='_blank'>CDU/CSU electoral program 2021 short version (English)</a><br><a href='https://www.spd.de/programm/zukunftsprogramm' target='_blank'>SPD electoral program 2021 (German/English)</a><br><a href='https://www.gruene.de/artikel/wahlprogramm-zur-bundestagswahl-2021' target='_blank'>Greens electoral program 2021 (German/English)</a><h3> Do you want to see another side of the candidates?</h3><b>Interviews without words</b><br><a href='https://sz-magazin.sueddeutsche.de/sagen-sie-jetzt-nichts/armin-laschet-interview-kanzler-merz-88875' target='_blank'>Armin Laschet (2020)</a><br><a href='https://sz-magazin.sueddeutsche.de/sagen-sie-jetzt-nichts/ist-schwarz-gruen-die-zukunft-78094' target='_blank'>Markus Söder (2011)</a><br><a href='https://sz-magazin.sueddeutsche.de/sagen-sie-jetzt-nichts/olaf-scholz-interview-ohne-worte-90544' target='_blank'>Olaf Scholz (2021)</a><br><a href='https://sz-magazin.sueddeutsche.de/sagen-sie-jetzt-nichts/gruenen-annalena-baerbock-politik-87359' target='_blank'>Annalena Baerbock (2019)</a><br><a href='https://sz-magazin.sueddeutsche.de/ein-interview-ohne-worte/sagen-sie-jetzt-nichts-robert-habeck-84368' target='_blank'>Robert Habeck (2017)</a><br><br>Thank you for playing this mod. We hope you learned something and had as much fun playing it as we did creating it. - <i>Nina & Jaeckex </i> </div>"
 
-campaignTrail_temp.credits = "<button onclick='funcredits()'>Nina & Jaeckex</button>Period";
+campaignTrail_temp.credits = "<button onclick='funcredits()'>Nina & Jaeckex</button>";
 
   funcredits = function() {
     credits = ["Lead Writer, Graphics, Music:", "Jaeckex", "", "Coding, Additional Writing:",  "Nina", "", "Banner:", "Calgar and Jaeckex", "", "Playtesting:", "Rickroll999, rnmgaming5068, TPLeo, Tomahawk2k, Leon Trotsky, Pompf, Ivorycore, Anne H, Jackalopemaster, EUIV ETS2", "","#1 Achievement Hunter:", "Onkel Danny", "", "Music Player adapted from 2000N", "", "Advisor Mode inspired by Sea to Shining Sea"]
@@ -53,6 +53,7 @@ campaignTrail_temp.credits = "<button onclick='funcredits()'>Nina & Jaeckex</but
     }
     alert(text)
   }
+
 campaignTrail_temp.coalitionDifficulty = 1;
 campaignTrail_temp.difficulty_level_json = JSON.parse("[{\"model\": \"campaign_trail.difficulty_level\", \"pk\": 1, \"fields\": {\"name\": \"Cakewalk\", \"multiplier\": 1.4}}, {\"model\": \"campaign_trail.difficulty_level\", \"pk\": 2, \"fields\": {\"name\": \"Very Easy\", \"multiplier\": 1.25}}, {\"model\": \"campaign_trail.difficulty_level\", \"pk\": 3, \"fields\": {\"name\": \"Easy\", \"multiplier\": 1.1}}, {\"model\": \"campaign_trail.difficulty_level\", \"pk\": 4, \"fields\": {\"name\": \"Normal\", \"multiplier\": 0.97}}, {\"model\": \"campaign_trail.difficulty_level\", \"pk\": 5, \"fields\": {\"name\": \"Hard\", \"multiplier\": 0.92}}, {\"model\": \"campaign_trail.difficulty_level\", \"pk\": 6, \"fields\": {\"name\": \"Impossible\", \"multiplier\": 0.86}}, {\"model\": \"campaign_trail.difficulty_level\", \"pk\": 7, \"fields\": {\"name\": \"Unthinkable\", \"multiplier\": 0.8}}, {\"model\": \"campaign_trail.difficulty_level\", \"pk\": 8, \"fields\": {\"name\": \"Blowout\", \"multiplier\": 0.72}}, {\"model\": \"campaign_trail.difficulty_level\", \"pk\": 9, \"fields\": {\"name\": \"Disaster\", \"multiplier\": 0.64}}]");
 e=campaignTrail_temp;
@@ -680,7 +681,7 @@ headerImage = '';
 
             // change h3 text
             const h3 = form.querySelector('h3');
-            h3.textContent = 'How would you like the seats to be allocated';
+            h3.textContent = 'How would you like the seats to be allocated?';
             }
    }
 
@@ -778,7 +779,7 @@ function changeOpponentSelectionDescription() {
             var visitsForm = document.createElement("form");
             visitsForm.name = "state_visits_selection";
             var visitsHeader = document.createElement("h3");
-            visitsHeader.textContent = "Change Election Night";
+            visitsHeader.textContent = "Change Election Night?";
             visitsForm.appendChild(visitsHeader);
             var visitsCheckbox = document.createElement("input");
             visitsCheckbox.type = "checkbox";
@@ -794,7 +795,7 @@ function changeOpponentSelectionDescription() {
             var AdvisorForm = document.createElement("form");
             AdvisorForm.name = "realistic_polls_selection";
             var AdvisorHeader = document.createElement("h3");
-            AdvisorHeader.textContent = "Advisor Mode";
+            AdvisorHeader.textContent = "Advisor Mode?";
             AdvisorForm.appendChild(AdvisorHeader);
             var AdvisorCheckbox = document.createElement("input");
             AdvisorCheckbox.type = "checkbox";
@@ -812,7 +813,7 @@ function changeOpponentSelectionDescription() {
             var tooltipForm = document.createElement("form");
             tooltipForm.name = "tooltip_selection";
             var tooltipHeader = document.createElement("h3");
-            tooltipHeader.textContent = "Enable tooltips";
+            tooltipHeader.textContent = "Enable tooltips?";
             tooltipForm.appendChild(tooltipHeader);
             var tooltipCheckbox = document.createElement("input");
             tooltipCheckbox.type = "checkbox";
@@ -840,41 +841,6 @@ function changeOpponentSelectionDescription() {
             dropdown.addEventListener("change", function() {
                 campaignTrail_temp.coalitionDifficulty = this.value;
             });
-        }
-    }
-
-    function walkAndReplace(node, wordsToFind) {
-        if (node.nodeType === Node.TEXT_NODE) {
-            // Ignore nodes that are already wrapped with our span
-            if (node.parentNode.nodeName.toLowerCase() === "span" && node.parentNode.style.color === 'white') {
-                return;
-            }
-
-            let matched = false;
-            let newNodeValue = node.nodeValue;
-
-            for(let word of wordsToFind) {
-                let searchRegEx = new RegExp(word, 'g');
-                if (searchRegEx.test(newNodeValue)) {
-                    matched = true;
-                    newNodeValue = newNodeValue.replace(searchRegEx, `<span style="color: white;">${word}</span>`);
-                }
-            }
-
-            if (matched) {
-                let div = document.createElement('div');
-                div.innerHTML = newNodeValue;
-                let parent = node.parentNode;
-                while (div.firstChild) {
-                    parent.insertBefore(div.firstChild, node);
-                }
-                parent.removeChild(node);
-            }
-
-        } else {
-            for(let i = 0; i < node.childNodes.length; i++) {
-                walkAndReplace(node.childNodes[i], wordsToFind);
-            }
         }
     }
 
@@ -1144,8 +1110,6 @@ function paginateContent() {
         modifyAllocationForm();
         changeOpponentSelectionDescription();
         addCoalitionDifficultyDropdown();
-        removeCreditsPeriod();
-        applyColorStyles();
         resultReplacer();
         paginateContent();
 
@@ -1156,24 +1120,6 @@ function paginateContent() {
 
     // Start observing the document with the master observer
     masterObserver.observe(document.body, { childList: true, subtree: true });
-
-    //
-    function removeCreditsPeriod(){
-      let creditsElement = document.getElementById("credits");
-      if (creditsElement){
-        let creditsHTML = creditsElement.innerHTML;
-
-        creditsHTML = creditsHTML.replace("Period.", "");
-        creditsElement.innerHTML = creditsHTML;
-      }
-    }
-
-    // Ensure we don't re-enter applyColorStyles
-    function applyColorStyles() {
-        let wordsToFind = ['Please select the election you will run in:', 'This scenario was made by', 'Please select your party:', 'Please select your candidate:', 'How would you like the seats to be allocated?', 'Select campaign difficulty:', 'Select coalition difficulty:', 'Change Election Night?', 'Advisor Mode?', 'Enable tooltips?'];
-
-        walkAndReplace(document.body, wordsToFind);
-    }
 
     const bodyElement = document.body;
     bodyElement.style.backgroundAttachment = 'fixed';
@@ -1766,6 +1712,15 @@ function paginateContent() {
                   }
             }
             
+            form[name="election_year"],
+            #credits,
+            form[name="candidate"],
+            form[name="running mate"],
+            form[name="game_type_selection"],
+            #difficulty_level {
+              color: white;
+            }
+
             #menu_container {
               width: 20.5%;
             }
