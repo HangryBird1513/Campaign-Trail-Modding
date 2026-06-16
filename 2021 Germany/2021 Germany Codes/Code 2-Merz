@@ -1761,9 +1761,18 @@ if(!campaignTrail_temp.loaded){
         if(campaignTrail_temp.player_answers.length === 35){
             charts.push("line");
         }
-        else{
-            return false
+        // 
+        if([4103, 4104, 4105, 4106].includes(ans)){
+            const lastAnsFeedbackButtons = document.getElementById("visit_buttons");
+            if (lastAnsFeedbackButtons) {
+                const lastAnsFeedbackOkButton = lastAnsFeedbackButtons.querySelector("#ok_button");
+
+                if (lastAnsFeedbackOkButton) {
+                    lastAnsFeedbackOkButton.click();
+                }
+            }
         }
+    
     }
     
     function reapplyTooltips(answer) {
@@ -2482,7 +2491,7 @@ if(!campaignTrail_temp.loaded){
         if (buttonsDiv) {
           const okButton = buttonsDiv.querySelector("#ok_button");
                if (okButton) {
-            okButton.addEventListener("click", function() {
+                okButton.addEventListener("click", function() {
                 //end music
                     var audio = document.getElementById('campaigntrailmusic');
                     audio.pause();
