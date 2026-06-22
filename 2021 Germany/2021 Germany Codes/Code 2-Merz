@@ -349,8 +349,8 @@ if(!campaignTrail_temp.loaded){
                 const nameHeader = document.createElement("th");
                 nameHeader.style.width = "25%";
                 nameHeader.style.fontWeight = "bold";
-                const nameHeaderText = document.createTextNode("Name");
-                nameHeader.appendChild(nameHeaderText);
+                const nameelementText = document.createTextNode("Name");
+                nameHeader.appendChild(nameelementText);
                 headerRow.appendChild(nameHeader);
             }
     
@@ -358,23 +358,23 @@ if(!campaignTrail_temp.loaded){
             const partiesHeader = document.createElement("th");
             partiesHeader.style.width = "25%";
             partiesHeader.style.fontWeight = "bold";
-            const partiesHeaderText = document.createTextNode("Parties involved");
-            partiesHeader.appendChild(partiesHeaderText);
+            const partieselementText = document.createTextNode("Parties involved");
+            partiesHeader.appendChild(partieselementText);
             headerRow.appendChild(partiesHeader);
     
             // Create a header cell for the checkbox
             const checkboxHeader = document.createElement("th");
             checkboxHeader.style.width = "25%";
             checkboxHeader.style.fontWeight = "bold";
-            const checkboxHeaderText = document.createTextNode("Negotiate?");
-            checkboxHeader.appendChild(checkboxHeaderText);
+            const checkboxelementText = document.createTextNode("Negotiate?");
+            checkboxHeader.appendChild(checkboxelementText);
             headerRow.appendChild(checkboxHeader);
     
               const likelihoodHeader = document.createElement("th");
               likelihoodHeader.style.width = "25%";
               likelihoodHeader.style.fontWeight = "bold";
-              const likelihoodHeaderText = document.createTextNode("Negotiation Mood:");
-              likelihoodHeader.appendChild(likelihoodHeaderText);
+              const likelihoodelementText = document.createTextNode("Negotiation Mood:");
+              likelihoodHeader.appendChild(likelihoodelementText);
               headerRow.appendChild(likelihoodHeader);
     
             // Add the header row to the table
@@ -2023,16 +2023,23 @@ if(!campaignTrail_temp.loaded){
     }
     
     //
-    async function changeOverallResultHeader(processedNodes){
-        let headerElement = document.querySelector("#overall_result h3");
-    
-        if (headerElement && !processedNodes.has(headerElement)){
-            let headerText = headerElement.textContent;
-    
-            if (headerText === "ELECTORAL VOTES"){
-                headerText = "NATIONAL RESULTS";
-                headerElement.textContent = headerText;
-                processedNodes.add(headerElement);
+    async function renameElectoralVotes(processedNodes){
+        const electoralVotesElements = [
+            {elementID: '#overall_result h3', oldText: 'ELECTORAL VOTES', newText: 'NATIONAL RESULTS'},
+            {elementID: '#sort_tab option[value="2"]', oldText: 'Most Electoral Votes', newText: 'Most Seats'}
+        ];
+
+        for(let ev of electoralVotesElements) {
+            let element = document.querySelector(ev.elementID);
+        
+            if (element && !processedNodes.has(element)){
+                let elementText = element.textContent;
+        
+                if (elementText === ev.oldText){
+                    elementText = ev.newText;
+                    element.textContent = elementText;
+                    processedNodes.add(element);
+                }
             }
         }
     }
@@ -2845,7 +2852,6 @@ if(!campaignTrail_temp.loaded){
     
             executeWithDelay(0);
                     }
-    
                     });
                     eventListenerAttached = true; // Set the flag to true to prevent attaching the event listener multiple times
                 }
@@ -4292,7 +4298,7 @@ if(!campaignTrail_temp.loaded){
     
         observer.disconnect();
         removeElectoralVotesZero()
-        await changeOverallResultHeader(processedNodes);
+        await renameElectoralVotes(processedNodes);
         await changeTable(processedNodes);
         await adjustMcaHeight(processedNodes);
         modifyVisitContent();
@@ -5331,14 +5337,14 @@ if(!campaignTrail_temp.loaded){
     }
 
     const partyTooltipObserver = new MutationObserver((mutations) => {
-        const overallResultElement = document.getElementById("overall_result");
-        if (overallResultElement) {
-            initializePartyTooltips(overallResultElement);
-        }
-        const stateResultElement = document.getElementById("state_result");
-        if (stateResultElement) {
-            initializePartyTooltips(stateResultElement);
-        }
+            const overallResultElement = document.getElementById("overall_result");
+            if (overallResultElement) {
+                initializePartyTooltips(overallResultElement);
+            }
+            const stateResultElement = document.getElementById("state_result");
+            if (stateResultElement) {
+                initializePartyTooltips(stateResultElement);
+            }
     });    
 
     partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
