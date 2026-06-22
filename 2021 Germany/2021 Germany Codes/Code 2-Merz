@@ -2024,12 +2024,12 @@ if(!campaignTrail_temp.loaded){
     
     //
     async function renameElectoralVotes(processedNodes){
-        const electoralVotesElements = [
+        const electoralVoteElements = [
             {elementID: '#overall_result h3', oldText: 'ELECTORAL VOTES', newText: 'NATIONAL RESULTS'},
             {elementID: '#sort_tab option[value="2"]', oldText: 'Most Electoral Votes', newText: 'Most Seats'}
         ];
 
-        for(let ev of electoralVotesElements) {
+        for(let ev of electoralVoteElements) {
             let element = document.querySelector(ev.elementID);
         
             if (element && !processedNodes.has(element)){
@@ -2077,10 +2077,10 @@ if(!campaignTrail_temp.loaded){
         });
     }
     
-    async function changeTable(processedNodes) {
-        const elementIDs = ["overall_vote_statistics", "state_result_data_summary", "overall_election_details"]; 
-        for(let id of elementIDs) {
-            let element = document.getElementById(id);
+    async function changeResultTables(processedNodes) {
+        const resultTableElements = ["overall_vote_statistics", "state_result_data_summary", "overall_election_details"]; 
+        for(let rt of resultTableElements) {
+            let element = document.getElementById(rt);
     
             // Check for the final results table
             if (element && !processedNodes.has(element)) {
@@ -2098,7 +2098,7 @@ if(!campaignTrail_temp.loaded){
                     addLeaderColumn(element);
                 }
                 
-                if (id !== "state_result_data_summary") {
+                if (rt !== "state_result_data_summary") {
                     processedNodes.add(element);
                 }
             }
@@ -4299,7 +4299,7 @@ if(!campaignTrail_temp.loaded){
         observer.disconnect();
         removeElectoralVotesZero()
         await renameElectoralVotes(processedNodes);
-        await changeTable(processedNodes);
+        await changeResultTables(processedNodes);
         await adjustMcaHeight(processedNodes);
         modifyVisitContent();
     
@@ -5284,6 +5284,7 @@ if(!campaignTrail_temp.loaded){
 
         if (partySupportEstimates) {
             partySupportEstimates.forEach(element => {
+
                 let overallthing = element.innerHTML;
                 //                
                 if (!overallthing.includes('class="mytooltip"')) {
@@ -5294,6 +5295,7 @@ if(!campaignTrail_temp.loaded){
                         overallthing = overallthing.replace(p.partyName, `<span class='mytooltip' party-name='${p.partyName}'>${p.partyName}</span>`);
                     });
                     element.innerHTML = overallthing;
+                    
                     createPartyTooltipEvents(element);
 
                     //
