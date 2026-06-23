@@ -2328,6 +2328,10 @@ if(!campaignTrail_temp.loaded){
         var pollingButton = document.getElementById("pvswitcher");
     
                             if(pollingButton && !pollingButton.classList.contains("customListener")){
+                                // let pollingButtonClone = pollingButton.cloneNode(true);
+                                // pollingButton.replaceWith(pollingButtonClone);
+                                // pollingButton = pollingButtonClone;
+
                     var seatEstimateButton = document.getElementById("seatEstimateButton");
                     if (!seatEstimateButton) {
                         seatEstimateButton = document.createElement("button");
@@ -2380,7 +2384,6 @@ if(!campaignTrail_temp.loaded){
     
                     pollingButton.classList.add('listener-attached');
     
-                pollingButton.classList.add("customListener");
                 pollingButton.addEventListener("click", function() {
                   setTimeout(function() {
                     var pollingDisplay = document.getElementById("switchingEst");
@@ -2418,7 +2421,7 @@ if(!campaignTrail_temp.loaded){
                                                 var roundedPolling = Math.round(partyData[i].polling *2*factorPolls) / (2*factorPolls);
                         newPollingData += "<b>" + partyData[i].name + "</b> - " + roundedPolling.toFixed(1) + "%<br>";
                       }
-    
+
                       newPollingUL.innerHTML = newPollingData;
                     }
                   }, 0);
@@ -2426,7 +2429,7 @@ if(!campaignTrail_temp.loaded){
     
     
     
-                pollingButton.classList.add('listener-attached');
+                pollingButton.classList.add('customListener');
             }
     }
        function aggregateVotes(final_state_results, final_overall_results) {
@@ -5279,35 +5282,36 @@ if(!campaignTrail_temp.loaded){
     });
 
     //
-    function initializePartyTooltips(partyTooltipElement) {
-        const partySupportEstimates = partyTooltipElement.querySelectorAll("ul");
+    function initializePartyTooltips(partySupportEstimates) {
+        
+        partySupportEstimates.querySelectorAll("ul").forEach(element => {
 
-        if (partySupportEstimates) {
-            partySupportEstimates.forEach(element => {
+            let overallthing = element.innerHTML;
+            //                
+            if (!overallthing.includes('class="mytooltip"')) {
+                //
+                partyTooltipObserver.disconnect();
 
-                let overallthing = element.innerHTML;
-                //                
-                if (!overallthing.includes('class="mytooltip"')) {
-                    //
-                    partyTooltipObserver.disconnect();
-
-                    partyTooltips.forEach(p => {
-                        overallthing = overallthing.replace(p.partyName, `<span class='mytooltip' party-name='${p.partyName}'>${p.partyName}</span>`);
-                    });
-                    element.innerHTML = overallthing;
+                partyTooltips.forEach(p => {
+                    overallthing = overallthing.replace(p.partyName, `<span class='mytooltip' party-name='${p.partyName}'>${p.partyName}</span>`);
+                });
+                element.innerHTML = overallthing;
                     
-                    createPartyTooltipEvents(element);
+                createPartyTooltipEvents(element);
 
-                    //
-                    partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
-                }
-            })
-        }
+                //
+                partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
+            }
+        })
+        
     }
 
     function createPartyTooltipEvents(partySupportEstimate) {
+
         partySupportEstimate.querySelectorAll('.mytooltip').forEach(element => {
+
             const partyNameAttribute = element.getAttribute('party-name');
+
             if (partyNameAttribute){
                 //
                 const partyTooltipObject = partyTooltips.find(p => p.partyName === partyNameAttribute).tooltipObject;
