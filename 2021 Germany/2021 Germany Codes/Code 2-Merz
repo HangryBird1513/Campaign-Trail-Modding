@@ -1761,17 +1761,6 @@ if(!campaignTrail_temp.loaded){
         if(campaignTrail_temp.player_answers.length === 35){
             charts.push("line");
         }
-        // 
-        if([4103, 4104, 4105, 4106].includes(ans)){
-            const lastAnsFeedbackButtons = document.getElementById("visit_buttons");
-            if (lastAnsFeedbackButtons) {
-                const lastAnsFeedbackOkButton = lastAnsFeedbackButtons.querySelector("#ok_button");
-
-                if (lastAnsFeedbackOkButton) {
-                    lastAnsFeedbackOkButton.click();
-                }
-            }
-        }
     
     }
     
