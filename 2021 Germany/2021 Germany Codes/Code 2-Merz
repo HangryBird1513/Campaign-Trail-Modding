@@ -2327,10 +2327,7 @@ if(!campaignTrail_temp.loaded){
         // Get the button by its ID
         var pollingButton = document.getElementById("pvswitcher");
     
-                            if(pollingButton && !pollingButton.classList.contains("customListener")){
-                                // let pollingButtonClone = pollingButton.cloneNode(true);
-                                // pollingButton.replaceWith(pollingButtonClone);
-                                // pollingButton = pollingButtonClone;
+                    if(pollingButton && !pollingButton.classList.contains("customListener")){
 
                     var seatEstimateButton = document.getElementById("seatEstimateButton");
                     if (!seatEstimateButton) {
@@ -2376,6 +2373,9 @@ if(!campaignTrail_temp.loaded){
                         seatEstimateUL.innerHTML = seatData;
                     });
     
+                    //
+                    pollingButton.removeAttribute('onclick');
+
                     // When PV Estimate button is clicked
                     pollingButton.addEventListener("click", function() {
                         seatEstimateButton.style.display = '';
@@ -2397,10 +2397,12 @@ if(!campaignTrail_temp.loaded){
                       overallResult.insertBefore(newPollingUL, overallResult.children[1]);
                     }
     
-                    if (pollingButton.innerText === "PV Estimate") {
+                    if (pollingButton.innerText === "State Estimate") {
+                        pollingButton.innerText = "PV Estimate";
                       newPollingUL.style.display = "none";
                       pollingDisplay.style.display = "block";
                     } else {
+                        pollingButton.innerText = "State Estimate";
                       newPollingUL.style.display = "block";
                       pollingDisplay.style.display = "none";
     
@@ -2426,8 +2428,6 @@ if(!campaignTrail_temp.loaded){
                     }
                   }, 0);
                 });
-    
-    
     
                 pollingButton.classList.add('customListener');
             }
