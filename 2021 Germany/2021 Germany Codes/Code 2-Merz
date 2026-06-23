@@ -5289,7 +5289,7 @@ if(!campaignTrail_temp.loaded){
                 partyTooltipObserver.disconnect();
 
                 partyTooltips.forEach(p => {
-                    overallthing = overallthing.replace(p.partyName, `<span class='mytooltip' party-name='${p.partyName}'>${p.partyName}</span>`);
+                    overallthing = overallthing.replace(p.partyName, `<span class='mytooltip'>${p.partyName}</span>`);
                 });
                 element.innerHTML = overallthing;
                     
@@ -5306,11 +5306,11 @@ if(!campaignTrail_temp.loaded){
 
         partySupportEstimate.querySelectorAll('.mytooltip').forEach(element => {
 
-            const partyNameAttribute = element.getAttribute('party-name');
+            const partyNameText = element.innerText.trim();
 
-            if (partyNameAttribute){
+            if (partyNameText){
                 //
-                const partyTooltipObject = partyTooltips.find(p => p.partyName === partyNameAttribute).tooltipObject;
+                const partyTooltipObject = partyTooltips.find(p => p.partyName === partyNameText).tooltipObject;
 
                 element.addEventListener('mouseenter', () => {
                     // 
