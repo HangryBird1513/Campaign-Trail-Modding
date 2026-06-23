@@ -5274,8 +5274,6 @@ if(!campaignTrail_temp.loaded){
             let overallthing = element.innerHTML;
             //                
             if (!overallthing.includes('class="mytooltip"')) {
-                //
-                partyTooltipObserver.disconnect();
 
                 partyTooltips.forEach(p => {
                     overallthing = overallthing.replace(p.partyName, `<span class='mytooltip'>${p.partyName}</span>`);
@@ -5283,9 +5281,6 @@ if(!campaignTrail_temp.loaded){
                 element.innerHTML = overallthing;
                     
                 createPartyTooltipEvents(element);
-
-                //
-                partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
             }
         })
         
@@ -5328,6 +5323,9 @@ if(!campaignTrail_temp.loaded){
     }
 
     const partyTooltipObserver = new MutationObserver((mutations) => {
+            //
+            partyTooltipObserver.disconnect();
+
             const overallResultElement = document.getElementById("overall_result");
             if (overallResultElement) {
                 initializePartyTooltips(overallResultElement);
@@ -5336,6 +5334,9 @@ if(!campaignTrail_temp.loaded){
             if (stateResultElement) {
                 initializePartyTooltips(stateResultElement);
             }
+
+            //
+            partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
     });    
 
     partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
