@@ -2373,18 +2373,14 @@ if(!campaignTrail_temp.loaded){
                         seatEstimateUL.innerHTML = seatData;
                     });
     
-                    //
-                    pollingButton.removeAttribute('onclick');
+                //
+                pollingButton.removeAttribute('onclick');
 
-                    // When PV Estimate button is clicked
-                    pollingButton.addEventListener("click", function() {
-                        seatEstimateButton.style.display = '';
-                        seatEstimateUL.style.display = "none"; // Hide the seat estimate
-                    });
-    
-                    pollingButton.classList.add('listener-attached');
-    
+                // When PV Estimate button is clicked
                 pollingButton.addEventListener("click", function() {
+                    seatEstimateButton.style.display = '';
+                    seatEstimateUL.style.display = "none"; // Hide the seat estimate
+
                   setTimeout(function() {
                     var pollingDisplay = document.getElementById("switchingEst");
                     var overallResult = document.getElementById("overall_result");
