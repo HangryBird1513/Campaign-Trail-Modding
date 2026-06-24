@@ -711,7 +711,7 @@ function changeOpponentSelectionDescription() {
 
     The <strong>Advisor mode</strong> allows you to hire and dismiss your campaign advisors during the campaign. They all have different effects and can be found in the headquarter.<br>
 
-    The <strong><span class="mytooltip">Tooltip option<span class="mytooltiptext">Look out for words with a light blue background like this and hover them for a tooltip.</span></span> </strong>provides tooltips for key phrases, offering extra explanations - especially beneficial for those not acquainted with German politics.</p>
+    The <strong><span class="mytooltip">Tooltip option<span class="mytooltiptext">Look out for words with a light blue background like this and hover over them for a tooltip.</span></span> </strong>provides tooltips for key phrases, offering extra explanations - especially beneficial for those not acquainted with German politics.</p>
   `
    const btnText1 = 'Difficulty Options';
     const btnText2 = 'Electoral System';
@@ -1465,7 +1465,7 @@ function paginateContent() {
                 background-color: lightskyblue;
               }
 
-        .mytooltip {
+        .mytooltip{
             position: relative;
             display: inline-block;
             cursor: pointer;
