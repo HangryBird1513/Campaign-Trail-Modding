@@ -3009,9 +3009,8 @@ if(!campaignTrail_temp.loaded){
     
         let patienceLabel = document.createElement('h2');
         patienceLabel.innerHTML = "<span class='mytooltip'>Merz's Radicalism<span class='mytooltiptext'>Keep your radicalism low if you are running as an insider. Conversely, keep it high if you are running as an outsider.</span></span>";
-        if (campaignTrail_temp.bigshot_mode){
-            patienceLabel.innerHTML = "<span class='mytooltip'>Merz's Radicalism<span class='mytooltiptext'>Keep your radicalism low if you are running as an insider. Conversely, keep it high if you are running as an outsider.<br>Current Radicalsim:"+radicalism+"</span></span>";
-    
+        if (campaignTrail_temp.bigshot_mode || cheatsActive){
+            patienceLabel.innerHTML = "<span class='mytooltip'>Merz's Radicalism<span class='mytooltiptext'>Keep your radicalism low if you are running as an insider. Conversely, keep it high if you are running as an outsider.<br>Current Radicalism: "+radicalism+"</span></span>";
         }
         patienceLabel.className = 'happy-box';
         patienceLabel.style.padding = '1em';
