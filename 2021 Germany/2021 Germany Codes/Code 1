@@ -170,7 +170,6 @@ if (!element) {
       padding: 10px;
       `
             $("#trackSelParent")[0].prepend(timeTracker);
-            $("#trackSelParent")[0].prepend(document.createElement("br"));
             var positionDisplay = document.createElement("gg");
             positionDisplay.id = "position-display";
             var timeSlider = document.createElement("input");
@@ -311,7 +310,7 @@ if (!element) {
     function newMusicPlayer(previousBgImage = null) {
             trackSel = document.createElement("div");
             trackSel.id = "trackSelParent";
-            let z = `<br><br><br><br><br><br><br><br><br><br><br><br><div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;overflow-y: scroll;overflow-x: hidden;height:200px; width:400px;background-color:#6699CC;float:right;">`
+            let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;overflow-y: auto;overflow-x: hidden;height:200px; width:400px;background-color:#6699CC;float:right;padding:10px;">`
             z += `<b><select id='selectSoundtrack' style='width: 100%;'><option value='` + soundtracks[e.selectedSoundtrack].name + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>"
             for (i in soundtracks) {
                 if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
@@ -325,7 +324,7 @@ if (!element) {
                 let b = `<label><input class="trackSelector" type="radio" name="trackSelector" value="` + i + `">` + a.name + `</label><br>`
                 z += b
             }
-            z += "</div><br><br>"
+            z += "</div><br><br><br>"
             trackSel.innerHTML = z
             musicBox.appendChild(trackSel);
             Array.from(document.getElementById("trackSel").children).filter(f => {
