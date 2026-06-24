@@ -29,6 +29,7 @@ To-Do List:
 List of Changes:
 - Renamed the HQ button to "Headquarters"
 - Updated Merz's character mechanic description in the HQ
+- Fixed Merz's character mechanic tooltip in the HQ so that it displays the radicalism amount when cheats are enabled like it's supposed to
 - Renamed various elements that had "Electoral Votes" in their text to have "Seats" instead
 - Fixed state result tables so that their "Electoral Votes" and "Candidate" headers are permanantly renamed to "Seats" and "Party" respectively
 - Added a column for lead candidate(s) in the result tables
