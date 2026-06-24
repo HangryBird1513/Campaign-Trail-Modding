@@ -5269,7 +5269,7 @@ if(!campaignTrail_temp.loaded){
     });
 
     //
-    function initializePartyTooltips(partySupportEstimates) {
+    function setUpPartyTooltips(partySupportEstimates) {
         
         partySupportEstimates.querySelectorAll("ul").forEach(element => {
 
@@ -5330,11 +5330,11 @@ if(!campaignTrail_temp.loaded){
 
             const overallResultElement = document.getElementById("overall_result");
             if (overallResultElement) {
-                initializePartyTooltips(overallResultElement);
+                setUpPartyTooltips(overallResultElement);
             }
             const stateResultElement = document.getElementById("state_result");
             if (stateResultElement) {
-                initializePartyTooltips(stateResultElement);
+                setUpPartyTooltips(stateResultElement);
             }
 
             //
