@@ -7,12 +7,12 @@ List of Changes:
 - Modified position of the "Enable Volume" checkbox so that it is in the center of its outer container
 - Modified the text before the "Click here to begin!" button to be more appropriate for the mod's setting
 - Updated Merz's candidate description in the select your candidate section
-- Modified formatting of the recommending reading section
-- Modified formatting of the credits button
+- Modified formatting of the recommending reading section and credits button
 - Modified column widths and total width of the result tables to accomodate for the new lead candidate(s) column
 - Modified width of polling containers in the electoral map
 - Replaced broken SPD image
 - Fixed text of difficulty options so that it turns white without any delay
+- Modified formatting of the difficulty options explanation so that the tooltip fits in its outer container
 - Modified the credits so that the period is white like the rest of the text
 
 2. Code 2-Merz
