@@ -2015,7 +2015,9 @@ if(!campaignTrail_temp.loaded){
     async function renameElectoralVotes(processedNodes){
         const electoralVoteElements = [
             {elementID: '#overall_result h3', oldText: 'ELECTORAL VOTES', newText: 'NATIONAL RESULTS'},
-            {elementID: '#sort_tab option[value="2"]', oldText: 'Most Electoral Votes', newText: 'Most Seats'}
+            {elementID: '#overall_result p', oldText: 'to win', newText: 'Seats for a Majority'},
+            {elementID: '#state_result p:nth-of-type(2)', oldText: 'Electoral Votes', newText: 'Seats'},
+            {elementID: '#sort_tab option[value="2"]', oldText: 'Electoral Votes', newText: 'Seats'}
         ];
 
         for(let ev of electoralVoteElements) {
@@ -2023,10 +2025,10 @@ if(!campaignTrail_temp.loaded){
         
             if (element && !processedNodes.has(element)){
                 let elementText = element.textContent;
-        
-                if (elementText === ev.oldText){
-                    elementText = ev.newText;
-                    element.textContent = elementText;
+                elementText = elementText.replace(ev.oldText, ev.newText);
+                element.textContent = elementText;
+                
+                if (ev.elementID !== '#state_result p:nth-of-type(2)') {
                     processedNodes.add(element);
                 }
             }
