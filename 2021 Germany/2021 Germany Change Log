@@ -25,6 +25,7 @@ To-Do List:
 - Add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
 
 List of Changes:
+- Renamed the HQ button to "Headquarters"
 - Updated Merz's character mechanic description in the HQ
 - Renamed various elements that had "Electoral Votes" in their text to have "Seats" instead
 - Fixed state result tables so that their "Electoral Votes" and "Candidate" headers are permanantly renamed to "Seats" and "Party" respectively
