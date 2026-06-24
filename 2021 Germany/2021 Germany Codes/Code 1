@@ -90,6 +90,7 @@ if (!element) {
     // Get the reference to the bar
     var bar = document.getElementById('bottomBar');
     bar.style.display = 'block';
+    bar.style.width = '94%';
 
     // Create the checkbox
     var checkbox = document.createElement('input');
