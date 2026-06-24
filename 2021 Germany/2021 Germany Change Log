@@ -16,4 +16,11 @@ To-Do List:
 - Add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
 
 List of Changes:
--
+- Renamed various elements that had "Electoral Votes" in their text to have "Seats" instead
+- Added a column for lead candidate(s) in the result tables
+- Added tooltips for parties in the electoral map
+- Modified "PV Estimate"/"State Estimate" button to allow for party tooltips
+- Modified position of tooltips for issues 
+- Fixed the "Election Charts" and "Current Polls" buttons so that they appear properly now
+- Implemented all endings that were included in the cutting room floor document
+- Fixed line chart so that it only appears for a full campaign like it's supposed to
