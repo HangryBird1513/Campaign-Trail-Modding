@@ -6,7 +6,7 @@ To-Do List:
 List of Changes:
 - Modified position of the "Enable Volume" checkbox so that it is in the center of its outer container
 - Modified the text before the "Click here to begin!" button to be more appropriate for the mod's setting
-- Updated Merz's candidate description
+- Updated Merz's candidate description in the select your candidate section
 - Modified formatting of the recommending reading section
 - Modified formatting of the credits button
 - Modified column widths and total width of the result tables to accomodate for the new lead candidate(s) column
@@ -25,7 +25,9 @@ To-Do List:
 - Add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
 
 List of Changes:
+- Updated Merz's character mechanic description in the HQ
 - Renamed various elements that had "Electoral Votes" in their text to have "Seats" instead
+- Fixed state result tables so that their "Electoral Votes" and "Candidate" headers are permanantly renamed to "Seats" and "Party" respectively
 - Added a column for lead candidate(s) in the result tables
 - Added tooltips for parties in the electoral map
 - Modified "PV Estimate"/"State Estimate" button to allow for party tooltips
