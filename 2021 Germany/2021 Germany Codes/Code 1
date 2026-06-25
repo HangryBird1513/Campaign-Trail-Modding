@@ -268,7 +268,6 @@ if (!element) {
             });
             var volumeLabel = document.createElement("gg");
             volumeLabel.id = "volume-label";
-            volumeLabel.innerHTML = "<br><b>Volume: </b>"
             var volumeSlider = document.createElement("input");
             volumeSlider.type = "range";
             volumeSlider.min = 0;
@@ -279,6 +278,10 @@ if (!element) {
             volumeSlider.id = "volume-slider";
             audio.volume= e.music.Volume;
             volumeSlider.value = audio.volume;
+
+            //
+            volumeLabel.innerHTML = "<br><b>Volume:</b> " +  Math.round(volumeSlider.value * 100);
+
             timeTracker.appendChild(pausePlay);
             if (audio.volume === 0) {
                 audio.pause();
@@ -303,14 +306,17 @@ if (!element) {
             timeTracker.appendChild(volumeSlider);
             updatePositionDisplay();
             function updatePositionDisplay() {
-                positionDisplay.innerHTML = "<br><b>Time:</b> " + toTime(audio.currentTime) + "<br>";
+                positionDisplay.innerHTML = "<br><b>Time:</b> " + toTime(audio.currentTime);
                 timeSlider.value = audio.duration ? audio.currentTime / audio.duration : 0;
             }
             function changeTime() {
-                positionDisplay.innerHTML = "<br><b>Time:</b> " + toTime(audio.currentTime) + "<br>";
+                positionDisplay.innerHTML = "<br><b>Time:</b> " + toTime(audio.currentTime);
                 audio.currentTime = timeSlider.value * audio.duration;
             }
             updateVolume = event => {
+                //
+                volumeLabel.innerHTML = "<br><b>Volume:</b> " +  Math.round(event.target.value * 100);
+
                 audio.volume = event.target.value;
                 e.music.Volume=audio.volume;
             }
