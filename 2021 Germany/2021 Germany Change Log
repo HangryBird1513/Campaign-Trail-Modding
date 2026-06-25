@@ -7,15 +7,16 @@ To-Do List:
 List of Changes:
 - Modified position of the "Enable Volume" checkbox so that it is in the center of its outer container
 - Modified width of the "Enable Volume" container
-- Modified the text before the "Click here to begin!" button to be more appropriate for the mod's setting
+- Modified the introduction text before the "Click here to begin!" button to be more appropriate for the mod's setting
 - Updated Merz's candidate description in the select your candidate section
-- Modified formatting of the recommending reading section, credits button, and music player
+- Modified formatting of the recommending reading section and credits button
 - Modified column widths and total width of the result tables to accomodate for the new lead candidate(s) column
 - Modified width of polling containers in the electoral map
 - Replaced broken SPD image
 - Fixed text of difficulty options so that it turns white without any delay
 - Modified formatting of the difficulty options explanation so that the tooltip fits in its outer container
-- Modified the credits so that the period is white like the rest of the text
+- Fixed the credits so that the period is white like the rest of the text
+- Added a title and a cover image to the music player and modified its formatting
 
 2. Code 2-Merz
 
@@ -24,7 +25,7 @@ To-Do List:
 - Implement rest of CYOA
 - Update advisors
 - Replace placeholder content, especially images and music
-- Add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
+- Maybe add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
 
 List of Changes:
 - Renamed the HQ button to "Headquarters"
