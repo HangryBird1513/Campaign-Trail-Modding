@@ -398,6 +398,7 @@ if (!element) {
             
             generateTime();
            if (previousBgImage) {
+              document.getElementById("musicSpeaker").style.backgroundImage = previousBgImage;
                 document.getElementById("trackSel").style.backgroundImage = previousBgImage;
                  document.getElementById("timeTracker").style.backgroundImage = previousBgImage;
             }
