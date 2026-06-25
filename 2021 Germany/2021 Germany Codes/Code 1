@@ -140,8 +140,12 @@ if (!element) {
     let trackIndices;
     let shuffledIndices;
 
- $("#game_start").click((event) => {
+ $("#game_start").click((event) => {  
     event.preventDefault();
+
+    //
+    $("#game_window")[0].style.height = "auto";
+
     musicMode()
       })
     musicMode = () => {
@@ -152,11 +156,7 @@ if (!element) {
         musicBox = document.getElementById("music_player")
         musicBox.style.display = ""
         //
-        const footer = document.querySelector('.footer');
-        footer.prepend(musicBox);
-        for (let i = 0; i < 3; i++) {
-          // footer.before(document.createElement('br'));
-        }
+        document.querySelector('.footer').prepend(musicBox);
 
         var trackSel;
         e = campaignTrail_temp
@@ -1459,7 +1459,7 @@ function paginateContent() {
                 margin-top: auto !important;
             }
             #running_mate_description_window{
-                height: 74%
+                min-height: 360px;
            }
 
             #overall_details_container{
@@ -1703,7 +1703,7 @@ function paginateContent() {
                  #inner_window_4{
                     overflow:auto;
                 }
-                #opponent_selection_description_window,
+                
                 #election_year_form,
                 #candidate_description_window,
                 #running_mate_description_window,
