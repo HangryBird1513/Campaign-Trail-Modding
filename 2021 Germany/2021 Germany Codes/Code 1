@@ -389,7 +389,7 @@ if (!element) {
                 }
             }
 
-            // solve asap
+            // 
             var musicSpeaker = document.createElement("div");
             musicSpeaker.id = "musicSpeaker";
             musicSpeaker.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:273px;background-color:#6699CC;float:right;padding:10px;";
