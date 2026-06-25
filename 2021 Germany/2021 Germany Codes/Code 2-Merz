@@ -5352,6 +5352,9 @@ if(!campaignTrail_temp.loaded){
     headerImage = "url(https://jetsimon.com/cts-media/public/2021DE_CDU／CSULaschet_10.png)";
     $(".container")[0].style.backgroundImage = "url(https://jetsimon.com/cts-media/public/2021DE_CDU／CSULaschet_11.png)";
     $(".container")[0].style.backgroundSize = "cover";
+    //
+    $("#musicSpeaker")[0].style.backgroundImage = "url(https://jetsimon.com/cts-media/public/2021DE_CDU／CSULaschet_9.png)";
+    $("#musicSpeaker")[0].style.backgroundSize = "cover";
     $("#trackSel")[0].style.backgroundImage = "url(https://jetsimon.com/cts-media/public/2021DE_CDU／CSULaschet_9.png)";
     $("#trackSel")[0].style.backgroundSize = "cover";
     $("#timeTracker")[0].style.backgroundImage = "url(https://jetsimon.com/cts-media/public/2021DE_CDU／CSULaschet_9.png)";
