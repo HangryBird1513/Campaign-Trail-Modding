@@ -16,7 +16,8 @@ List of Changes:
 - Fixed text of difficulty options so that it turns white without any delay
 - Modified formatting of the difficulty options explanation so that the tooltip fits in its outer container
 - Fixed the credits so that the period is white like the rest of the text
-- Added a title and a cover image to the music player and modified its formatting and position so that it is above the cheat menu
+- Added a title and a cover image to the music player 
+- Modified formatting and position of the music player so that it is above the cheat menu
 - Removed theme picker so that the mod's unique theme cannot be changed
 
 2. Code 2-Merz
