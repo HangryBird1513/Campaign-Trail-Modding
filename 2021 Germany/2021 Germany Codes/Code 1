@@ -310,6 +310,10 @@ if (!element) {
     function newMusicPlayer(previousBgImage = null) {
             trackSel = document.createElement("div");
             trackSel.id = "trackSelParent";
+            //
+            trackSel.style.height = "240px";
+            trackSel.style.width = "100%";
+
             let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;overflow-y: auto;overflow-x: hidden;height:200px; width:400px;background-color:#6699CC;float:right;padding:10px;">`
             z += `<b><select id='selectSoundtrack' style='width: 100%;'><option value='` + soundtracks[e.selectedSoundtrack].name + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>"
             for (i in soundtracks) {
@@ -324,7 +328,7 @@ if (!element) {
                 let b = `<label><input class="trackSelector" type="radio" name="trackSelector" value="` + i + `">` + a.name + `</label><br>`
                 z += b
             }
-            z += "</div><br><br><br>"
+            z += "</div>"
             trackSel.innerHTML = z
             musicBox.appendChild(trackSel);
             Array.from(document.getElementById("trackSel").children).filter(f => {
@@ -385,9 +389,13 @@ if (!element) {
                 }
             }
 
-            for (w = 0; w < 7; w++) {
-              document.getElementById("trackSelParent").appendChild(document.createElement("br"))
-            }
+            // solve asap
+            var musicSpeaker = document.createElement("div");
+            musicSpeaker.id = "musicSpeaker";
+            musicSpeaker.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:273px;background-color:#6699CC;float:right;padding:10px;";
+            musicSpeaker.innerHTML = `<b>Music Player</b><br><br><img src="https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/German_Flag_Bluetooth_Speaker.png" style="max-width:273px; height:auto;">`;
+            document.getElementById("trackSelParent").appendChild(musicSpeaker);
+            
             generateTime();
            if (previousBgImage) {
                 document.getElementById("trackSel").style.backgroundImage = previousBgImage;
