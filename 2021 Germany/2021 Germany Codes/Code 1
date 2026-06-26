@@ -724,7 +724,7 @@ function changeOpponentSelectionDescription() {
     opponentSelectionDescription.innerHTML = '';
 
     // Define the texts and button labels
-    const text1 = `<p><strong>Use the allocation method for the German Bundestag.</strong></p><p>The German electoral system is quite complex. Every voter has two votes, one for a party and one for a directly elected candidate in their constituency. Theoretically, half the parliament is determined first past the post by these direct elections and half proportionally through the party votes, with seats allocated with the Sainte-Laguë method on a per-state basis.<br> However, if a party receives more seats through this system than it would if the parliament was elected by strictly proportional votes, they get extra (overhanging) mandates and all over parties get compensatory mandates. Overall, all but three overhanging mandates get compensated. <br> To enter parliament, a party either needs 5% of the proportional vote or win in at least three districts. <br> For the purpose of this game, the system has been simplified. Only the proportional vote has been simulated - though there are some heuristics to guess the number of constituencies won by parties where this is relevant.`;
+    const text1 = `<p><strong>Use the allocation method for the German Bundestag.</strong></p><p>The German electoral system is quite complex. Every voter has two votes, one for a party and one for a directly elected candidate in their constituency. Theoretically, half the parliament is determined first past the post by these direct elections and half proportionally through the party votes, with seats allocated with the Sainte-Laguë method on a per-state basis.<br> However, if a party receives more seats through this system than it would if the parliament was elected by strictly proportional votes, they get extra (overhanging) mandates and all over parties get compensatory mandates. Overall, all but three overhanging mandates get compensated. <br> To enter parliament, a party either needs 5% of the proportional vote or win in at least three districts. <br> For the purpose of this game, the system has been simplified. Only the proportional vote has been simulated - though there are some heuristics to guess the number of constituencies won by parties where this is relevant.</p>`;
 
      const text2 = `<p><strong>Difficulty Options:</strong></p>
 
@@ -746,13 +746,13 @@ function changeOpponentSelectionDescription() {
     // Create the first div with the first text and the toggle button
     const div1 = document.createElement('div');
     div1.id = "div1";
-    div1.innerHTML = `<p>${text1}</p><button id="toggleBtn">${btnText1}</button>`;
+    div1.innerHTML = `${text1}<p><button id="toggleBtn">${btnText1}</button></p>`;
 
     // Create the second div with the second text, initially hidden
     const div2 = document.createElement('div');
     div2.id = "div2";
     div2.style.display = 'none';
-    div2.innerHTML = `<p>${text2}</p><button id="toggleBtn2">${btnText2}</button>`;
+    div2.innerHTML = `${text2}<p><button id="toggleBtn2">${btnText2}</button></p>`;
 
     // Append both divs to the original element
     opponentSelectionDescription.appendChild(div1);
