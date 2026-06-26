@@ -19,7 +19,7 @@ List of Changes:
 - Added a title, cover image, and volume amount indicator to the music player 
 - Modified formatting and position of the music player so that it is above the cheat menu
 - Removed theme picker so that the mod's unique theme cannot be changed
-- Fixed the game window so that it expands to accomodate for any content that tries to spill out
+- Fixed the game window so that it expands vertically to accomodate for any content that tries to spill out of it
 
 2. Code 2-Merz
 
