@@ -18,7 +18,7 @@
 document.querySelector('#inner_window_1 h3').innerHTML = `Do you have what it takes to win a Bundestagswahl?`;
 
 document.querySelector("#inner_window_1 ul").innerHTML = `
-<li>Select a year, a party, and a candidate to find out.</li><li>You will answer questions about your platform and positions, and also about your campaign strategy.</li><li>The answers will affect your popularity for better or worse, both nationally and in individual states.</li><li>The answers will also affect other elements of your campaign, leading to unique developments in the election.</li><li>Walk the fine line between appealing to your base and winning the most votes.</li><li>Post-election, negotiate a coalition agreement that will hopefully satisfy you, your partner(s), and the German people.</li><li>Good luck on The Campaign Trail!</li>
+<li>Select a year, a party, and a lead candidate to find out.</li><li>You will answer questions about your platform and positions, and also about your campaign strategy.</li><li>The answers will affect your popularity for better or worse, both nationally and in individual states.</li><li>The answers will also affect other elements of your campaign, leading to unique developments in the election.</li><li>Walk the fine line between appealing to your base and winning the most votes.</li><li>Post-election, negotiate a coalition agreement that will hopefully satisfy you, your partner(s), and the German people.</li><li>Good luck on The Campaign Trail!</li>
 `;
 
 const themePickerHeader = document.querySelector('.footer h4');
@@ -678,7 +678,7 @@ headerImage = '';
       const heading = document.querySelector("#running_mate_form form h3");
 
       if (heading) {
-        heading.textContent = "Please select your candidate:";
+        heading.textContent = "Please select your lead candidate:";
       }
     }
 
