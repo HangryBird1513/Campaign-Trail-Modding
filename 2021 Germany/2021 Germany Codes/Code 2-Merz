@@ -2325,7 +2325,7 @@ if(!campaignTrail_temp.loaded){
                         seatEstimateButton = document.createElement("button");
                         seatEstimateButton.id = "seatEstimateButton";
                         seatEstimateButton.innerText = "Seat Estimate";
-                        seatEstimateButton.style.margin = "0.5em 1em"; // Set margins
+                        seatEstimateButton.style.margin = "0.25em 0.25em"; // Set margins
                         pollingButton.insertAdjacentElement("afterend", seatEstimateButton); // Insert below the PV Estimate button
                     }
     
@@ -2365,6 +2365,7 @@ if(!campaignTrail_temp.loaded){
                     });
     
                 //
+                pollingButton.style.margin = "0.25em 0.25em";
                 pollingButton.removeAttribute('onclick');
 
                 // When PV Estimate button is clicked
