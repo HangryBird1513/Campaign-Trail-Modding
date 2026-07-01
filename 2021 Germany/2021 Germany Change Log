@@ -7,7 +7,7 @@ To-Do List:
 
 List of Changes:
 - Modified position of the "Enable Volume" checkbox so that it is in the center of its outer container and modified width of said container
-- Modified the header text before the drop-down menu in the candidate selection section
+- Modified the game window header text and the header text before the drop-down menu in the candidate selection section
 - Modified the introduction text before the "Click here to begin!" button to be more appropriate for the mod's setting
 - Updated Merz's candidate description in the candidate selection section
 - Modified formatting of the recommending reading section and credits button
