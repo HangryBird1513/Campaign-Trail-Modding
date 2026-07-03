@@ -84,10 +84,10 @@ e.realisticPolls = true;
 e.staff_mode = true;
 e.electionNight=true;
 
-quotes = [`"Wir schaffen das!" - Angela Merkel`, `"Scheitert der Euro, scheitert Europa." - Angela Merkel`, `"Das Internet ist für uns alle Neuland." - Angela Merkel`, `"Die Demokratie ist kein Supermarkt." - Frank-Walter Steinmeier`, `In my homeland Baden-Württemberg we are all sitting in one boat.`, `"Rechts von der CDU/CSU darf es keine demokratisch legitimierte Partei geben" - Franz-Joseph Strauß`, `"Jetzt wächst zusammen, was zusammen gehört" - Willy Brandt`, `Was kümmert mich mein Geschwätz von gestern? - Konrad Adenauer`, `"Wer Visionen hat, sollte zum Arzt gehen" - Helmut Schmidt`, `There will never be a revolution in Germany. The bureaucratic paperwork for it is missing.`, ]
+quotes = [`"Wir schaffen das!" - Angela Merkel`, `"Scheitert der Euro, scheitert Europa." - Angela Merkel`, `"Das Internet ist für uns alle Neuland." - Angela Merkel`, `"Die Demokratie ist kein Supermarkt." - Frank-Walter Steinmeier`, `In my homeland Baden-Württemberg we are all sitting in one boat.`, `"Rechts von der CDU/CSU darf es keine demokratisch legitimierte Partei geben" - Franz-Joseph Strauß`, `"Jetzt wächst zusammen, was zusammen gehört" - Willy Brandt`, `Was kümmert mich mein Geschwätz von gestern? - Konrad Adenauer`, `"Wer Visionen hat, sollte zum Arzt gehen" - Helmut Schmidt`, `There will never be a revolution in Germany. The bureaucratic paperwork for it is missing.`]
 customquote = quotes[Math.floor((Math.random() * quotes.length))]
 
-gameHeaderText="\n<h2>DIE WAHLKAMPF-TOUR</h2><font id='wittyquote' size='4' color='white'><em>" + customquote + "</em></font>"
+corrr="<h2>DIE WAHLKAMPF-TOUR</h2><font id='wittyquote' size='4' color='white'><em>" + customquote + "</em></font>"
 
 var element = document.getElementById('my-invisible-element');
 if (!element) {
@@ -652,7 +652,7 @@ headerImage = '';
       var gameHeader = document.getElementsByClassName("game_header")[0];
 
       if (gameHeader.getAttribute("id") !== "modifiedHeader") {
-        gameHeader.innerHTML = gameHeaderText;
+        gameHeader.innerHTML = corrr;
         gameHeader.style.backgroundImage = headerImage;
         gameHeader.style.backgroundSize = "cover";
         gameHeader.style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title;
