@@ -229,7 +229,7 @@ if (!element) {
             var skipButton = document.createElement("button");
             skipButton.id = "skip-button";
             skipButton.innerHTML = "<b>Skip</b>"
-            skipButton.style.width = "100%";
+            skipButton.style.width = "50%";
             skipButton.style.margin = "2px"; // Add margin
             skipButton.addEventListener("click", event => {
                 event.preventDefault();
@@ -253,10 +253,9 @@ if (!element) {
                     }).map(f => f.children[0])
                 buttons[newSel].click()
             });
-            skipButton.style.width = "50%";
             var loopButton = document.createElement("button");
             loopButton.id = "loop-button";
-            loopButton.innerHTML = e.music.loopEnabled ? "<b>Unloop</b>" : "<b>Loop Song</b>";  // Check the initial loop state
+            loopButton.innerHTML = e.music.loopEnabled ? "<b>Unloop</b>" : "<b>Loop</b>";  // Check the initial loop state
             loopButton.style.width = "50%";  // Match the width with skipButton
             loopButton.style.margin = "2px";
             loopButton.addEventListener("click", event => {
@@ -264,7 +263,7 @@ if (!element) {
                 e.music.loopEnabled = !e.music.loopEnabled;
                 let audio = document.getElementById("campaigntrailmusic");
                 audio.loop = e.music.loopEnabled;  // Set the audio's loop property
-                event.target.innerHTML = e.music.loopEnabled ? "<b>Unloop</b>" : "<b>Loop Song</b>";  // Toggle the button text
+                event.target.innerHTML = e.music.loopEnabled ? "<b>Unloop</b>" : "<b>Loop</b>";  // Toggle the button text
             });
             var volumeLabel = document.createElement("gg");
             volumeLabel.id = "volume-label";
@@ -294,6 +293,8 @@ if (!element) {
             skipButton.style.flex = "1"; // Makes it take up equal space
             skipButton.style.marginRight = "5px"; // Adds some space between the buttons
 
+            //
+            loopButton.style.flex = "1";
             loopButton.style.marginRight = "0px";
 
             buttonContainer.appendChild(skipButton);
