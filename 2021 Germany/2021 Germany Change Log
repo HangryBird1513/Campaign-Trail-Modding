@@ -2,7 +2,8 @@
 
 To-Do List:
 - Update Mützenich's candidate description in the candidate selection section
-- Add additional achievements, especially for Merz and Mützenich
+- Add additional achievements for Merz and Mützenich
+- Add additional tooltips for Merz and Mützenich
 - Fix formatting on NCT
 
 List of Changes:
@@ -27,9 +28,10 @@ List of Changes:
 To-Do List:
 - Update questions, answers, and feedback
 - Implement rest of CYOA
-- Update advisors
+- Update advisors and tooltips for parties
 - Replace placeholder content, especially images and music
 - Maybe add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
+- Maybe enable visits and have the advisor feedback include a short description of the state being visited?
 - Fix formatting on NCT
 
 List of Changes:
