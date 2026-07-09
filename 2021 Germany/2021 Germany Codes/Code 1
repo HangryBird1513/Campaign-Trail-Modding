@@ -192,46 +192,89 @@ if (!element) {
             timeSlider.value = 0;
             timeSlider.style.width = "200px";
             timeSlider.id = "time-slider";
-            var pausePlay = document.createElement("button");
-            pausePlay.id = "position-display";
-            pausePlay.innerHTML = "<b>Pause</b>"
-            pausePlay.style.width = "100%";
-            pausePlay.style.margin = "2px";
-            pausePlay.addEventListener("click", event => {
+            var pausePlayButton = document.createElement("button");
+            pausePlayButton.id = "pause-play-button";
+            pausePlayButton.style.width = "50px";
+            pausePlayButton.style.height = "50px";
+            pausePlayButton.style.margin = "2px 5px 5px 2px";
+
+            //
+            var pausePlayButtonImage = document.createElement("img");
+            pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Pause-Button.png";
+            pausePlayButtonImage.style.width = "20px";
+            pausePlayButtonImage.style.height = "auto";
+            pausePlayButton.appendChild(pausePlayButtonImage);
+
+            pausePlayButton.addEventListener("click", event => {
                 event.preventDefault();
                 updatePositionDisplay();
                 let audio = document.getElementById("campaigntrailmusic");
                 if (audio.paused) {
                     audio.play();
-                    event.target.innerHTML = "<b>Pause</b>";
+                    pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Pause-Button.png";
+                    // pausePlayButtonImage.style.transform = "translateX(0px)";
+                    pausePlayButtonImage.style.marginLeft = "0px";
                     return;
                 }
                 audio.pause();
-                event.target.innerHTML = "<b>Play</b>";
+                pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Play-Button.png";
+                // pausePlayButtonImage.style.transform = "translateX(2px)";
+                pausePlayButtonImage.style.marginLeft = "2px";
                 return;
             })
-            var shuffleButton = document.createElement("button");
-            shuffleButton.id = "shuffle-button";
-            shuffleButton.innerHTML = "<b>Shuffle</b>"
-            shuffleButton.style.width = "100%"
-            shuffleButton.style.margin = "2px";;
-            shuffleButton.addEventListener("click", event => {
+
+            // 
+            var previousSongButton = document.createElement("button");
+            previousSongButton.id = "previous-song-button";
+            previousSongButton.style.width = "40px";
+            previousSongButton.style.height = "40px";
+            previousSongButton.style.margin = "7px 5px 10px 2px"; // Add margin
+
+            // 
+            var previousSongButtonImage = document.createElement("img");
+            previousSongButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Prev-Button.png";
+            previousSongButtonImage.style.width = "16px";
+            previousSongButtonImage.style.height = "auto";
+            previousSongButton.appendChild(previousSongButtonImage);
+
+            previousSongButton.addEventListener("click", event => {
                 event.preventDefault();
-                e.music.shuffleEnabled = !e.music.shuffleEnabled;
-                event.target.innerHTML = e.music.shuffleEnabled ? "<b>Unshuffle</b>" : "<b>Shuffle</b>";
+                let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
+                let newSel;
                 if (e.music.shuffleEnabled) {
-                    shuffledIndices = shuffle(trackIndices.slice());
-                    let currentTrackIndex = Number(document.querySelector('input[name="trackSelector"]:checked').value);
-                    shuffledIndices = shuffledIndices.filter(index => index !== currentTrackIndex);
-                    shuffledIndices.unshift(currentTrackIndex);
+                    if (!shuffledIndices) {
+                        shuffledIndices = shuffle(trackIndices.slice());
+                    }
+                    let currentIndex = shuffledIndices.findIndex(index => index === selected);
+                    if (currentIndex === 0) {
+                        shuffledIndices = shuffle(trackIndices.slice());
+                        currentIndex = shuffledIndices.length;
+                    }
+                    newSel = shuffledIndices[currentIndex - 1];
+                } else {
+                    newSel = selected === 0 ? soundtracks[e.selectedSoundtrack].tracklist.length - 1 : selected - 1;
                 }
+                let buttons = Array.from(document.getElementById("trackSel").children).filter(f => {
+                        return f.tagName == "LABEL"
+                    }).map(f => f.children[0])
+                buttons[newSel].click()
             });
-            var skipButton = document.createElement("button");
-            skipButton.id = "skip-button";
-            skipButton.innerHTML = "<b>Skip</b>"
-            skipButton.style.width = "50%";
-            skipButton.style.margin = "2px"; // Add margin
-            skipButton.addEventListener("click", event => {
+
+            // 
+            var nextSongButton = document.createElement("button");
+            nextSongButton.id = "next-song-button";
+            nextSongButton.style.width = "40px";
+            nextSongButton.style.height = "40px";
+            nextSongButton.style.margin = "7px 2px 10px 2px"; // Add margin
+
+            // 
+            var nextSongButtonImage = document.createElement("img");
+            nextSongButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Next-Button.png";
+            nextSongButtonImage.style.width = "16px";
+            nextSongButtonImage.style.height = "auto";
+            nextSongButton.appendChild(nextSongButtonImage);
+
+            nextSongButton.addEventListener("click", event => {
                 event.preventDefault();
                 let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
                 let newSel;
@@ -246,17 +289,35 @@ if (!element) {
                     }
                     newSel = shuffledIndices[currentIndex + 1];
                 } else {
-                    newSel = selected + 1 === soundtracks[e.selectedSoundtrack].tracklist.length ? 0 : selected + 1;
+                    newSel = selected === soundtracks[e.selectedSoundtrack].tracklist.length - 1 ? 0 : selected + 1;
                 }
                 let buttons = Array.from(document.getElementById("trackSel").children).filter(f => {
                         return f.tagName == "LABEL"
                     }).map(f => f.children[0])
                 buttons[newSel].click()
             });
+
+            var shuffleButton = document.createElement("button");
+            shuffleButton.id = "shuffle-button";
+            shuffleButton.innerHTML = "<b>Shuffle</b>"
+            shuffleButton.style.width = "50%"
+            shuffleButton.style.margin = "2px 5px 2px 2px";
+            shuffleButton.addEventListener("click", event => {
+                event.preventDefault();
+                e.music.shuffleEnabled = !e.music.shuffleEnabled;
+                event.target.innerHTML = e.music.shuffleEnabled ? "<b>Unshuffle</b>" : "<b>Shuffle</b>";
+                if (e.music.shuffleEnabled) {
+                    shuffledIndices = shuffle(trackIndices.slice());
+                    let currentTrackIndex = Number(document.querySelector('input[name="trackSelector"]:checked').value);
+                    shuffledIndices = shuffledIndices.filter(index => index !== currentTrackIndex);
+                    shuffledIndices.unshift(currentTrackIndex);
+                }
+            });
+
             var loopButton = document.createElement("button");
             loopButton.id = "loop-button";
             loopButton.innerHTML = e.music.loopEnabled ? "<b>Unloop</b>" : "<b>Loop</b>";  // Check the initial loop state
-            loopButton.style.width = "50%";  // Match the width with skipButton
+            loopButton.style.width = "50%";  // Match the width with shuffleButton
             loopButton.style.margin = "2px";
             loopButton.addEventListener("click", event => {
                 event.preventDefault();
@@ -281,25 +342,35 @@ if (!element) {
             //
             volumeLabel.innerHTML = "<br><b>Volume:</b> " +  Math.round(volumeSlider.value * 100);
 
-            timeTracker.appendChild(pausePlay);
             if (audio.volume === 0) {
                 audio.pause();
-                pausePlay.innerHTML = "<b>Play</b>";  // Update the pause button text to "Play"
+                pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Play-Button.png";
+                // pausePlayButtonImage.style.transform = "translateX(2px)";
+                pausePlayButtonImage.style.marginLeft = "2px";
             }
-            timeTracker.appendChild(shuffleButton);
+            
+            //
+            var musicPlayerButtons = document.createElement("div");
+            musicPlayerButtons.classList.add("musicplayerbuttons");
+            musicPlayerButtons.style.display = "flex"; // Makes children inline
+            musicPlayerButtons.style.justifyContent = "space-between";
+            
+            // 
+            musicPlayerButtons.appendChild(previousSongButton);
+            musicPlayerButtons.appendChild(pausePlayButton);
+            musicPlayerButtons.appendChild(nextSongButton);
+
+            //
             var buttonContainer = document.createElement("div");
             buttonContainer.style.display = "flex"; // Makes children inline
             buttonContainer.style.justifyContent = "space-between";
-            skipButton.style.flex = "1"; // Makes it take up equal space
-            skipButton.style.marginRight = "5px"; // Adds some space between the buttons
 
-            //
-            loopButton.style.flex = "1";
-            loopButton.style.marginRight = "0px";
-
-            buttonContainer.appendChild(skipButton);
+            // 
+            buttonContainer.appendChild(shuffleButton);
             buttonContainer.appendChild(loopButton);
 
+            // 
+            timeTracker.appendChild(musicPlayerButtons)
             timeTracker.appendChild(buttonContainer); // Add the container to timeTracker instead of individual buttons
             timeTracker.appendChild(positionDisplay);
             timeTracker.appendChild(timeSlider);
@@ -412,7 +483,15 @@ if (!element) {
             var musicSpeaker = document.createElement("div");
             musicSpeaker.id = "musicSpeaker";
             musicSpeaker.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:273px;background-color:#6699CC;float:right;padding:10px;";
-            musicSpeaker.innerHTML = `<b>Music Player</b><br><br><img src="https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/German-Flag-Bluetooth-Speaker.png" style="max-width:273px; height:auto;">`;
+            musicSpeaker.innerHTML = `<b>Music Player</b><br><br>`;
+
+            //
+            var musicSpeakerImage = document.createElement("img");
+            musicSpeakerImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/German-Flag-Bluetooth-Speaker.png";
+            musicSpeakerImage.style.width = "273px";
+            musicSpeakerImage.style.height = "auto";
+            musicSpeaker.appendChild(musicSpeakerImage);
+
             document.getElementById("trackSelParent").appendChild(musicSpeaker);
             
             generateTime();
@@ -1790,8 +1869,22 @@ function paginateContent() {
             #overall_details_container th:nth-child(3) { width: 10%; } /* Seats */
             #overall_details_container th:nth-child(4) { width: 15%; } /* Popular Votes */
             #overall_details_container th:nth-child(5) { width: 15%; } /* Popular Vote % */
-            `;
 
+            .musicplayerbuttons button {
+              border-radius: 50%;
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              background-color: #3b5c70;
+              border: 1px solid white;
+            }
+            .musicplayerbuttons button:hover {
+              background-color: #015999; 
+            }
+            .musicplayerbuttons button:hover img {
+              transform: scale(1.1); 
+            }
+            `;
             document.head.appendChild(style);
         }
     }
