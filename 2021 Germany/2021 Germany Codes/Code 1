@@ -252,10 +252,7 @@ if (!element) {
                 } else {
                     newSel = selected === 0 ? soundtracks[e.selectedSoundtrack].tracklist.length - 1 : selected - 1;
                 }
-                let buttons = Array.from(document.getElementById("trackSel").children).filter(f => {
-                        return f.tagName == "LABEL"
-                    }).map(f => f.children[0])
-                buttons[newSel].click()
+                document.querySelectorAll('.trackSelector')[newSel].click();
             });
 
             // 
@@ -289,10 +286,7 @@ if (!element) {
                 } else {
                     newSel = selected === soundtracks[e.selectedSoundtrack].tracklist.length - 1 ? 0 : selected + 1;
                 }
-                let buttons = Array.from(document.getElementById("trackSel").children).filter(f => {
-                        return f.tagName == "LABEL"
-                    }).map(f => f.children[0])
-                buttons[newSel].click()
+                document.querySelectorAll('.trackSelector')[newSel].click();
             });
 
             var shuffleButton = document.createElement("button");
@@ -366,13 +360,19 @@ if (!element) {
             buttonContainer.appendChild(shuffleButton);
             buttonContainer.appendChild(loopButton);
 
+            //
+            var sliderContainer = document.createElement("div");
+
+            //
+            sliderContainer.appendChild(positionDisplay);
+            sliderContainer.appendChild(timeSlider);
+            sliderContainer.appendChild(volumeLabel);
+            sliderContainer.appendChild(volumeSlider);
+
             // 
-            timeTracker.appendChild(musicPlayerButtons)
+            timeTracker.appendChild(musicPlayerButtons);
             timeTracker.appendChild(buttonContainer); // Add the container to timeTracker instead of individual buttons
-            timeTracker.appendChild(positionDisplay);
-            timeTracker.appendChild(timeSlider);
-            timeTracker.appendChild(volumeLabel);
-            timeTracker.appendChild(volumeSlider);
+            timeTracker.appendChild(sliderContainer);
             updatePositionDisplay();
             function updatePositionDisplay() {
                 positionDisplay.innerHTML = "<br><b>Time:</b> " + toTime(audio.currentTime);
@@ -401,26 +401,24 @@ if (!element) {
             trackSel.style.height = "240px";
             trackSel.style.width = "100%";
 
-            let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;overflow-y: auto;overflow-x: hidden;height:200px; width:400px;background-color:#6699CC;float:right;padding:10px;">`
-            z += `<b><select id='selectSoundtrack' style='width: 100%;'><option value='` + soundtracks[e.selectedSoundtrack].name + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>";
+            let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;overflow-y: auto;overflow-x: hidden;height:200px; width:400px;background-color:#6699CC;float:right;padding:10px;">`;
+            z += `<select id='selectSoundtrack' style='width: 100%;'><option value='` + soundtracks[e.selectedSoundtrack].name + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>";
             for (i in soundtracks) {
               if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
-                  z += `<option value='` + soundtracks[i].name + `'>` + soundtracks[i].name + `</option>`
+                  z += `<option value='` + soundtracks[i].name + `'>` + soundtracks[i].name + `</option>`;
               }
             }
-            z += `</select></b><br><br>`
+            z += `</select><br><br><div id='soundtrackSongs'>`;
                 // <label><input type="radio" name="option" value="option1">Option 1</label><br>
             for (i in soundtracks[e.selectedSoundtrack].tracklist) {
-                let a = soundtracks[e.selectedSoundtrack].tracklist[i]
-                let b = `<label><input class="trackSelector" type="radio" name="trackSelector" value="` + i + `">` + a.name + `</label><br>`
-                z += b
+                let a = soundtracks[e.selectedSoundtrack].tracklist[i];
+                let b = `<label><input class="trackSelector" type="radio" name="trackSelector" value="` + i + `">` + a.name + `</label><br>`;
+                z += b;
             }
-            z += "</div>"
-            trackSel.innerHTML = z
+            z += "</div></div>";
+            trackSel.innerHTML = z;
             musicBox.appendChild(trackSel);
-            Array.from(document.getElementById("trackSel").children).filter(f => {
-                return f.tagName == "LABEL"
-            }).map(f => f.children[0])[0].checked = true
+            document.querySelector('.trackSelector').checked = true;
             soundtrackSelector = document.getElementById("selectSoundtrack")
             soundtrackSelector.onchange = function() {
                 let currentBgImage = document.getElementById("trackSel").style.backgroundImage;
@@ -469,10 +467,7 @@ if (!element) {
                 } else {
                     newSel = selected + 1 === soundtracks[e.selectedSoundtrack].tracklist.length ? 0 : selected + 1;
                 }
-                let buttons = Array.from(document.getElementById("trackSel").children).filter(f => {
-                        return f.tagName == "LABEL"
-                    }).map(f => f.children[0])
-                buttons[newSel].click()
+                document.querySelectorAll('.trackSelector')[newSel].click();
                 }
             }
 
