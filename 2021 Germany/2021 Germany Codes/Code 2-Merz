@@ -3379,7 +3379,7 @@ if(!campaignTrail_temp.loaded){
     
         // Add header
         let coalitionHeader = document.createElement('h3');
-        coalitionHeader.innerText = 'Which coalitions have majorities?';
+        coalitionHeader.innerText = 'Which Coalitions Have Majorities?';
         coalitionHeader.style.fontWeight = 'bold';
         coalitionDiv.appendChild(coalitionHeader);
     
