@@ -14,10 +14,11 @@ List of Changes:
 - Modified column widths and total width of the result tables to accomodate for the new lead candidate(s) column
 - Modified width of polling containers in the electoral map
 - Replaced broken SPD image
-- Fixed text of difficulty options so that it turns white without any delay
 - Modified formatting of the difficulty options explanation so that the tooltip fits in its outer container
+- Fixed text of difficulty options so that it turns white without any delay
 - Fixed the credits so that the period is white like the rest of the text
-- Added a title, cover image, previous button, and volume amount indicator to the music player 
+- Added a title, cover image, "Previous" button, and volume amount indicator to the music player 
+- Renamed "Skip" button in the music player to "Next" 
 - Modified formatting and position of the music player so that it is above the cheat menu
 - Removed theme picker so that the mod's unique theme cannot be changed?
 - Music Player shuffle button stuff?
@@ -47,3 +48,4 @@ List of Changes:
 - Fixed the "Election Charts" and "Current Polls" buttons so that they appear properly now
 - Implemented all endings that were listed in the cutting room floor document
 - Added "Others" to line chart and fixed it so that it displays the question numbers properly and only appears for a full campaign like it's supposed to
+- Modified subtitle of bar charts
