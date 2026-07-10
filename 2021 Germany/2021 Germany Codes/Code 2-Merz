@@ -4353,7 +4353,7 @@ if(!campaignTrail_temp.loaded){
                     },
                     categories: Array.from({
                         length: polling[0].length
-                    }, (_, index) => index)
+                    }, (_, index) => index + 1)
     
                 },
                 legend: {
