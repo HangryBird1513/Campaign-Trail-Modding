@@ -19,8 +19,8 @@ List of Changes:
 - Fixed the credits so that the period is white like the rest of the text
 - Added a title, cover image, previous button, and volume amount indicator to the music player 
 - Modified formatting and position of the music player so that it is above the cheat menu
-- Removed theme picker so that the mod's unique theme cannot be changed
-- 
+- Removed theme picker so that the mod's unique theme cannot be changed?
+- Music Player shuffle button stuff?
 - Fixed the game window so that it expands vertically to accomodate for any content that tries to spill out of it
 
 2. Code 2-Merz
@@ -45,5 +45,5 @@ List of Changes:
 - Modified "PV Estimate"/"State Estimate" and "Seat Estimate" buttons to allow for party tooltips
 - Modified position of tooltips for issues so that they appear left of the text
 - Fixed the "Election Charts" and "Current Polls" buttons so that they appear properly now
-- Implemented all endings that were included in the cutting room floor document
+- Implemented all endings that were listed in the cutting room floor document
 - Added "Others" to line chart and fixed it so that it displays the question numbers properly and only appears for a full campaign like it's supposed to
