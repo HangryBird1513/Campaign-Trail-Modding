@@ -2,12 +2,11 @@
 
 To-Do List:
 - Update Mützenich's candidate description in the candidate selection section
-- Add additional achievements for Merz and Mützenich
-- Add additional tooltips for Merz and Mützenich
+- Add additional achievements and tooltips for Merz and Mützenich
 - Fix formatting on NCT
 
 List of Changes:
-- Modified position of the "Enable Volume" checkbox so that it is in the center of its outer container and modified width of said container
+- Modified width of "Enable Volume" container and position of its checkbox so that it is in the center of the container
 - Modified the game window header text and the header text before the drop-down menu in the candidate selection section
 - Modified the introduction text before the "Click here to begin!" button to be more appropriate for the mod's setting
 - Updated Merz's candidate description in the candidate selection section
@@ -21,6 +20,7 @@ List of Changes:
 - Added a title, cover image, previous button, and volume amount indicator to the music player 
 - Modified formatting and position of the music player so that it is above the cheat menu
 - Removed theme picker so that the mod's unique theme cannot be changed
+- 
 - Fixed the game window so that it expands vertically to accomodate for any content that tries to spill out of it
 
 2. Code 2-Merz
@@ -46,4 +46,4 @@ List of Changes:
 - Modified position of tooltips for issues so that they appear left of the text
 - Fixed the "Election Charts" and "Current Polls" buttons so that they appear properly now
 - Implemented all endings that were included in the cutting room floor document
-- Fixed line chart so that it only appears for a full campaign like it's supposed to
+- Added "Others" to line chart and fixed it so that it only appears for a full campaign like it's supposed to
