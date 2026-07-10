@@ -4334,7 +4334,7 @@ if(!campaignTrail_temp.loaded){
              var myChart = Highcharts.chart('myChart', {
     
                 title: {
-                    text: 'Polling over time',
+                    text: 'Polling Over Time',
                     align: 'center'
                 },
     
@@ -4469,7 +4469,7 @@ if(!campaignTrail_temp.loaded){
               backgroundColor:'rgba(255, 255, 255, 0.8)',
             },
             title: {
-              text: 'German Federal Election 2021',
+              text: '2021 German Federal Election',
               margin: 60
             },
     
@@ -4539,7 +4539,7 @@ if(!campaignTrail_temp.loaded){
                     type: 'column'
                 },
                 title: {
-                    text: 'Gains and losses'
+                    text: 'Gains and Losses'
                 },
                 yAxis: {
                     title: {
@@ -4631,10 +4631,10 @@ if(!campaignTrail_temp.loaded){
                 type: 'column'
             },
             title: {
-                text: 'Final results'
+                text: 'Final Results'
             },
             subtitle: {
-                text: 'Numbers above column indicate change relative to 2017 election',
+                text: 'Numbers above column indicate change relative to the 2017 election',
                 align: 'center'
             },
             yAxis: {
@@ -4918,7 +4918,7 @@ if(!campaignTrail_temp.loaded){
                 text: 'Current Predictions'
             },
             subtitle: {
-                text: 'Numbers above column indicate change relative to 2017 election',
+                text: 'Numbers above column indicate change relative to the 2017 election',
                 align: 'center'
             },
             yAxis: {
