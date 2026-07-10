@@ -3576,7 +3576,7 @@ if(!campaignTrail_temp.loaded){
                         explanationBox.style.left = (rect.left - hqRect.left - (18 * 14)) + 'px';
                         explanationBox.style.top = (rect1.top - hqRect.top + (36 * 14)) + 'px';
                     }
-                    explanationBox.querySelector('p').innerText = "In this box, your current polling is shown. It is identical to the polling that's shown in the map area. With the button, you can switch to a seat estimate. Both the percentages and seats are rounded. Be careful - polls can be inaccurate! A special advisor can help with the accuracy and make the rounding more precise";
+                    explanationBox.querySelector('p').innerText = "In this box, your current polling is shown. It is identical to the polling that's shown in the map area. With the button, you can switch to a seat estimate. Both the percentages and seats are rounded. Be careful - polls can be inaccurate! A special advisor can help with the accuracy and make the rounding more precise.";
                     break;
                 case 1:
                     let rect2 = patienceDiv.getBoundingClientRect();
@@ -3592,7 +3592,7 @@ if(!campaignTrail_temp.loaded){
                         explanationBox.style.left = (rect.left - hqRect.left - (18 * 14)) + 'px';
                         explanationBox.style.top = (rect2.top - hqRect.top - (28 * 14)) + 'px';
                     }
-                    explanationBox.querySelector('p').innerText = "In this area, a specific characteristic that is unique to your character is described - both with the coloured circles and in text. The more circles you have and the closer they are to green, the better. The value can be influenced by choices during the campaign and advisors. It can change some answer effects and will determine a specific impactful question late in the campaign. Hover your name to learn more about your specific characteristic!";
+                    explanationBox.querySelector('p').innerText = "In this area, a specific characteristic that is unique to your character is described - both with the coloured circles and in text. The more circles you have and the closer they are to green, the better. The value can be influenced by choices during the campaign and advisors. It can change some answer effects and will determine a specific impactful question late in the campaign. Hover over your name to learn more about your specific characteristic!";
                     break;
                 case 2:
                     let rect3 = advisorHeaderDiv.getBoundingClientRect();
@@ -3670,7 +3670,7 @@ if(!campaignTrail_temp.loaded){
                         explanationBox.style.left = (rect.left - hqRect.left - (18 * 14)) + 'px';
                         explanationBox.style.top = (rect6.top - hqRect.top + (34 * 14)) + 'px';
                     }
-                    explanationBox.querySelector('p').innerText = "Finally, in this box, it's displayed which coalition would currently have a majority. \"Likely\" means that the odds of them getting a majority are high, \"shaky\" means that it's close and \"unlikely\" means that it's unlikely, but not impossible. Only coalitions which make sense in the current political climate are displayed - you can change that with your coalition promises. If you want to know what parties are included in a given coalition, just hover it";
+                    explanationBox.querySelector('p').innerText = "Finally, in this box, it's displayed which coalition would currently have a majority. \"Likely\" means that the odds of them getting a majority are high, \"shaky\" means that it's close and \"unlikely\" means that it's unlikely, but not impossible. Only coalitions which make sense in the current political climate are displayed - you can change that with your coalition promises. If you want to know what parties are included in a given coalition, just hover over it.";
                     break;
     
                 case 6:
