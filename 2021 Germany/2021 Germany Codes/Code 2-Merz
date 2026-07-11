@@ -1666,12 +1666,12 @@ if(!campaignTrail_temp.loaded){
            campaignTrail_temp.question_number=34;
         }    
 
-        // testing: 4104 for insider and 4105 for outsider
-        if (ans === 4104){
-            campaignPersona = "insider"
+        // testing: 4530 or 4104 for insider and 4531 or 4105 for outsider
+        if (ans === 4530 || ans === 4104){
+            campaignPersona = "insider";
         }
-        if (ans === 4105){
-            campaignPersona = "outsider"
+        if (ans === 4531 || ans === 4105){
+            campaignPersona = "outsider";
         }
 
         // testing: partyTooltips cyoa
@@ -3035,6 +3035,12 @@ if(!campaignTrail_temp.loaded){
         patienceDiv.style.marginBottom = '-4px';
         patienceDiv.style.zIndex = '2';
         wrapDiv.appendChild(patienceDiv);
+
+        //
+        circleColors = ['green', 'yellow', 'orange', 'red'];
+        if (campaignPersona === "outsider") {
+            circleColors.reverse();
+        }
     
         for (let i = 0; i < 4; i++) {
             let circle = document.createElement('div');
@@ -3045,10 +3051,7 @@ if(!campaignTrail_temp.loaded){
             circle.style.border = '1px solid black'; // Added border
     
             if (i <= Math.floor(radicalism / 5)) {
-                if (i === 0) circle.style.backgroundColor = 'red';
-                else if (i === 1) circle.style.backgroundColor = 'orange';
-                else if (i === 2) circle.style.backgroundColor = 'yellow';
-                else circle.style.backgroundColor = 'green';
+                circle.style.backgroundColor = circleColors[i];
             } else {
                 circle.style.display = 'none';
             }
