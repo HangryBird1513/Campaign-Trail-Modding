@@ -138,7 +138,6 @@ if (!element) {
 
 
     let trackIndices;
-    let shuffledIndices;
 
  $("#game_start").click((event) => {  
     event.preventDefault();
@@ -240,15 +239,12 @@ if (!element) {
                 let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
                 let newSel;
                 if (e.music.shuffleEnabled) {
-                    if (!shuffledIndices) {
-                        shuffledIndices = shuffle(trackIndices.slice());
-                    }
-                    let currentIndex = shuffledIndices.findIndex(index => index === selected);
+                    let currentIndex = trackIndices.findIndex(index => index === selected);
                     if (currentIndex === 0) {
-                        shuffledIndices = shuffle(trackIndices.slice());
+                        shuffle(trackIndices);
                         currentIndex = 1;
                     }
-                    newSel = shuffledIndices[currentIndex - 1];
+                    newSel = trackIndices[currentIndex - 1];
                 } else {
                     newSel = selected === 0 ? soundtracks[e.selectedSoundtrack].tracklist.length - 1 : selected - 1;
                 }
@@ -274,15 +270,12 @@ if (!element) {
                 let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
                 let newSel;
                 if (e.music.shuffleEnabled) {
-                    if (!shuffledIndices) {
-                        shuffledIndices = shuffle(trackIndices.slice());
-                    }
-                    let currentIndex = shuffledIndices.findIndex(index => index === selected);
-                    if (currentIndex === shuffledIndices.length - 1) {
-                        shuffledIndices = shuffle(trackIndices.slice());
+                    let currentIndex = trackIndices.findIndex(index => index === selected);
+                    if (currentIndex === trackIndices.length - 1) {
+                        shuffle(trackIndices);
                         currentIndex = -1;
                     }
-                    newSel = shuffledIndices[currentIndex + 1];
+                    newSel = trackIndices[currentIndex + 1];
                 } else {
                     newSel = selected === soundtracks[e.selectedSoundtrack].tracklist.length - 1 ? 0 : selected + 1;
                 }
@@ -305,19 +298,18 @@ if (!element) {
 
                     //
                     let currentTrackIndex = Number(currentTrackSelector.value);
-                    shuffledIndices = trackIndices.filter(index => index !== currentTrackIndex);
-                    shuffledIndices.unshift(currentTrackIndex);
+                    trackIndices = trackIndices.filter(index => index !== currentTrackIndex);
+                    trackIndices.unshift(currentTrackIndex);
 
                     //
                     soundtrackSongContainer.prepend(currentTrackSelector.parentElement)
 
                     //
-                    shuffledIndices = shuffle(shuffledIndices, 1);
-
+                    shuffle(trackIndices, 1);
                 }
                 else {
-                  //
-                  unshuffle(trackIndices);
+                    //
+                    unshuffle(trackIndices);
                 }
             });
 
@@ -444,8 +436,6 @@ if (!element) {
                         break;
                     }
                 }
-                e.music.shuffleEnabled = false;
-                shuffledIndices = null;
 
                 document.getElementById("trackSelParent").remove();
                 newMusicPlayer(currentBgImage);  // Pass the current background image to the next function invocation.
@@ -470,15 +460,12 @@ if (!element) {
                 let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
                 let newSel;
                 if (e.music.shuffleEnabled) {
-                    if (!shuffledIndices) {
-                        shuffledIndices = shuffle(trackIndices.slice());
-                    }
-                    let currentIndex = shuffledIndices.findIndex(index => index === selected);
-                    if (currentIndex === shuffledIndices.length - 1) {
-                        shuffledIndices = shuffle(trackIndices.slice());
+                    let currentIndex = trackIndices.findIndex(index => index === selected);
+                    if (currentIndex === trackIndices.length - 1) {
+                        shuffle(trackIndices);
                         currentIndex = -1;
                     }
-                    newSel = shuffledIndices[currentIndex + 1];
+                    newSel = trackIndices[currentIndex + 1];
                 } else {
                     newSel = selected + 1 === soundtracks[e.selectedSoundtrack].tracklist.length ? 0 : selected + 1;
                 }
@@ -728,6 +715,7 @@ if (!element) {
             let breakElements = soundtrackSongContainer.querySelectorAll("br");
 
             for (let i = currentIndex; i < array.length; i++) {
+                //
                 randomIndex = Math.floor(Math.random() * (array.length - i) + i);
 
                 temporaryValue = array[i];
@@ -739,9 +727,6 @@ if (!element) {
 
                 soundtrackSongContainer.insertBefore(soundtrackSong, breakElements[i]);
             }
-    
-            //
-            return array;
         }
 
         function unshuffle(array){
@@ -751,7 +736,10 @@ if (!element) {
 
           for (let i = 0; i < array.length; i++) {
               //
-              let soundtrackSong = soundtrackSongContainer.querySelector(`input[name="trackSelector"][value="${i}"]`).parentElement;
+              array[i] = i;
+
+              //
+              let soundtrackSong = soundtrackSongContainer.querySelector(`input[name="trackSelector"][value="${array[i]}"]`).parentElement;
 
               soundtrackSongContainer.insertBefore(soundtrackSong, breakElements[i]);
           }
