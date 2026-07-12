@@ -246,13 +246,13 @@ if (!element) {
                     let currentIndex = shuffledIndices.findIndex(index => index === selected);
                     if (currentIndex === 0) {
                         shuffledIndices = shuffle(trackIndices.slice());
-                        currentIndex = shuffledIndices.length;
+                        currentIndex = 1;
                     }
                     newSel = shuffledIndices[currentIndex - 1];
                 } else {
                     newSel = selected === 0 ? soundtracks[e.selectedSoundtrack].tracklist.length - 1 : selected - 1;
                 }
-                document.querySelectorAll('.trackSelector')[newSel].click();
+                document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
             });
 
             // 
@@ -286,7 +286,7 @@ if (!element) {
                 } else {
                     newSel = selected === soundtracks[e.selectedSoundtrack].tracklist.length - 1 ? 0 : selected + 1;
                 }
-                document.querySelectorAll('.trackSelector')[newSel].click();
+                document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
             });
 
             var shuffleButton = document.createElement("button");
@@ -299,10 +299,25 @@ if (!element) {
                 e.music.shuffleEnabled = !e.music.shuffleEnabled;
                 event.target.innerHTML = e.music.shuffleEnabled ? "<b>Unshuffle</b>" : "<b>Shuffle</b>";
                 if (e.music.shuffleEnabled) {
-                    shuffledIndices = shuffle(trackIndices.slice());
-                    let currentTrackIndex = Number(document.querySelector('input[name="trackSelector"]:checked').value);
-                    shuffledIndices = shuffledIndices.filter(index => index !== currentTrackIndex);
+                    //
+                    let soundtrackSongContainer = document.querySelector("#soundtrackSongs");
+                    let currentTrackSelector = soundtrackSongContainer.querySelector('input[name="trackSelector"]:checked');
+
+                    //
+                    let currentTrackIndex = Number(currentTrackSelector.value);
+                    shuffledIndices = trackIndices.filter(index => index !== currentTrackIndex);
                     shuffledIndices.unshift(currentTrackIndex);
+
+                    //
+                    soundtrackSongContainer.prepend(currentTrackSelector.parentElement)
+
+                    //
+                    shuffledIndices = shuffle(shuffledIndices, 1);
+
+                }
+                else {
+                  //
+                  unshuffle(trackIndices);
                 }
             });
 
@@ -342,7 +357,7 @@ if (!element) {
             
             //
             var musicPlayerButtons = document.createElement("div");
-            musicPlayerButtons.classList.add("musicplayerbuttons");
+            musicPlayerButtons.className = "musicplayerbuttons";
             musicPlayerButtons.style.display = "flex"; // Makes children inline
             musicPlayerButtons.style.justifyContent = "space-between";
             
@@ -418,7 +433,7 @@ if (!element) {
             z += "</div></div>";
             trackSel.innerHTML = z;
             musicBox.appendChild(trackSel);
-            document.querySelector('.trackSelector').checked = true;
+            document.querySelector(`input[name="trackSelector"][value="0"]`).checked = true;
             soundtrackSelector = document.getElementById("selectSoundtrack")
             soundtrackSelector.onchange = function() {
                 let currentBgImage = document.getElementById("trackSel").style.backgroundImage;
@@ -467,7 +482,7 @@ if (!element) {
                 } else {
                     newSel = selected + 1 === soundtracks[e.selectedSoundtrack].tracklist.length ? 0 : selected + 1;
                 }
-                document.querySelectorAll('.trackSelector')[newSel].click();
+                document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
                 }
             }
 
@@ -704,19 +719,42 @@ if (!element) {
         newMusicPlayer()
       }
 
-          function shuffle(array) {
-            let currentIndex = array.length, temporaryValue, randomIndex;
+          function shuffle(array, currentIndex = 0) {
+            // array contains the indices of the soundtrack songs
+            let temporaryValue, randomIndex;
 
-            while (0 !== currentIndex) {
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex -= 1;
+            // 
+            let soundtrackSongContainer = document.querySelector("#soundtrackSongs");
+            let breakElements = soundtrackSongContainer.querySelectorAll("br");
 
-                temporaryValue = array[currentIndex];
-                array[currentIndex] = array[randomIndex];
+            for (let i = currentIndex; i < array.length; i++) {
+                randomIndex = Math.floor(Math.random() * (array.length - i) + i);
+
+                temporaryValue = array[i];
+                array[i] = array[randomIndex];
                 array[randomIndex] = temporaryValue;
-            }
 
+                //
+                let soundtrackSong = soundtrackSongContainer.querySelector(`input[name="trackSelector"][value="${array[i]}"]`).parentElement;
+
+                soundtrackSongContainer.insertBefore(soundtrackSong, breakElements[i]);
+            }
+    
+            //
             return array;
+        }
+
+        function unshuffle(array){
+          // 
+          let soundtrackSongContainer = document.querySelector("#soundtrackSongs");
+          let breakElements = soundtrackSongContainer.querySelectorAll("br");
+
+          for (let i = 0; i < array.length; i++) {
+              //
+              let soundtrackSong = soundtrackSongContainer.querySelector(`input[name="trackSelector"][value="${i}"]`).parentElement;
+
+              soundtrackSongContainer.insertBefore(soundtrackSong, breakElements[i]);
+          }
         }
 
 headerImage = '';
