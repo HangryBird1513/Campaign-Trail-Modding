@@ -209,14 +209,14 @@ if (!element) {
                 updatePositionDisplay();
                 let audio = document.getElementById("campaigntrailmusic");
                 if (audio.paused) {
-                    audio.play();
                     pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Pause-Button.png";
                     pausePlayButtonImage.style.marginLeft = "0px";
+                    audio.play();
                 }
                 else {
-                    audio.pause();
                     pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Play-Button.png";
                     pausePlayButtonImage.style.marginLeft = "3px";
+                    audio.pause();
                 }
             })
 
@@ -342,9 +342,9 @@ if (!element) {
             volumeLabel.innerHTML = "<br><b>Volume:</b> " +  Math.round(volumeSlider.value * 100);
 
             if (audio.volume === 0) {
-                audio.pause();
                 pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Play-Button.png";
                 pausePlayButtonImage.style.marginLeft = "3px";
+                audio.pause();
             }
             
             //
@@ -444,8 +444,16 @@ if (!element) {
             for (match in matches) {
                 matches[match].onchange = function() {
                     audio = $("#campaigntrailmusic")[0];
-                    audio.src = soundtracks[e.selectedSoundtrack].tracklist[this.value].url
-                    audio.currentTime = 0
+
+                    //
+                    if (audio.paused) {
+                      var pausePlayButtonImage = document.querySelector("#pause-play-button img");
+                      pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Pause-Button.png";
+                      pausePlayButtonImage.style.marginLeft = "0px";
+                    }
+
+                    audio.src = soundtracks[e.selectedSoundtrack].tracklist[this.value].url;
+                    audio.currentTime = 0;
                 }
             }
             musicBox.children[2].loop = false
@@ -482,7 +490,7 @@ if (!element) {
             //
             var musicSpeakerImage = document.createElement("img");
             musicSpeakerImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/German-Flag-Bluetooth-Speaker.png";
-            musicSpeakerImage.style.width = "273px";
+            musicSpeakerImage.style.width = "100%";
             musicSpeakerImage.style.height = "auto";
             musicSpeaker.appendChild(musicSpeakerImage);
 
