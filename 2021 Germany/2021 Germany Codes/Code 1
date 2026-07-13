@@ -419,7 +419,7 @@ if (!element) {
                 // <label><input type="radio" name="option" value="option1">Option 1</label><br>
             for (i in soundtracks[e.selectedSoundtrack].tracklist) {
                 let a = soundtracks[e.selectedSoundtrack].tracklist[i];
-                let b = `<label><input class="trackSelector" type="radio" name="trackSelector" value="` + i + `">` + a.name + `</label><br>`;
+                let b = `<label><input class="soundtrackSelector" type="radio" name="trackSelector" value="` + i + `">` + a.name + `</label><br>`;
                 z += b;
             }
             z += "</div></div>";
@@ -440,7 +440,7 @@ if (!element) {
                 document.getElementById("trackSelParent").remove();
                 newMusicPlayer(currentBgImage);  // Pass the current background image to the next function invocation.
             };
-            var matches = document.querySelectorAll('.trackSelector');
+            var matches = document.querySelectorAll('.soundtrackSelector');
             for (match in matches) {
                 matches[match].onchange = function() {
                     audio = $("#campaigntrailmusic")[0];
