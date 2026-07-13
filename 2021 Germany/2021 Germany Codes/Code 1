@@ -212,12 +212,12 @@ if (!element) {
                     audio.play();
                     pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Pause-Button.png";
                     pausePlayButtonImage.style.marginLeft = "0px";
-                    return;
                 }
-                audio.pause();
-                pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Play-Button.png";
-                pausePlayButtonImage.style.marginLeft = "3px";
-                return;
+                else {
+                    audio.pause();
+                    pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Play-Button.png";
+                    pausePlayButtonImage.style.marginLeft = "3px";
+                }
             })
 
             // 
