@@ -139,13 +139,14 @@ if (!element) {
 
     let trackIndices;
 
- $("#game_start").click((event) => {  
+ $("#game_start").click((event) => { 
     event.preventDefault();
 
     //
     $("#game_window")[0].style.height = "auto";
 
     musicMode()
+
       })
     musicMode = () => {
         $("#music_player")[0].children[0].style.display = "none"
@@ -627,7 +628,7 @@ if (!element) {
             ]
                 },
                 4: {
-              name: "Deutsche Volkslieder (CDU)",
+              name: "Deutsche Volkslieder (CDU/CSU)",
               tracklist: [
                 {
                   "name": "Kein Schöner Land in dieser Zeit",
