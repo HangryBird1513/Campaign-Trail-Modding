@@ -3,6 +3,7 @@
 To-Do List:
 - Update Mützenich's candidate description in the candidate selection section
 - Add additional achievements and tooltips for Merz and Mützenich
+- Add interviews for Merz and Mützenich in the further reading section and replace the broken links there
 - Fix formatting on NCT
 
 List of Changes:
@@ -10,16 +11,16 @@ List of Changes:
 - Modified the game window header text and the header text before the drop-down menu in the candidate selection section
 - Modified the introduction text before the "Click here to begin!" button to be more appropriate for the mod's setting
 - Updated Merz's candidate description in the candidate selection section
-- Modified formatting of the recommending reading section and credits button
+- Modified formatting of the further reading section and credits button
 - Modified column widths and total width of the result tables to accomodate for the new lead candidate(s) column
 - Modified width of polling containers in the electoral map
 - Replaced broken SPD image
 - Modified formatting of the difficulty options explanation so that the tooltip fits in its outer container
 - Fixed text of difficulty options so that it turns white without any delay
 - Fixed the credits so that the period is white like the rest of the text
-- Added a title, cover image, "Previous" button, and volume amount indicator to the music player 
+- Added a title, cover image, "Previous" button, and volume amount indicator to the music player
 - Renamed "Skip" button in the music player to "Next"
-- Modified "Shuffle" button to also shuffle the order that the songs physically appear in
+- Modified "Shuffle" button in the music player to also shuffle the order that the songs physically appear in
 - Fixed the song radio buttons to display the "Pause" button if the music player was previously paused
 - Modified formatting and position of the music player so that it is above the cheat menu
 - Removed theme picker so that the mod's unique theme cannot be changed?
@@ -42,12 +43,13 @@ List of Changes:
 - Fixed Merz's character mechanic tooltip in the HQ so that it displays the radicalism amount when cheats are enabled like it's supposed to
 - Renamed various elements that had "Electoral Votes" in their text to have "Seats" instead
 - Fixed state result tables so that their "Electoral Votes" and "Candidate" headers are permanantly renamed to "Seats" and "Party" respectively
-- Added a column for lead candidate(s) in the result tables
+- Added a "Lead Candidate(s)" column in the result tables
 - Added tooltips for parties in the electoral map
 - Modified "PV Estimate"/"State Estimate" and "Seat Estimate" buttons to allow for party tooltips
 - Modified position of tooltips for issues so that they appear left of the text
 - Fixed the "Election Charts" and "Current Polls" buttons so that they appear properly now
-- Added "Others" to line chart and fixed it so that it displays the question numbers properly and only appears for a full campaign like it's supposed to
+- Added "Others" to line chart so that their polling is charted like the rest of the parties
+- Fixed line chart so that it displays the question numbers properly and only appears for a full campaign like it's supposed to
 - Modified HQ tutorial text and subtitle of bar charts
 - Implemented all endings that were listed in the cutting room floor document
 - Added all advisors that were listed in the cutting room floor document, but without their effects
