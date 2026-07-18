@@ -48,7 +48,7 @@ List of Changes:
 - Modified "PV Estimate"/"State Estimate" and "Seat Estimate" buttons to allow for party tooltips
 - Modified position of tooltips for issues so that they appear left of the text
 - Fixed the "Election Charts" and "Current Polls" buttons so that they appear properly now
-- Added "Others" to line chart so that their polling is charted like the rest of the parties
+- Modified line chart so that it also charts polling for "Others"
 - Fixed line chart so that it displays the question numbers properly and only appears for a full campaign like it's supposed to
 - Modified HQ tutorial text and subtitle of bar charts
 - Implemented all endings that were listed in the cutting room floor document
