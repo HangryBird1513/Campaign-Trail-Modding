@@ -168,10 +168,13 @@ if (!element) {
     // Add the div to the bar
     bar.appendChild(div);
 
-    // Add event listener to the checkbox
+    // Add event listener to the checkbox      solve asap
     checkbox.addEventListener('change', function() {
-        if (!this.checked) {
-            e.music.Volume = 0;  // Set the initial volume of the music player to 0
+        if (this.checked) {
+            e.music.Volume = 0.3;  
+        }
+        else {
+            e.music.Volume = 0; // Set the initial volume of the music player to 0
         }
     });
 
@@ -200,6 +203,26 @@ if (!element) {
         var trackSel;
         e = campaignTrail_temp
         e.selectedSoundtrack = 0
+
+        //
+        createMusicSpeaker = () => {
+            // 
+            var musicSpeaker = document.createElement("div");
+            musicSpeaker.id = "musicSpeaker";
+            musicSpeaker.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:273px;background-color:#6699CC;float:right;padding:10px;";
+            musicSpeaker.innerHTML = `<b>Music Player</b><br><br>`;
+          
+            //
+            var musicSpeakerImage = document.createElement("img");
+            musicSpeakerImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/German-Flag-Bluetooth-Speaker.png";
+            musicSpeakerImage.style.width = "100%";
+            musicSpeakerImage.style.height = "auto";
+            musicSpeaker.appendChild(musicSpeakerImage);
+          
+            //
+            document.getElementById("trackSelParent").appendChild(musicSpeaker);
+        }
+
         toTime = (seconds) => {
             var date = new Date(null);
             date.setSeconds(seconds);
@@ -520,23 +543,9 @@ if (!element) {
                 document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
                 }
             }
-
-            // 
-            var musicSpeaker = document.createElement("div");
-            musicSpeaker.id = "musicSpeaker";
-            musicSpeaker.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:273px;background-color:#6699CC;float:right;padding:10px;";
-            musicSpeaker.innerHTML = `<b>Music Player</b><br><br>`;
-
-            //
-            var musicSpeakerImage = document.createElement("img");
-            musicSpeakerImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/German-Flag-Bluetooth-Speaker.png";
-            musicSpeakerImage.style.width = "100%";
-            musicSpeakerImage.style.height = "auto";
-            musicSpeaker.appendChild(musicSpeakerImage);
-
-            //
-            document.getElementById("trackSelParent").appendChild(musicSpeaker);
             
+            //
+            createMusicSpeaker();
             generateTime();
            if (previousBgImage) {
               document.getElementById("musicSpeaker").style.backgroundImage = previousBgImage;
@@ -752,7 +761,7 @@ if (!element) {
                 ]
                 }
         }
-        newMusicPlayer()
+        newMusicPlayer();
       }
 
           function shuffle(array, currentIndex = 0) {
