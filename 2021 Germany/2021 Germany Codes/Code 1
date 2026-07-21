@@ -74,6 +74,7 @@ banner.src = bannerBackgroundOptions[0].banner;
 document.body.background = bannerBackgroundOptions[0].background; 
 document.body.style.backgroundRepeat = "no-repeat";
 document.body.style.backgroundSize = "cover";
+document.body.style.backgroundAttachment = 'fixed';
 nct_stuff.themes[nct_stuff.selectedTheme].text_col = "white"
 e.music = {};
 e.music.shuffleEnabled = false;
@@ -1293,9 +1294,6 @@ function paginateContent() {
 
     // Start observing the document with the master observer
     masterObserver.observe(document.body, { childList: true, subtree: true });
-
-    const bodyElement = document.body;
-    bodyElement.style.backgroundAttachment = 'fixed';
 
    tooltipList = [
         {searchString: "Helmut Kohl", explanationText: "CDU chancellor of Germany, from 1982-1998. Had the longest tenure of any chancellor, at 5870 days. Nicknamed “Chancellor of Unity”, due to overseeing the swift reunification of East and West Germany, and having a hand in European integration. Sometimes also criticized for the sluggishness of his administration."},
