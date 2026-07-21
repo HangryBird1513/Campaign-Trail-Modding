@@ -60,10 +60,20 @@ nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#070785"
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#031299"
 document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title
 $(".container")[0].style.backgroundColor = "#001f58"
-document.body.background = "https://i.ibb.co/rFKgjtw/berlin-luft.jpg"
+
+//
+const bannerBackgroundOptions = [
+  {option: 'Choose Your Spieler (Default)', banner: 'https://jetsimon.com/cts-media/public/2021DE_init_1.png', background: 'https://i.ibb.co/rFKgjtw/berlin-luft.jpg'},
+  {option: 'Spieler 1 (SPD)', banner: '', background: 'https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Background%20(SPD).png'},
+  {option: 'Spieler 2 (CDU/CSU)', banner: '', background: 'https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Background%20(CDU%26CSU).png'},
+  {option: 'Spieler 3 (Greens)', banner: '', background: 'https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Background%20(Greens).png'}
+];
+
+const banner = document.getElementById("header");
+banner.src = bannerBackgroundOptions[0].banner;
+document.body.background = bannerBackgroundOptions[0].background; 
 document.body.style.backgroundRepeat = "no-repeat";
 document.body.style.backgroundSize = "cover";
-document.getElementById("header").src = "https://jetsimon.com/cts-media/public/2021DE_init_1.png";
 nct_stuff.themes[nct_stuff.selectedTheme].text_col = "white"
 e.music = {};
 e.music.shuffleEnabled = false;
@@ -81,12 +91,36 @@ introScreen.querySelector('ul').innerHTML = `
 <li>Select a year, a party, and a chancellor candidate to find out.</li><li>You will answer questions about your platform and positions, and also about your campaign strategy.</li><li>The answers will affect your popularity for better or worse, both nationally and in individual states.</li><li>The answers will also affect other elements of your campaign, leading to unique developments in the election.</li><li>Walk the fine line between appealing to your base and winning the most votes.</li><li>Post-election, negotiate a coalition agreement that will hopefully satisfy you, your partner(s), and the German people.</li><li>Good luck on The Campaign Trail!</li>
 `;
 
-//         
-const bannerBackgroundPicker = document.querySelector('#theme_picker');
-bannerBackgroundPicker.id = 'banner_background_picker';
-bannerBackgroundPicker.insertAdjacentHTML('afterbegin', '<b>Banner and Background:</b><br>');
-document.querySelector('.footer').prepend(bannerBackgroundPicker);
-bannerBackgroundPicker.after(document.createElement('br'));
+// 
+const bannerBackgroundPickerContainer = document.createElement('div');
+bannerBackgroundPickerContainer.id = 'banner_background_picker';
+
+//
+bannerBackgroundPickerContainer.innerHTML = '<b>Banner and Background:</b><br>';
+const bannerBackgroundPicker = document.createElement('select');
+bannerBackgroundPicker.id = 'bannerBackgroundPicker';
+
+// 
+bannerBackgroundOptions.forEach(option => {
+  var optionElement = document.createElement("option");
+  optionElement.text = option.option;
+  optionElement.value = option.option;
+  bannerBackgroundPicker.options.add(optionElement);
+});
+
+// 
+bannerBackgroundPicker.addEventListener("change", function() {
+  var selectedOption = bannerBackgroundOptions.find(bbo => bbo.option === this.value);
+  //   banner.src = selectedOption.banner;
+  document.body.background = selectedOption.background; 
+});
+
+//
+bannerBackgroundPickerContainer.appendChild(bannerBackgroundPicker);
+
+//
+document.querySelector('.footer').prepend(bannerBackgroundPickerContainer);
+bannerBackgroundPickerContainer.after(document.createElement('br'));
 
 quotes = [`"Wir schaffen das!" - Angela Merkel`, `"Scheitert der Euro, scheitert Europa." - Angela Merkel`, `"Das Internet ist für uns alle Neuland." - Angela Merkel`, `"Die Demokratie ist kein Supermarkt." - Frank-Walter Steinmeier`, `In my homeland Baden-Württemberg we are all sitting in one boat.`, `"Rechts von der CDU/CSU darf es keine demokratisch legitimierte Partei geben" - Franz-Joseph Strauß`, `"Jetzt wächst zusammen, was zusammen gehört" - Willy Brandt`, `Was kümmert mich mein Geschwätz von gestern? - Konrad Adenauer`, `"Wer Visionen hat, sollte zum Arzt gehen" - Helmut Schmidt`, `There will never be a revolution in Germany. The bureaucratic paperwork for it is missing.`]
 customquote = quotes[Math.floor((Math.random() * quotes.length))]
@@ -459,7 +493,7 @@ if (!element) {
 
                     audio.src = soundtracks[e.selectedSoundtrack].tracklist[this.value].url;
                     audio.currentTime = 0;
-                }
+                };
             }
             musicBox.children[2].loop = false
             musicBox.children[2].src = soundtracks[e.selectedSoundtrack].tracklist[0].url
@@ -499,6 +533,7 @@ if (!element) {
             musicSpeakerImage.style.height = "auto";
             musicSpeaker.appendChild(musicSpeakerImage);
 
+            //
             document.getElementById("trackSelParent").appendChild(musicSpeaker);
             
             generateTime();
@@ -1850,7 +1885,8 @@ function paginateContent() {
                   }
             }
             
-            .footer h4{
+            .footer h4, 
+            .footer #theme_picker {
               display: none
             }
 
