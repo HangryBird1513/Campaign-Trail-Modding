@@ -23,7 +23,7 @@ List of Changes:
 - Modified "Shuffle" button in the music player to also shuffle the order that the songs physically appear in
 - Fixed the song radio buttons to display the "Pause" button if the music player was previously paused
 - Modified formatting and position of the music player so that it is above the cheat menu
-- Removed theme picker so that the mod's unique theme cannot be changed?
+- Removed theme picker so that the mod's unique theme cannot be changed and replaced it with a banner and background picker
 - Fixed the game window so that it expands vertically to accomodate for any content that tries to spill out of it
 
 2. Code 2-Merz
