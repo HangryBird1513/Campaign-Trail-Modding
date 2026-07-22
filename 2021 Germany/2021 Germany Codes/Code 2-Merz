@@ -340,7 +340,7 @@ if(!campaignTrail_temp.loaded){
             coalitionTable.style.margin = "0 auto";
             coalitionTable.style.marginTop = "5px";
             coalitionTable.style.marginBottom = "5px";
-            coalitionTable.style.width = "70%";
+            coalitionTable.style.width = "75%";
             coalitionTable.style.border = "1px solid black";
     
             // Create a header row
@@ -349,33 +349,33 @@ if(!campaignTrail_temp.loaded){
             if (coalitionNames){
                 // Create a header cell for the coalition name
                 const nameHeader = document.createElement("th");
-                nameHeader.style.width = "25%";
+                nameHeader.style.width = "20%";
                 nameHeader.style.fontWeight = "bold";
-                const nameelementText = document.createTextNode("Name");
+                const nameelementText = document.createTextNode("Coalition Name");
                 nameHeader.appendChild(nameelementText);
                 headerRow.appendChild(nameHeader);
             }
     
             // Create a header cell for the list of parties
             const partiesHeader = document.createElement("th");
-            partiesHeader.style.width = "25%";
+            partiesHeader.style.width = "20%";
             partiesHeader.style.fontWeight = "bold";
-            const partieselementText = document.createTextNode("Parties involved");
+            const partieselementText = document.createTextNode("Parties Involved");
             partiesHeader.appendChild(partieselementText);
             headerRow.appendChild(partiesHeader);
     
             // Create a header cell for the checkbox
             const checkboxHeader = document.createElement("th");
-            checkboxHeader.style.width = "25%";
+            checkboxHeader.style.width = "15%";
             checkboxHeader.style.fontWeight = "bold";
             const checkboxelementText = document.createTextNode("Negotiate?");
             checkboxHeader.appendChild(checkboxelementText);
             headerRow.appendChild(checkboxHeader);
     
               const likelihoodHeader = document.createElement("th");
-              likelihoodHeader.style.width = "25%";
+              likelihoodHeader.style.width = "20%";
               likelihoodHeader.style.fontWeight = "bold";
-              const likelihoodelementText = document.createTextNode("Negotiation Mood:");
+              const likelihoodelementText = document.createTextNode("Negotiation Mood");
               likelihoodHeader.appendChild(likelihoodelementText);
               headerRow.appendChild(likelihoodHeader);
     
@@ -392,7 +392,6 @@ if(!campaignTrail_temp.loaded){
               if(coalitionNames){
                   // Create a cell for the coalition name and add it to the row
                   const nameCell = document.createElement("td");
-                  nameCell.style.width = "25%";
                   const coalitionName = document.createTextNode(coalition.name);
                   nameCell.appendChild(coalitionName);
                   row.appendChild(nameCell);
@@ -400,7 +399,6 @@ if(!campaignTrail_temp.loaded){
     
                 // Create a cell for the list of parties and add it to the row
                 const partiesCell = document.createElement("td");
-                partiesCell.style.width = "25%";
                 const partiesList = coalition.parties
                 .map(partyId => {
                   const party = e.candidate_json.find(p => p.pk === partyId);
@@ -414,7 +412,6 @@ if(!campaignTrail_temp.loaded){
     
               // Create a cell for the checkbox and add it to the row
               const checkboxCell = document.createElement("td");
-              checkboxCell.style.width = "25%";
               const player_pk = e.candidate_id;
               const hasPlayerParty = coalition.parties.includes(player_pk);
     
@@ -447,7 +444,6 @@ if(!campaignTrail_temp.loaded){
     
                 // Create a cell for the likelihood and add it to the row
                 const likelihoodCell = document.createElement("td");
-                likelihoodCell.style.width = "25%";
                 let coalitionWeight = coalition.weight;
                 if (coalition.parties.includes(e.candidate_id)) {
                   coalitionWeight *= e.coalitionDifficulty;
@@ -487,6 +483,9 @@ if(!campaignTrail_temp.loaded){
     
               // Add the container to the coalitionListDiv
               coalitionListDiv.appendChild(container);
+
+              //
+              container.insertAdjacentHTML('afterend', '<br>');
     
               // Add a button to select a coalition
                 const selectButton = document.createElement("button");
@@ -1158,7 +1157,7 @@ if(!campaignTrail_temp.loaded){
             }
     
             if (!disaster){
-                text = [`<p>${playerPerformance}</p><p>${SSW}${LeftPerformance}</p>`,`<div id="coalitionList"> In the Federal Republic of Germany, the parliamentary multi-party system demands coalition agreements between parties to conjure up workable majority. It's time to negotiate!</div>` ]
+                text = [`<p>${playerPerformance}</p><p>${SSW}${LeftPerformance}</p>`,`<div id="coalitionList"> In the Federal Republic of Germany, the parliamentary multi-party system demands coalition agreements between parties to conjure up workable majority. It's time to negotiate!<br><br></div>` ]
                 image.push("https://i.ibb.co/1Rn3Sb0/kuppel.jpg")
             }
     
