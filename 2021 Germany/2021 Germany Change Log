@@ -20,6 +20,7 @@ List of Changes:
 - Fixed text of difficulty options so that it turns white without any delay
 - Added a title, cover image, "Previous" button, and volume amount indicator to the music player
 - Renamed "Skip" button in the music player to "Next"
+- Replaced text of "Previous", "Play"/"Pause", and "Next" buttons with images
 - Modified "Shuffle" button in the music player to also shuffle the order that the songs physically appear in
 - Fixed the song radio buttons so that the "Pause" button is displayed if the music player was previously paused
 - Modified formatting and position of the music player so that it is above the cheat menu
@@ -51,5 +52,6 @@ List of Changes:
 - Modified line chart so that it also charts polling for "Others"
 - Fixed line chart so that it displays the question numbers properly and only appears for a full campaign like it's supposed to
 - Modified HQ tutorial text and subtitle of bar charts
+- Modified formatting of the coalition negotiation section
 - Implemented all endings that were listed in the cutting room floor document
 - Added all advisors that were listed in the cutting room floor document, but without their effects
