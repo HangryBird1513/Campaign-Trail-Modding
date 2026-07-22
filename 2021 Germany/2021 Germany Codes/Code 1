@@ -168,7 +168,7 @@ if (!element) {
     // Add the div to the bar
     bar.appendChild(div);
 
-    // Add event listener to the checkbox      solve asap
+    // Add event listener to the checkbox  
     checkbox.addEventListener('change', function() {
         if (this.checked) {
             e.music.Volume = 0.3;  
