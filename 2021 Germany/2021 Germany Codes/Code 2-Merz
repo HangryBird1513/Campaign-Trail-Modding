@@ -3046,19 +3046,15 @@ if(!campaignTrail_temp.loaded){
             circleColors.reverse();
         }
     
-        for (let i = 0; i < 4; i++) {
+        //
+        for (let i = 0; i <= Math.floor(radicalism / 5); i++) {
             let circle = document.createElement('div');
             circle.style.width = '3em';
             circle.style.height = '3em';
             circle.style.borderRadius = '50%';
             circle.style.margin = '5px';
             circle.style.border = '1px solid black'; // Added border
-    
-            if (i <= Math.floor(radicalism / 5)) {
-                circle.style.backgroundColor = circleColors[i];
-            } else {
-                circle.style.display = 'none';
-            }
+            circle.style.backgroundColor = circleColors[i];
             patienceDiv.appendChild(circle);
         }
     
