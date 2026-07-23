@@ -3046,8 +3046,8 @@ if(!campaignTrail_temp.loaded){
             circleColors.reverse();
         }
     
-        //
-        for (let i = 0; i <= Math.floor(radicalism / 5); i++) {
+        // 
+        for (let i = 0; i <= Math.min(Math.floor(radicalism / 5), 3); i++) {
             let circle = document.createElement('div');
             circle.style.width = '3em';
             circle.style.height = '3em';
