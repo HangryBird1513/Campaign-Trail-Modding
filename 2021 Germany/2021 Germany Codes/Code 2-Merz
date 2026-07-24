@@ -897,7 +897,7 @@ if(!campaignTrail_temp.loaded){
         var secondParty = e.candidate_json.find(p => p.pk === e.final_overall_results[1].candidate);
         var secondPartyLeader = partyLeaders.find((p) => p.party === e.final_overall_results[1].candidate);
         var LeftParty = (e.final_overall_results.find((r) => r.candidate === 304));
-        var partyPerformance = "";
+        var playerPerformance = "";
         var LeftPerformance = "";
         var disaster = false;
         var spdresult = e.candidate_json.find(p => p.pk === 78);
