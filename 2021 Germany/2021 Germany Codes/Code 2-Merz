@@ -3014,7 +3014,7 @@ if(!campaignTrail_temp.loaded){
         if (campaignTrail_temp.bigshot_mode || cheatsActive){
             patienceLabelTooltip += "<br>Current Radicalism: "+ radicalism;
         }
-        patienceLabel.innerHTML = "<span class='mytooltip'>Merz's Radicalism<span class='mytooltiptext'>" + patienceLabelTooltip + "</span></span>";
+        patienceLabel.innerHTML = "<span class='mytooltip'>Friedrich's Radicalism<span class='mytooltiptext'>" + patienceLabelTooltip + "</span></span>";
 
         patienceLabel.className = 'happy-box';
         patienceLabel.style.padding = '1em';
