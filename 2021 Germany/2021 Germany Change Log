@@ -32,10 +32,9 @@ List of Changes:
 To-Do List:
 - Update questions, answers, and feedback
 - Implement rest of CYOA
-- Update advisors and tooltips for parties
+- Update advisors and tooltips for parties and states
 - Replace placeholder content, especially images and music
 - Maybe add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
-- Maybe enable visits and have the advisor feedback include a short description of the state being visited?
 - Fix formatting on NCT
 
 List of Changes:
@@ -45,7 +44,8 @@ List of Changes:
 - Renamed various elements that had "Electoral Votes" in their text to have "Seats" instead
 - Fixed state result tables so that their "Electoral Votes" and "Candidate" headers are permanantly renamed to "Seats" and "Party" respectively
 - Added a "Lead Candidate(s)" column in the result tables
-- Added tooltips for parties in the electoral map
+- Added ___ in the electoral map
+- Added tooltips for parties and states in the electoral map
 - Modified "PV Estimate"/"State Estimate" and "Seat Estimate" buttons to allow for party tooltips
 - Modified position of tooltips for issues so that they appear left of the text
 - Fixed the "Election Charts" and "Current Polls" buttons so that they appear properly now
