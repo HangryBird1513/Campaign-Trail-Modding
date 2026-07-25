@@ -5275,7 +5275,7 @@ if(!campaignTrail_temp.loaded){
         
     // 
     partyTooltips.forEach(p => {
-        p.tooltipObject = document.createElement('div');
+        p.tooltipObject = document.createElement('span');
         p.tooltipObject.className = 'partytooltiptext';
         p.tooltipObject.innerHTML = p.tooltipText;
         document.body.appendChild(p.tooltipObject);
