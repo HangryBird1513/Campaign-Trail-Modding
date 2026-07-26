@@ -20,7 +20,7 @@ List of Changes:
 - Fixed text of difficulty options so that it turns white without any delay
 - Added a title, cover image, "Previous" button, and volume amount indicator to the music player
 - Renamed "Skip" button in the music player to "Next"
-- Replaced text of "Previous", "Play"/"Pause", and "Next" buttons with images based on buttons from the Tagesschau website
+- Modified "Previous", "Play"/"Pause", and "Next" buttons to resemble the buttons from the Tagesschau website
 - Modified "Shuffle" button in the music player to also shuffle the order that the songs physically appear in
 - Fixed the song radio buttons so that the "Pause" button is displayed if the music player was previously paused
 - Modified formatting and position of the music player so that it is above the cheat menu
@@ -44,8 +44,8 @@ List of Changes:
 - Renamed various elements that had "Electoral Votes" in their text to have "Seats" instead
 - Fixed state result tables so that their "Electoral Votes" and "Candidate" headers are permanantly renamed to "Seats" and "Party" respectively
 - Added a "Lead Candidate(s)" column in the result tables
-- Added ___ in the electoral map
-- Added tooltips for parties and states in the electoral map
+- Modified states in the electoral map to ____ when hovered over
+- Added labels for city-states and tooltips for parties and states in the electoral map
 - Modified "PV Estimate"/"State Estimate" and "Seat Estimate" buttons to allow for party tooltips
 - Modified position of tooltips for issues so that they appear left of the text
 - Fixed the "Election Charts" and "Current Polls" buttons so that they appear properly now
