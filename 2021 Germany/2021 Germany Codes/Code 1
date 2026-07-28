@@ -168,7 +168,7 @@ if (!element) {
     // Add the div to the bar
     bar.appendChild(div);
 
-    // Add event listener to the checkbox  
+    // Add event listener to the checkbox      
     checkbox.addEventListener('change', function() {
         if (this.checked) {
             e.music.Volume = 0.3;  
@@ -1470,7 +1470,7 @@ function paginateContent() {
         {searchString: "Luisa Neubauer", explanationText: "Publicist and main coordinator of Fridays For Future-strikes in Germany. Is active in several NGO’s and advocates for a strict climate policy. Is nominally a member of The Greens, although inactive. Was part of the lawsuit against the Climate Protection Act of the Grand Coalition."},
     ];
 
-    async function appendStyle() {
+    async function appendStyle() { 
         var metaTag=document.createElement('meta');
         metaTag.name = "viewport";
         metaTag.content = "width=device-width, initial-scale=1";
@@ -1908,6 +1908,12 @@ function paginateContent() {
 
             #menu_container {
               width: 20.5%;
+            }
+
+            #menu_container,
+            #overall_result_container,
+            #state_result_container {
+              background-color: transparent;
             }
             
             #overall_vote_statistics table{
