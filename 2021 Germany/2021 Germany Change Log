@@ -14,7 +14,7 @@ List of Changes:
 - Updated Merz's candidate description in the candidate selection section
 - Modified formatting of the further reading section and credits
 - Modified column widths and total width of the result tables to accomodate for the new lead candidate(s) column
-- Modified width and background color of the polling menu container in the electoral map 
+- Modified width, height, and background color of the polling menu container in the electoral map 
 - Replaced broken SPD image
 - Modified formatting of the difficulty options explanation so that the tooltip fits in its outer container
 - Fixed text of difficulty options so that it turns white without any delay
