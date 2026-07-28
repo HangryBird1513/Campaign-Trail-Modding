@@ -1910,6 +1910,15 @@ function paginateContent() {
               width: 20.5%;
             }
 
+            #state_info,
+            #state_result {
+              margin-top: 4%;
+            }
+
+            #state_result {
+              height: 96%;
+            }
+
             #menu_container,
             #overall_result_container,
             #state_result_container {
