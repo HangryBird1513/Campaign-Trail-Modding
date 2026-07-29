@@ -44,7 +44,7 @@ List of Changes:
 - Renamed various elements that had "Electoral Votes" in their text to have "Seats" instead
 - Fixed state result tables so that their "Electoral Votes" and "Candidate" headers are permanantly renamed to "Seats" and "Party" respectively
 - Added a "Lead Candidate(s)" column in the result tables
-- Modified states in the electoral map to ____ when hovered over
+- Modified states in the electoral map to be highlighted with a brightness and saturation filter when hovered over
 - Added labels for city-states and tooltips for parties and states in the electoral map
 - Modified "PV Estimate"/"State Estimate" and "Seat Estimate" buttons to allow for party tooltips
 - Modified position of tooltips for issues so that they appear left of the text
