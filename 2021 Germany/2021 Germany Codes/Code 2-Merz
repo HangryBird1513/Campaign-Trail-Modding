@@ -5281,7 +5281,6 @@ if(!campaignTrail_temp.loaded){
         document.body.appendChild(p.tooltipObject);
     });
 
-    //
     function setUpPartyTooltips(partySupportEstimates) {
         
         partySupportEstimates.querySelectorAll("ul").forEach(element => {
@@ -5357,8 +5356,18 @@ if(!campaignTrail_temp.loaded){
         {stateName: 'Thuringia', tooltipObject: null, tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Thuringia.svg/1920px-Flag_of_Thuringia.svg.png"><br>Placeholder Description.`},
     ];
 
+    //
+    stateTooltips.forEach(s => {
+        s.tooltipObject = document.createElement('span');
+        s.tooltipObject.className = 'statetooltiptext';
+        s.tooltipObject.innerHTML = s.tooltipText;
+        document.body.appendChild(s.tooltipObject);
+    });
+
+
+
+    //
     const partyTooltipObserver = new MutationObserver((mutations) => {
-            //
             partyTooltipObserver.disconnect();
 
             const overallResultElement = document.getElementById("overall_result");
@@ -5370,7 +5379,6 @@ if(!campaignTrail_temp.loaded){
                 setUpPartyTooltips(stateResultElement);
             }
 
-            //
             partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
     });    
 
