@@ -5304,11 +5304,11 @@ if(!campaignTrail_temp.loaded){
 
         partySupportEstimate.querySelectorAll('.mytooltip').forEach(element => {
 
-            const partyNameText = element.innerText.trim();
+            const partyNameText = element.innerText;
 
             if (partyNameText){
                 //
-                const partyTooltipObject = partyTooltips.find(p => p.partyName === partyNameText).tooltipObject;
+                const partyTooltipObject = partyTooltips.find(p => p.partyName === partyNameText.trim()).tooltipObject;
 
                 element.addEventListener('mouseenter', () => {
                     // 
@@ -5356,7 +5356,6 @@ if(!campaignTrail_temp.loaded){
         {stateName: 'Thuringia', tooltipObject: null, tooltipText: `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Thuringia.svg/1920px-Flag_of_Thuringia.svg.png"><br>Placeholder Description.`},
     ];
 
-    //
     stateTooltips.forEach(s => {
         s.tooltipObject = document.createElement('span');
         s.tooltipObject.className = 'statetooltiptext';
@@ -5364,11 +5363,12 @@ if(!campaignTrail_temp.loaded){
         document.body.appendChild(s.tooltipObject);
     });
 
-
+    function createStateTooltipEvents(mapSVGStates) {
+    }
 
     //
-    const partyTooltipObserver = new MutationObserver((mutations) => {
-            partyTooltipObserver.disconnect();
+    const mapTooltipObserver = new MutationObserver((mutations) => {
+            mapTooltipObserver.disconnect();
 
             const overallResultElement = document.getElementById("overall_result");
             if (overallResultElement) {
@@ -5378,11 +5378,15 @@ if(!campaignTrail_temp.loaded){
             if (stateResultElement) {
                 setUpPartyTooltips(stateResultElement);
             }
+            const mapContainerElement = document.getElementById("map_container");
+            if (mapContainerElement) {
+                createStateTooltipEvents(mapContainerElement);
+            }
 
-            partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
+            mapTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
     });    
 
-    partyTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
+    mapTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
     }
     
     campaignTrail_temp.global_parameter_json[0].fields.question_count = 35;
