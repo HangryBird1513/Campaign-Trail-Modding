@@ -5373,7 +5373,7 @@ if(!campaignTrail_temp.loaded){
                 //
                 const stateTooltipObject = stateTooltips.find(s => s.stateName === stateNameID.trim()).tooltipObject;
     
-                if (element.tagName === 'PATH') {
+                if (element.localName === 'path') {
                     // 
                     const elementRect = element.getBoundingClientRect();
                         
@@ -5402,6 +5402,7 @@ if(!campaignTrail_temp.loaded){
     }
 
     //
+    var dak = false;
     const mapTooltipObserver = new MutationObserver((mutations) => {
             mapTooltipObserver.disconnect();
 
@@ -5414,8 +5415,9 @@ if(!campaignTrail_temp.loaded){
                 setUpPartyTooltips(stateResultElement);
             }
             const mapContainerElement = document.getElementById("map_container");
-            if (mapContainerElement) {
+            if (mapContainerElement && !dak) {
                 createStateTooltipEvents(mapContainerElement);
+                dak = true;
             }
 
             mapTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
