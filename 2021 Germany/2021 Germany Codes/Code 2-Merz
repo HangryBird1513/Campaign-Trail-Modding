@@ -5365,44 +5365,52 @@ if(!campaignTrail_temp.loaded){
 
     function createStateTooltipEvents(mapSVGStates) {
 
-        mapSVGStates.querySelectorAll('.stateListener').forEach(element => {
+        let descriptionElement = mapSVGStates.querySelector('desc');
+        let descriptionElementText = descriptionElement.textContent;
+
+        if (!descriptionElementText.includes(' and contains state tooltips')) {
+            
+            descriptionElementText += ' and contains state tooltips';
+            descriptionElement.textContent = descriptionElementText;
+
+            mapSVGStates.querySelectorAll('.stateListener').forEach(element => {
     
-            const stateNameID = element.getAttribute('state-id');
-    
-            if (stateNameID){
-                //
-                const stateTooltipObject = stateTooltips.find(s => s.stateName === stateNameID.trim()).tooltipObject;
-    
-                if (element.localName === 'path') {
-                    // 
-                    const elementRect = element.getBoundingClientRect();
-                        
-                    // 
-                    const elementTop = elementRect.top + window.scrollY;
-                    const elementLeft = elementRect.left + window.scrollX;
-                                
-                    // 
-                    stateTooltipObject.style.left = `${elementLeft - stateTooltipObject.offsetWidth - 10}px`;
-                                
-                    // 
-                    stateTooltipObject.style.top = `${elementTop + (elementRect.height / 2) - (stateTooltipObject.offsetHeight / 2)}px`;
+                const stateNameID = element.getAttribute('state-id');
+        
+                if (stateNameID){
+                    //
+                    const stateTooltipObject = stateTooltips.find(s => s.stateName === stateNameID.trim()).tooltipObject;
+        
+                    if (element.localName === 'path') {
+                        // 
+                        const elementRect = element.getBoundingClientRect();
+                            
+                        // 
+                        const elementTop = elementRect.top + window.scrollY;
+                        const elementLeft = elementRect.left + window.scrollX;
+                                    
+                        // 
+                        stateTooltipObject.style.left = `${elementLeft - stateTooltipObject.offsetWidth - 10}px`;
+                                    
+                        // 
+                        stateTooltipObject.style.top = `${elementTop + (elementRect.height / 2) - (stateTooltipObject.offsetHeight / 2)}px`;
+                    }
+        
+                    element.addEventListener('mouseenter', () => {
+                        stateTooltipObject.style.transitionDelay = '0.5s';
+                        stateTooltipObject.style.opacity = '1';
+                    });
+        
+                    element.addEventListener('mouseleave', () => {
+                        stateTooltipObject.style.transitionDelay = '0s';
+                        stateTooltipObject.style.opacity = '0';
+                    });
                 }
-    
-                element.addEventListener('mouseenter', () => {
-                    stateTooltipObject.style.transitionDelay = '0.5s';
-                    stateTooltipObject.style.opacity = '1';
-                });
-    
-                element.addEventListener('mouseleave', () => {
-                    stateTooltipObject.style.transitionDelay = '0s';
-                    stateTooltipObject.style.opacity = '0';
-                });
-            }
-        });
+            });
+        }
     }
 
     //
-    var dak = false;
     const mapTooltipObserver = new MutationObserver((mutations) => {
             mapTooltipObserver.disconnect();
 
@@ -5415,9 +5423,8 @@ if(!campaignTrail_temp.loaded){
                 setUpPartyTooltips(stateResultElement);
             }
             const mapContainerElement = document.getElementById("map_container");
-            if (mapContainerElement && !dak) {
+            if (mapContainerElement) {
                 createStateTooltipEvents(mapContainerElement);
-                dak = true;
             }
 
             mapTooltipObserver.observe(document.documentElement, { childList: true, subtree: true });
