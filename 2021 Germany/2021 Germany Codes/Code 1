@@ -2001,10 +2001,6 @@ function paginateContent() {
             .musicplayerbuttons button:hover img {
               transform: scale(1.1); 
             }
-
-            /* #map_container path:hover {
-              filter: brightness(1.2) saturate(1.5);
-            } */
             `;
             document.head.appendChild(style);
         }
