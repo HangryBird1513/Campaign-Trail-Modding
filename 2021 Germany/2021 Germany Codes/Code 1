@@ -1949,6 +1949,10 @@ function paginateContent() {
             #state_result_container {
               background-color: transparent;
             }
+
+            #main_content_area_reading {
+              height: 76%;
+            }
             
             #overall_vote_statistics table{
               width: 80%;
