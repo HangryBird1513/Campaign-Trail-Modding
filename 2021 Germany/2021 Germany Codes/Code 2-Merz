@@ -4660,7 +4660,7 @@ if(!campaignTrail_temp.loaded){
             },
             tooltip: {
                 formatter: function() {
-                    return getPartyName(this.x) + "<br>" + this.y + '%';
+                    return `<span style="color:${this.color};">●</span> ` + sortedCategories[this.x];
                 }
             },
             plotOptions: {
@@ -4887,9 +4887,6 @@ if(!campaignTrail_temp.loaded){
     function addPlus(n) {
         return (n>0?'+':'') + n;
     }
-    function getPartyName(party){
-        return party.split('<br>')[0]
-    }
     function createPollingBarChart(polling) {
         // 1. Pair up the categories with the data, colors, and the 2017 percentages
         let categoriesWithData = [
@@ -4944,7 +4941,7 @@ if(!campaignTrail_temp.loaded){
             },
             tooltip: {
                 formatter: function() {
-                    return getPartyName(this.x) + "<br>" + this.y + '%';
+                    return `<span style="color:${this.color};">●</span> ` + sortedCategories[this.x];
                 }
             },
             plotOptions: {
