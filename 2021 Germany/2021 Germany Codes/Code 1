@@ -1950,7 +1950,8 @@ function paginateContent() {
               background-color: transparent;
             }
 
-            #main_content_area_reading {
+            #main_content_area_reading, 
+            #main_content_area {
               height: 76%;
             }
             
