@@ -1178,7 +1178,11 @@ if(!campaignTrail_temp.loaded){
     }
     
     function endingTwoBuilder(){
-        $("#main_content_area")[0].style.color = "black";
+        var mainContentArea = $("#main_content_area")[0];
+        if (mainContentArea) {
+            mainContentArea.style.color = "black";
+        }
+        document.querySelector("#radio-option-style").app
         nct_stuff.themes[nct_stuff.selectedTheme].text_col = "black"
         var header = null;
         var text = null;
