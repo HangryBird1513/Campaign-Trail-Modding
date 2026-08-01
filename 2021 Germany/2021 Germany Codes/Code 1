@@ -95,6 +95,7 @@ introScreen.querySelector('ul').innerHTML = `
 // 
 const bannerBackgroundPickerContainer = document.createElement('div');
 bannerBackgroundPickerContainer.id = 'banner_background_picker';
+bannerBackgroundPickerContainer.style.color = 'white';
 
 //
 bannerBackgroundPickerContainer.innerHTML = '<b>Banner and Background:</b><br>';
@@ -185,7 +186,7 @@ if (!element) {
     event.preventDefault();
 
     //
-    $("#game_window")[0].style.height = "auto";
+    //$("#game_window")[0].style.height = "auto";
 
     musicMode()
 
@@ -1953,6 +1954,10 @@ function paginateContent() {
             #main_content_area_reading, 
             #main_content_area {
               height: 76%;
+            }
+
+            #election_id_button {
+              margin: 0px;
             }
             
             #overall_vote_statistics table{
