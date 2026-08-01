@@ -12,12 +12,13 @@ List of Changes:
 - Modified the game window header text and the header text before the drop-down menu in the candidate selection section
 - Modified the introduction text before the "Click here to begin!" button to be more appropriate for the mod's setting
 - Updated Merz's candidate description in the candidate selection section
-- Modified formatting of the further reading section and credits
+- Fixed text of difficulty options so that it turns white without any delay
+- Modified formatting of the credits so that the period is white like the rest of the credits text
+- Modified formatting of the further reading and election charts sections so that the button footer stays within the game window
 - Modified column widths and total width of the result tables to accomodate for the new lead candidate(s) column
 - Modified width, height, and background color of the polling menu container in the electoral map 
 - Replaced broken SPD image
 - Modified formatting of the difficulty options explanation so that the tooltip fits in its outer container
-- Fixed text of difficulty options so that it turns white without any delay
 - Added a title, cover image, "Previous" button, and volume amount indicator to the music player
 - Renamed "Skip" button in the music player to "Next"
 - Modified "Previous", "Play"/"Pause", and "Next" buttons to resemble the buttons from the Tagesschau website
@@ -56,4 +57,5 @@ List of Changes:
 - Fixed line chart so that it displays the question numbers properly and only appears for a full campaign like it's supposed to
 - Modified HQ tutorial text and subtitle of bar charts
 - Modified formatting of the coalition negotiation section
-- Implemented all endings and added all advisors, but without their effects, that were listed in the cutting room floor document
+- Implemented all endings that were listed in the cutting room floor document
+- Added all advisors, but without their effects, that were listed in the cutting room floor document
