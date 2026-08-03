@@ -185,9 +185,6 @@ if (!element) {
  $("#game_start").click((event) => { 
     event.preventDefault();
 
-    //
-    //$("#game_window")[0].style.height = "auto";
-
     musicMode()
 
       })
