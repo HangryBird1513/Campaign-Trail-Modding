@@ -1620,7 +1620,7 @@ function paginateContent() {
            }
 
             #overall_details_container{
-                    height: 98%;
+                    height: 100%;
                     overflow: auto;
                 }
 
@@ -1831,11 +1831,10 @@ function paginateContent() {
 #inner_window_2,
 #inner_window_3{
 
-    height:auto;
+    height: auto;
 }
 #recommended_reading_box{
-    height: 80%;
-    overflow: auto;
+    height: auto;
 }
 .person_button{
     margin-top:0.2em
@@ -1951,6 +1950,10 @@ function paginateContent() {
             #main_content_area_reading, 
             #main_content_area {
               height: 76%;
+            }
+
+            #main_content_area_reading {
+              overflow: auto;
             }
 
             #election_id_button {
