@@ -2104,10 +2104,16 @@ if(!campaignTrail_temp.loaded){
         let results_container = document.getElementById("results_container");
         let chart = document.getElementById("myChart");
         if (results_container && !processedNodes.has(results_container)) {
-            if (!chart){
+            if (!chart) {
                 results_container.style.height = "98%";
                 results_container.style.overflow = "auto";
             } 
+            else {
+                let mca = document.getElementById("main_content_area");
+                if (mca) {
+                    mca.style.height = "78%";
+                }
+            }
             processedNodes.add(results_container);
         }
     }
@@ -2118,8 +2124,16 @@ if(!campaignTrail_temp.loaded){
         if (gameWindow) {
             if (innerWindowQuestionExists) {
                 gameWindow.style.height = 'auto';
-            } else {
-                gameWindow.style.height = '45em';
+            } 
+            else {
+                //
+                let chart = document.getElementById("myChart");
+                if (chart) {
+                    gameWindow.style.height = '48.5em';
+                }
+                else {
+                    gameWindow.style.height = '45em';
+                }
             }
         }
     }
@@ -4698,8 +4712,6 @@ if(!campaignTrail_temp.loaded){
           div.style.border = 'medium double';
           div.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
           div.style.borderColor = '#c9c9c9';
-          div.style.height = "100%";
-          div.style.overflow = "auto";
     
           var element = document.querySelector('.highcharts-background');
           if (element) { // Check if element exists before trying to remove it
