@@ -1934,11 +1934,11 @@ function paginateContent() {
 
             #state_info,
             #state_result {
-              margin-top: 4%;
+              margin-top: 3.5%;
             }
 
             #state_result {
-              height: 96%;
+              height: 96.5%;
             }
 
             #menu_container,
