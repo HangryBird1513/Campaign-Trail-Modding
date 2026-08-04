@@ -16,7 +16,7 @@ List of Changes:
 - Modified formatting of the credits so that the period is white like the rest of the credits text
 - Modified formatting of the "Continue" button in the election description section
 - Modified formatting of the further reading and overall results sections so that the button footer stays within the game window
-- - Added a "Lead Candidate(s)" column in the historical result table
+- Added a "Lead Candidate(s)" column in the historical result table
 - Modified column widths and total width of the result tables to accomodate for the new lead candidate(s) column
 - Modified width, height, and background color of the polling menu container in the electoral map 
 - Replaced broken SPD image
