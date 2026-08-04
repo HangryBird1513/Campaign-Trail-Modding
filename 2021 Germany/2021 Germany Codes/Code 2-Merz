@@ -5050,7 +5050,7 @@ if(!campaignTrail_temp.loaded){
     
         if (coalitions) { // if coalitions are passed
             container.innerHTML += '<hr style="border-top: 1px solid white; margin: 10px 0;">'; // add horizontal white line
-            container.innerHTML += '<h3>Possible coalitions</h3>';
+            container.innerHTML += '<h3>Possible Coalitions</h3>';
             coalitions.forEach(coalition => {
                 container.innerHTML += `<p style="margin: 5px 0;">${coalition.name}</p>`;
             });
