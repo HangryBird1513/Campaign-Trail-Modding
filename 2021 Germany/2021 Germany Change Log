@@ -16,6 +16,7 @@ List of Changes:
 - Modified formatting of the credits so that the period is white like the rest of the credits text
 - Modified formatting of the "Continue" button in the election description section
 - Modified formatting of the further reading and overall results sections so that the button footer stays within the game window
+- - Added a "Lead Candidate(s)" column in the historical result table
 - Modified column widths and total width of the result tables to accomodate for the new lead candidate(s) column
 - Modified width, height, and background color of the polling menu container in the electoral map 
 - Replaced broken SPD image
@@ -47,7 +48,7 @@ List of Changes:
 - Fixed Merz's character mechanic tooltip in the HQ so that it displays the radicalism amount when cheats are enabled like it's supposed to
 - Renamed various elements that had "Electoral Votes" in their text to have "Seats" instead
 - Fixed state result tables so that their "Electoral Votes" and "Candidate" headers are permanantly renamed to "Seats" and "Party" respectively
-- Added a "Lead Candidate(s)" column in the result tables
+- Added a "Lead Candidate(s)" column in the final, state, and overall result tables
 - Modified states in the electoral map to be highlighted with a brightness and saturation filter when hovered over
 - Added labels for city-states and tooltips for parties and states in the electoral map
 - Modified "PV Estimate"/"State Estimate" and "Seat Estimate" buttons to allow for party tooltips
@@ -60,4 +61,5 @@ List of Changes:
 - Modified formatting of the election charts section so that the button footer stays within the game window
 - Modified formatting of the coalition negotiation section
 - Fixed the 2nd part of the final election results section so that it loads properly when returning to it from another section
-- Implemented all endings and added all advisors, but without their effects, that were listed in the cutting room floor document
+- Implemented all endings that were listed in the cutting room floor document
+- Added all advisors, but without their effects, that were listed in the cutting room floor document
