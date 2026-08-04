@@ -185,6 +185,9 @@ if (!element) {
  $("#game_start").click((event) => { 
     event.preventDefault();
 
+    //
+    $("#game_window")[0].style.height="auto";
+
     musicMode()
 
       })
@@ -1616,7 +1619,7 @@ function paginateContent() {
                 margin-top: auto !important;
             }
             #running_mate_description_window{
-                height: 74%;
+                height: 355px;
            }
 
             #overall_details_container{
@@ -1958,6 +1961,10 @@ function paginateContent() {
 
             #election_id_button {
               margin: 0px;
+            }
+
+            #inner_window_2 {
+              position: relative;
             }
             
             #overall_vote_statistics table{
