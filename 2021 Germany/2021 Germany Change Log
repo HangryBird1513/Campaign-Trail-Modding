@@ -15,7 +15,7 @@ List of Changes:
 - Fixed text of difficulty options so that it turns white without any delay
 - Modified formatting of the "Continue" button in the election description section
 - Modified formatting of the credits so that the period is white like the rest of the credits text
-- Modified formatting of the further reading, election charts, and overall results sections so that the button footer stays within the game window
+- Modified formatting of the further reading and overall results sections so that the button footer stays within the game window
 - Modified column widths and total width of the result tables to accomodate for the new lead candidate(s) column
 - Modified width, height, and background color of the polling menu container in the electoral map 
 - Replaced broken SPD image
@@ -29,6 +29,7 @@ List of Changes:
 - Removed theme picker so that the mod's unique theme cannot be changed 
 - Added a banner and background picker
 - Fixed the game window so that it expands vertically to accomodate for any content that tries to spill out of it
+- ?
 
 2. Code 2-Merz
 
@@ -57,6 +58,7 @@ List of Changes:
 - Modified line chart so that it also charts polling for "Others"
 - Fixed line chart so that it displays the question numbers properly and only appears for a full campaign like it's supposed to
 - Modified HQ tutorial text and subtitle text of bar charts
+- Modified formatting of the election charts section so that the button footer stays within the game window
 - Modified formatting of the coalition negotiation section
 - Fixed the 2nd part of the final election results section so that it loads properly when returning to it from another section
 - Implemented all endings that were listed in the cutting room floor document
