@@ -1616,7 +1616,7 @@ function paginateContent() {
                 margin-top: auto !important;
             }
             #running_mate_description_window{
-                min-height: 360px;
+                height: 74%;
            }
 
             #overall_details_container{
