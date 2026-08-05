@@ -2670,6 +2670,10 @@ if(!campaignTrail_temp.loaded){
             chartContainer.style.width = "80%";
             chartContainer.style.float = "left";
     
+            // 
+            seatEstimateContainer.style.color = 'white';
+            document.querySelector('#map_footer').style.position = 'relative';
+
             // Show the seat estimate container and populate it
             seatEstimateContainer.style.display = "inline-block";
             populateSeatEstimate(temp.final_overall_results, campaignTrail_temp.candidate_json, currentCoalitions);
