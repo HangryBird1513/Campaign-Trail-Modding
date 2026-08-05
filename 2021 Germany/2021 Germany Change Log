@@ -9,7 +9,7 @@ List of Changes:
 - Modified width of "Enable Volume" container and position of its checkbox so that it is in the center of the container
 - Fixed "Enable Volume" checkbox so that it sets the initial volume of the music player properly 
 - Modified the game window header text and the header text before the drop-down menu in the candidate selection section
-- Modified the introduction text before the "Click here to begin!" button to be more appropriate for the mod's setting
+- Modified the text before the "Click here to begin!" button in the introduction section to be more appropriate for the mod's setting
 - Updated Merz's candidate description in the candidate selection section
 - Fixed text of difficulty options so that it turns white without any delay
 - Modified formatting of the credits so that the period is white like the rest of the credits text
@@ -30,7 +30,7 @@ List of Changes:
 - Added a banner and background picker
 - Fixed the game window so that it expands vertically to accomodate for any content that tries to spill out of it
 - Fixed formatting of the "Export Game as File" button in the overall results section on NCT so that it stays within the game window
-- Removed 
+- Removed the "Blog" and "Modmaker" links, the "Achievements" and "Additional Information" buttons, and the last updated text in the introduction section on NCT
 
 2. Code 2-Merz
 
