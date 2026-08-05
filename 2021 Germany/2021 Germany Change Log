@@ -4,7 +4,6 @@ To-Do List:
 - Update Mützenich's candidate description in the candidate selection section
 - Add additional achievements and tooltips for Merz and Mützenich
 - Add interviews for Merz and Mützenich in the further reading section and replace the broken links there
-- Fix formatting on NCT
 
 List of Changes:
 - Modified width of "Enable Volume" container and position of its checkbox so that it is in the center of the container
@@ -30,6 +29,8 @@ List of Changes:
 - Removed theme picker so that the mod's unique theme cannot be changed 
 - Added a banner and background picker
 - Fixed the game window so that it expands vertically to accomodate for any content that tries to spill out of it
+- Fixed formatting of the "Export Game as File" button in the overall results section on NCT so that it stays within the game window
+- Removed 
 
 2. Code 2-Merz
 
@@ -39,7 +40,6 @@ To-Do List:
 - Update advisors and tooltips for parties and states
 - Replace placeholder content, especially images and music
 - Maybe add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
-- Fix formatting on NCT
 
 List of Changes:
 - Renamed HQ button to "Headquarters"
@@ -63,3 +63,5 @@ List of Changes:
 - Fixed the 2nd part of the final election results section so that it loads properly when returning to it from another section
 - Implemented all endings that were listed in the cutting room floor document
 - Added all advisors, but without their effects, that were listed in the cutting room floor document
+- Fixed formatting of the "Go to Final Results" button in the election night chart on NCT so that it is below the chart
+- Modified the seat estimate and possible coalitions text in the election night chart on NCT so that both are white
