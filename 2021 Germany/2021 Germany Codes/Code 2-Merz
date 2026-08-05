@@ -2672,7 +2672,9 @@ if(!campaignTrail_temp.loaded){
     
             // 
             seatEstimateContainer.style.color = 'white';
-            document.querySelector('#map_footer').style.position = 'relative';
+            var electionNightChartFooter = document.querySelector('#map_footer');
+            electionNightChartFooter.style.position = 'relative';
+            electionNightChartFooter.style.bottom = '0px';
 
             // Show the seat estimate container and populate it
             seatEstimateContainer.style.display = "inline-block";
