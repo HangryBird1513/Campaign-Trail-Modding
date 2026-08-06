@@ -5460,11 +5460,12 @@ if(!campaignTrail_temp.loaded){
     $("#timeTracker")[0].style.backgroundSize = "cover";
     
     function ctsAchievement(achievement, difficultyChecker = true){
-        if ((difficultyChecker && campaignTrail_temp.difficulty_level_multiplier<=1)||!difficultyChecker)
+        if ((difficultyChecker && campaignTrail_temp.difficulty_level_multiplier<=1)||!difficultyChecker){
             if(campaignTrail_temp.CTS){
                 unlockAchievement(achievement);
             }
         }
+    }
     
     let finalTrackSet = false; // This seems to be missing from your provided code, so I'm assuming it's defined somewhere in your global scope.
     
