@@ -2907,7 +2907,7 @@ if(!campaignTrail_temp.loaded){
     
         newButton.style.marginLeft = '1.5em';
     
-        newButton.innerHTML = advisor_news ? '<strong><span style="color: red;">!</span></strong>  Headquarters' : 'Headquarters';
+        newButton.innerHTML = advisor_news ? '<strong><span style="color: red;">!</span></strong> Headquarters' : 'Headquarters';
     
         // Attach the click event listener
         newButton.addEventListener('click', openHeadquarter);
@@ -5459,6 +5459,9 @@ if(!campaignTrail_temp.loaded){
     $("#timeTracker")[0].style.backgroundImage = "url(https://jetsimon.com/cts-media/public/2021DE_CDU／CSULaschet_9.png)";
     $("#timeTracker")[0].style.backgroundSize = "cover";
     
+    //
+
+
     function ctsAchievement(achievement, difficultyChecker = true){
         if ((difficultyChecker && campaignTrail_temp.difficulty_level_multiplier<=1)||!difficultyChecker){
             if(campaignTrail_temp.CTS){
