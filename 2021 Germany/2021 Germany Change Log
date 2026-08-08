@@ -27,10 +27,11 @@ List of Changes:
 - Fixed the song radio buttons so that the "Pause" button is displayed if the music player was previously paused
 - Modified formatting and position of the music player so that it is above the cheat menu
 - Removed theme picker so that the mod's unique theme cannot be changed 
-- Added a banner and background picker
+- Added a banner and background picker and achievement pop-up settings
 - Fixed the game window so that it expands vertically to accomodate for any content that tries to spill out of it
 - Fixed formatting of the "Export Game as File" button in the overall results section on NCT so that it stays within the game window
 - Removed the "Blog" and "Modmaker" links, the "Achievements" and "Additional Information" buttons, and the last updated text in the introduction section on NCT
+-
 
 2. Code 2-Merz
 
@@ -61,6 +62,7 @@ List of Changes:
 - Modified formatting of the election charts section so that the button footer stays within the game window
 - Modified formatting of the coalition negotiation section
 - Fixed the 2nd part of the final election results section so that it loads properly when returning to it from another section
+- Fixed the "Was it something I said?" achievement to only unlock when 3 advisors quit like it's supposed to
 - Implemented all endings that were listed in the cutting room floor document
 - Added all advisors, but without their effects, that were listed in the cutting room floor document
 - Fixed formatting of the "Go to Final Results" button in the election night chart on NCT so that it is below the chart
