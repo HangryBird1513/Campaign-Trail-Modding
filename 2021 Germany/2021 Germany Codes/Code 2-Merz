@@ -5457,9 +5457,9 @@ if(!campaignTrail_temp.loaded){
     $("#timeTracker")[0].style.backgroundSize = "cover";
     
     // 
-    function ctsAchievement(name, difficultyChecker = true){
-        if ((difficultyChecker && campaignTrail_temp.difficulty_level_multiplier<=1)||!difficultyChecker){
-            if(campaignTrail_temp.CTS){
+    function ctsAchievement(name, difficultyChecker = true){ 
+        if (campaignTrail_temp.CTS){
+            if((difficultyChecker && campaignTrail_temp.difficulty_level_multiplier<=1)||!difficultyChecker){
                 const ach = findAchievementByName(name);
   
                 if (ach == null) {
