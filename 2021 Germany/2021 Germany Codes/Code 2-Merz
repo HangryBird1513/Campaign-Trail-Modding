@@ -1244,7 +1244,7 @@ if(!campaignTrail_temp.loaded){
           }
           else{
             if(playerLeader===coalitionLeader){
-                negotiations = "A few months have passed. These were some of the most tense months in recent German political history - through subterfuge, political tactitioning and cunning, you've done the unbelievable - you managed to outsmart the election winner! No one expected this of you - everyone tried to stop you, but you managed to defy the odds <i>once more</i>, forging a parliamentary majority around you as chancellor! Not everyone is happy with this outcome, but that's their problem - you truly are a comeback-kid, Friedrich Merz. Merkels post is yours."
+                negotiations = "A few months have passed. These were some of the most tense months in recent German political history - through subterfuge, political tactitioning and cunning, you've done the unbelievable - you managed to outsmart the election winner! No one expected this of you - everyone tried to stop you, but you managed to defy the odds <i>once more</i>, forging a parliamentary majority around you as chancellor! Not everyone is happy with this outcome, but that's their problem - you truly are a comeback-kid, Friedrich Merz. Merkel's post is yours."
                 ctsAchievement("Parliamentary Subterfuge")
             }
             else{
@@ -3916,9 +3916,6 @@ if(!campaignTrail_temp.loaded){
         hire() {
             this.hireCode();
             this.status = "active";
-            if (advisorMerkel.status === "active" && advisorMerz.status==="active"){
-                ctsAchievement("Please don't fight")
-            }
         }
     
         dismiss() {
@@ -3930,7 +3927,7 @@ if(!campaignTrail_temp.loaded){
             if (this.status === 'active') {
                 this.dismiss();
                 quitCounter +=1;
-                if(quitCounter>2){
+                if(quitCounter === 3){
                     ctsAchievement("Was it something I said?");
                 }
                 advisor_news = true;
@@ -5459,13 +5456,38 @@ if(!campaignTrail_temp.loaded){
     $("#timeTracker")[0].style.backgroundImage = "url(https://jetsimon.com/cts-media/public/2021DE_CDU／CSULaschet_9.png)";
     $("#timeTracker")[0].style.backgroundSize = "cover";
     
-    //
-
-
-    function ctsAchievement(achievement, difficultyChecker = true){
+    // 
+    function ctsAchievement(name, difficultyChecker = true){
         if ((difficultyChecker && campaignTrail_temp.difficulty_level_multiplier<=1)||!difficultyChecker){
             if(campaignTrail_temp.CTS){
-                unlockAchievement(achievement);
+                const ach = findAchievementByName(name);
+  
+                if (ach == null) {
+                    console.log("There is no achievement with the name '" + name + "'");
+                    return;
+                }
+            
+                if (cheatsActive && ach.cannotBeCheated) {
+                    console.log(`Would unlock '${name}' but won't because cheating!`);
+                    return;
+                }
+            
+                if (unlockedAch[name] == null || e.achievementsEveryTime) {
+                    alert("ACHIEVEMENT UNLOCKED: " + name);
+                }
+            
+                unlockedAch[name] = ach;
+                try {
+                    localStorage.setItem("unlockedAch", JSON.stringify(unlockedAch));
+                } catch (e) {
+                    console.error("Error while saving achievements:", e);
+                }
+            
+                // invalidate cache
+                modCompletionCache = null;
+                lastCacheUpdate = 0;
+            
+                addAllAchievements();
             }
         }
     }
