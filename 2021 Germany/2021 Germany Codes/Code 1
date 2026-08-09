@@ -69,8 +69,8 @@ const bannerBackgroundOptions = [
   {option: 'Spieler 3 (Greens)', banner: '', background: 'https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Background%20(Greens).png'}
 ];
 
-const banner = document.getElementById("header");
-banner.src = bannerBackgroundOptions[0].banner;
+const bannerElement = document.getElementById("header");
+bannerElement.src = bannerBackgroundOptions[0].banner;
 document.body.background = bannerBackgroundOptions[0].background; 
 document.body.style.backgroundRepeat = "no-repeat";
 document.body.style.backgroundSize = "cover";
@@ -84,6 +84,8 @@ e.displayTooltips = true;
 e.realisticPolls = true;
 e.staff_mode = true;
 e.electionNight=true;
+//
+e.achievementsEveryTime=true;
 
 // 
 const introScreen = document.querySelector('#inner_window_1');
@@ -96,9 +98,9 @@ introScreen.querySelector('ul').innerHTML = `
 const bannerBackgroundPickerContainer = document.createElement('div');
 bannerBackgroundPickerContainer.id = 'banner_background_picker';
 bannerBackgroundPickerContainer.style.color = 'white';
+bannerBackgroundPickerContainer.innerHTML = '<b>Banner and Background:</b><br>';
 
 //
-bannerBackgroundPickerContainer.innerHTML = '<b>Banner and Background:</b><br>';
 const bannerBackgroundPicker = document.createElement('select');
 bannerBackgroundPicker.id = 'bannerBackgroundPicker';
 
@@ -112,17 +114,51 @@ for (let i = 0; i < bannerBackgroundOptions.length; i++){
 
 // 
 bannerBackgroundPicker.addEventListener("change", function() {
-  var selectedOption = bannerBackgroundOptions[this.value];
-  //   banner.src = selectedOption.banner;
-  document.body.background = selectedOption.background; 
+  var selectedBannerBackgroundOption = bannerBackgroundOptions[this.value];
+  //   bannerElement.src = selectedBannerBackgroundOption.banner;
+  document.body.background = selectedBannerBackgroundOption.background; 
 });
 
 //
 bannerBackgroundPickerContainer.appendChild(bannerBackgroundPicker);
 
 //
-document.querySelector('.footer').prepend(bannerBackgroundPickerContainer);
+const footerElement = document.querySelector('.footer');
+footerElement.prepend(bannerBackgroundPickerContainer);
 bannerBackgroundPickerContainer.insertAdjacentHTML('afterend', '<br>');
+
+// 
+if (campaignTrail_temp.CTS) {
+  const achievementsButton = document.querySelector('#achButton');
+
+  if (achievementsButton) {
+    // 
+    const achievementSettingsContainer = document.createElement('div');
+    achievementSettingsContainer.id = 'achievement_settings';
+    achievementSettingsContainer.style.color = 'white';
+    achievementSettingsContainer.innerHTML = '<br><b style="border-top: 1px solid white;">Achievement Pop-Ups:</b><br>';
+
+    //
+    const achievementSettings = document.createElement('select');
+    achievementSettings.id = 'achievementSettings';
+    achievementSettings.innerHTML = '<option value="true">Every Time</option><option value="false">Unlock Only</option>';
+
+    // 
+    achievementSettings.addEventListener("change", function() {
+      e.achievementsEveryTime = this.value;
+    });
+
+    //
+    achievementSettingsContainer.appendChild(achievementSettings);
+
+    //
+    footerElement.insertBefore(achievementSettingsContainer, achievementsButton);
+
+    //
+    achievementsButton.style.marginBottom = '5px';
+    achievementSettingsContainer.prepend(achievementsButton);
+  }
+}
 
 quotes = [`"Wir schaffen das!" - Angela Merkel`, `"Scheitert der Euro, scheitert Europa." - Angela Merkel`, `"Das Internet ist für uns alle Neuland." - Angela Merkel`, `"Die Demokratie ist kein Supermarkt." - Frank-Walter Steinmeier`, `In my homeland Baden-Württemberg we are all sitting in one boat.`, `"Rechts von der CDU/CSU darf es keine demokratisch legitimierte Partei geben" - Franz-Joseph Strauß`, `"Jetzt wächst zusammen, was zusammen gehört" - Willy Brandt`, `Was kümmert mich mein Geschwätz von gestern? - Konrad Adenauer`, `"Wer Visionen hat, sollte zum Arzt gehen" - Helmut Schmidt`, `There will never be a revolution in Germany. The bureaucratic paperwork for it is missing.`]
 customquote = quotes[Math.floor((Math.random() * quotes.length))]
