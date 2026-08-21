@@ -62,16 +62,16 @@ document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_st
 $(".container")[0].style.backgroundColor = "#001f58"
 
 //
-const bannerBackgroundOptions = [
-  {option: 'Choose Your Spieler (Default)', banner: 'https://jetsimon.com/cts-media/public/2021DE_init_1.png', background: 'https://i.ibb.co/rFKgjtw/berlin-luft.jpg'},
-  {option: 'Spieler 1 (SPD)', banner: '', background: 'https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Background%20(SPD).png'},
-  {option: 'Spieler 2 (CDU/CSU)', banner: '', background: 'https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Background%20(CDU%26CSU).png'},
-  {option: 'Spieler 3 (Greens)', banner: '', background: 'https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Background%20(Greens).png'}
+const bannerOptions = [
+  {option: 'Choose Your Spieler (Default)', banner: 'https://jetsimon.com/cts-media/public/2021DE_init_1.png'},
+  {option: 'Spieler 1 (SPD)', banner: ''},
+  {option: 'Spieler 2 (CDU/CSU)', banner: ''},
+  {option: 'Spieler 3 (Greens)', banner: ''}
 ];
 
 const bannerElement = document.getElementById("header");
-bannerElement.src = bannerBackgroundOptions[0].banner;
-document.body.background = bannerBackgroundOptions[0].background; 
+bannerElement.src = bannerOptions[0].banner;
+document.body.background = 'https://i.ibb.co/rFKgjtw/berlin-luft.jpg'; 
 document.body.style.backgroundRepeat = "no-repeat";
 document.body.style.backgroundSize = "cover";
 document.body.style.backgroundAttachment = 'fixed';
@@ -95,37 +95,35 @@ introScreen.querySelector('ul').innerHTML = `
 `;
 
 // 
-const bannerBackgroundPickerContainer = document.createElement('div');
-bannerBackgroundPickerContainer.id = 'banner_background_picker';
-bannerBackgroundPickerContainer.style.color = 'white';
-bannerBackgroundPickerContainer.innerHTML = '<b>Banner and Background:</b><br>';
+const bannerPickerContainer = document.createElement('div');
+bannerPickerContainer.id = 'banner_picker';
+bannerPickerContainer.style.color = 'white';
+bannerPickerContainer.innerHTML = '<b>Banner Picker:</b><br>';
 
 //
-const bannerBackgroundPicker = document.createElement('select');
-bannerBackgroundPicker.id = 'bannerBackgroundPicker';
+const bannerPicker = document.createElement('select');
+bannerPicker.id = 'bannerPicker';
 
 //
-for (let i = 0; i < bannerBackgroundOptions.length; i++){
+for (let i = 0; i < bannerOptions.length; i++){
   var optionElement = document.createElement("option");
-  optionElement.text = bannerBackgroundOptions[i].option;
+  optionElement.text = bannerOptions[i].option;
   optionElement.value = i;
-  bannerBackgroundPicker.options.add(optionElement);
+  bannerPicker.options.add(optionElement);
 } 
 
 // 
-bannerBackgroundPicker.addEventListener("change", function() {
-  var selectedBannerBackgroundOption = bannerBackgroundOptions[this.value];
-  //   bannerElement.src = selectedBannerBackgroundOption.banner;
-  document.body.background = selectedBannerBackgroundOption.background; 
+bannerPicker.addEventListener("change", function() {
+  // bannerElement.src = bannerOptions[this.value].banner;
 });
 
 //
-bannerBackgroundPickerContainer.appendChild(bannerBackgroundPicker);
+bannerPickerContainer.appendChild(bannerPicker);
 
 //
 const footerElement = document.querySelector('.footer');
-footerElement.prepend(bannerBackgroundPickerContainer);
-bannerBackgroundPickerContainer.insertAdjacentHTML('afterend', '<br>');
+footerElement.prepend(bannerPickerContainer);
+bannerPickerContainer.insertAdjacentHTML('afterend', '<br>');
 
 // 
 if (campaignTrail_temp.CTS) {
