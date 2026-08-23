@@ -5275,16 +5275,16 @@ if(!campaignTrail_temp.loaded){
         "The modern divide between the cultural Left and Right in western countries has increasingly become one between cosmopolitan city dwellers and traditionalist rural folk. Factors such as public transportation, education and the amount of refugees and immigrants often strongly correlate with urbanization levels."
     ];
         
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < issueTooltips.length; i++) {
         campaignTrail_temp.issues_json[i].fields.name = "<span class=\'mytooltip\'>" + campaignTrail_temp.issues_json[i].fields.name + "<span class=\'issuetooltiptext\'>" + issueTooltips[i] + "</span></span>";
     }
-        
-    // 
+
+    //
     partyTooltips.forEach(p => {
         p.tooltipObject = document.createElement('span');
         p.tooltipObject.className = 'partytooltiptext';
         p.tooltipObject.innerHTML = p.tooltipText;
-        document.body.appendChild(p.tooltipObject);
+        document.body.prepend(p.tooltipObject);
     });
 
     function setUpPartyTooltips(partySupportEstimates) {
@@ -5366,7 +5366,7 @@ if(!campaignTrail_temp.loaded){
         s.tooltipObject = document.createElement('span');
         s.tooltipObject.className = 'statetooltiptext';
         s.tooltipObject.innerHTML = s.tooltipText;
-        document.body.appendChild(s.tooltipObject);
+        document.body.prepend(s.tooltipObject);
     });
 
     function createStateTooltipEvents(mapSVGStates) {
