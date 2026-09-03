@@ -240,22 +240,22 @@ if (!element) {
         e.selectedSoundtrack = 0
 
         //
-        createMusicSpeaker = () => {
+        createMusicPlayerApp = () => {
             // 
-            var musicSpeaker = document.createElement("div");
-            musicSpeaker.id = "musicSpeaker";
-            musicSpeaker.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:273px;background-color:#6699CC;float:right;padding:10px;";
-            musicSpeaker.innerHTML = `<b>Music Player</b><br><br>`;
+            var musicPlayerApp = document.createElement("div");
+            musicPlayerApp.id = "musicPlayerApp";
+            musicPlayerApp.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:273px;background-color:#6699CC;float:right;padding:10px;";
+            musicPlayerApp.innerHTML = `<b>Music Player</b><br><br>`;
           
             //
-            var musicSpeakerImage = document.createElement("img");
-            musicSpeakerImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/German-Flag-Bluetooth-Speaker.png";
-            musicSpeakerImage.style.width = "100%";
-            musicSpeakerImage.style.height = "auto";
-            musicSpeaker.appendChild(musicSpeakerImage);
+            var musicPlayerAppImage = document.createElement("img");
+            musicPlayerAppImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/tagesschau-app-icon.png";
+            musicPlayerAppImage.style.width = "auto";
+            musicPlayerAppImage.style.height = "80%";
+            musicPlayerApp.appendChild(musicPlayerAppImage);
           
             //
-            document.getElementById("trackSelParent").appendChild(musicSpeaker);
+            document.getElementById("trackSelParent").appendChild(musicPlayerApp);
         }
 
         toTime = (seconds) => {
@@ -580,10 +580,10 @@ if (!element) {
             }
             
             //
-            createMusicSpeaker();
+            createMusicPlayerApp();
             generateTime();
            if (previousBgImage) {
-              document.getElementById("musicSpeaker").style.backgroundImage = previousBgImage;
+              document.getElementById("musicPlayerApp").style.backgroundImage = previousBgImage;
                 document.getElementById("trackSel").style.backgroundImage = previousBgImage;
                  document.getElementById("timeTracker").style.backgroundImage = previousBgImage;
             }
