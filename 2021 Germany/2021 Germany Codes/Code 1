@@ -245,14 +245,16 @@ if (!element) {
             var musicPlayerApp = document.createElement("div");
             musicPlayerApp.id = "musicPlayerApp";
             musicPlayerApp.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:273px;background-color:#6699CC;float:right;padding:10px;";
-            musicPlayerApp.innerHTML = `<b>Music Player</b><br><br>`;
           
             //
             var musicPlayerAppImage = document.createElement("img");
             musicPlayerAppImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/tagesschau-app-icon.png";
             musicPlayerAppImage.style.width = "auto";
-            musicPlayerAppImage.style.height = "80%";
+            musicPlayerAppImage.style.height = "90%";
             musicPlayerApp.appendChild(musicPlayerAppImage);
+
+            //
+            musicPlayerApp.insertAdjacentHTML('beforeend', '<br><b>Music Player</b>');
           
             //
             document.getElementById("trackSelParent").appendChild(musicPlayerApp);
