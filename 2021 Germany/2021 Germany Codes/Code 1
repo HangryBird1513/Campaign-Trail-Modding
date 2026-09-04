@@ -61,16 +61,7 @@ nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#031299"
 document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title
 $(".container")[0].style.backgroundColor = "#001f58"
 
-//
-const bannerOptions = [
-  {option: 'Choose Your Spieler (Default)', banner: 'https://jetsimon.com/cts-media/public/2021DE_init_1.png'},
-  {option: 'Spieler 1 (SPD)', banner: ''},
-  {option: 'Spieler 2 (CDU/CSU)', banner: ''},
-  {option: 'Spieler 3 (Greens)', banner: ''}
-];
-
-const bannerElement = document.getElementById("header");
-bannerElement.src = bannerOptions[0].banner;
+document.getElementById("header").src = 'https://jetsimon.com/cts-media/public/2021DE_init_1.png';
 document.body.background = 'https://i.ibb.co/rFKgjtw/berlin-luft.jpg'; 
 document.body.style.backgroundRepeat = "no-repeat";
 document.body.style.backgroundSize = "cover";
@@ -93,37 +84,6 @@ introScreen.querySelector('h3').innerHTML = `Do you have what it takes to win a 
 introScreen.querySelector('ul').innerHTML = `
 <li>Select a year, a party, and a chancellor candidate to find out.</li><li>You will answer questions about your platform and positions, and also about your campaign strategy.</li><li>The answers will affect your popularity for better or worse, both nationally and in individual states.</li><li>The answers will also affect other elements of your campaign, leading to unique developments in the election.</li><li>Walk the fine line between appealing to your base and winning the most votes.</li><li>Post-election, negotiate a coalition agreement that will hopefully satisfy you, your partner(s), and the German people.</li><li>Good luck on The Campaign Trail!</li>
 `;
-
-// 
-const bannerPickerContainer = document.createElement('div');
-bannerPickerContainer.id = 'banner_picker';
-bannerPickerContainer.style.color = 'white';
-bannerPickerContainer.innerHTML = '<b>Banner Picker:</b><br>';
-
-//
-const bannerPicker = document.createElement('select');
-bannerPicker.id = 'bannerPicker';
-
-//
-for (let i = 0; i < bannerOptions.length; i++){
-  var optionElement = document.createElement("option");
-  optionElement.text = bannerOptions[i].option;
-  optionElement.value = i;
-  bannerPicker.options.add(optionElement);
-} 
-
-// 
-bannerPicker.addEventListener("change", function() {
-  // bannerElement.src = bannerOptions[this.value].banner;
-});
-
-//
-bannerPickerContainer.appendChild(bannerPicker);
-
-//
-const footerElement = document.querySelector('.footer');
-footerElement.prepend(bannerPickerContainer);
-bannerPickerContainer.insertAdjacentHTML('afterend', '<br>');
 
 // 
 if (campaignTrail_temp.CTS) {
@@ -150,7 +110,7 @@ if (campaignTrail_temp.CTS) {
     achievementSettingsContainer.appendChild(achievementSettings);
 
     //
-    footerElement.insertBefore(achievementSettingsContainer, achievementsButton);
+    document.querySelector('.footer').insertBefore(achievementSettingsContainer, achievementsButton);
 
     //
     achievementsButton.style.marginBottom = '5px';
