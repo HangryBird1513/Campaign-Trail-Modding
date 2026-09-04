@@ -244,13 +244,14 @@ if (!element) {
             // 
             var musicPlayerApp = document.createElement("div");
             musicPlayerApp.id = "musicPlayerApp";
-            musicPlayerApp.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:273px;background-color:#6699CC;float:right;padding:10px;";
+            musicPlayerApp.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:200px;background-color:#6699CC;float:right;padding:10px;";
           
             //
             var musicPlayerAppImage = document.createElement("img");
             musicPlayerAppImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/tagesschau-app-icon.png";
             musicPlayerAppImage.style.width = "auto";
-            musicPlayerAppImage.style.height = "90%";
+            musicPlayerAppImage.style.height = "85%";
+            musicPlayerAppImage.style.marginBottom = "5px";
             musicPlayerApp.appendChild(musicPlayerAppImage);
 
             //
@@ -508,14 +509,14 @@ if (!element) {
             trackSel.style.height = "240px";
             trackSel.style.width = "100%";
 
-            let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;height:200px; width:400px;background-color:#6699CC;float:right;padding:10px;">`;
-            z += `<select id='selectSoundtrack' style='width: 100%;'><option value='` + e.selectedSoundtrack + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>";
+            let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;height:200px; width:473px;background-color:#6699CC;float:right;padding:10px;">`;
+            z += `<b>Playlist:</b><select id='selectSoundtrack' style='width: 100%;'><option value='` + e.selectedSoundtrack + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>";
             for (i in soundtracks) {
               if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
                   z += `<option value='` + i + `'>` + soundtracks[i].name + `</option>`;
               }
             }
-            z += `</select><br><br><div id='soundtrackSongs' style='height: 80%;overflow: auto;'>`;
+            z += `</select><br><br><b>Tracklist:</b><div id='soundtrackSongs' style='height: 60%;overflow: auto;'>`;
                 // <label><input type="radio" name="option" value="option1">Option 1</label><br>
             for (i in soundtracks[e.selectedSoundtrack].tracklist) {
                 let a = soundtracks[e.selectedSoundtrack].tracklist[i];
