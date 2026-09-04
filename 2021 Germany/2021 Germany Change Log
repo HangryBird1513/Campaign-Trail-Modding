@@ -25,9 +25,9 @@ List of Changes:
 - Modified "Previous", "Play"/"Pause", and "Next" buttons to resemble the buttons from the Tagesschau website
 - Modified "Shuffle" button in the music player to also shuffle the order that the songs physically appear in
 - Fixed the song radio buttons so that the "Pause" button is displayed if the music player was previously paused
-- Modified formatting and position of the music player so that it is above the cheat menu
+- Modified formatting and position of the music player so that it's above the cheat menu and all of its parts are no longer separated 
 - Removed theme picker so that the mod's unique theme cannot be changed 
-- Added a banner picker so that the banner can be set to 4 different options
+- ???
 - Added achievement pop-up settings on CTS so that pop-ups can be set to appear every time an achievement's unlock conditions are met or only when an achievement is first unlocked
 - Fixed the game window so that it expands vertically to accomodate for any content that tries to spill out of it
 - Fixed formatting of the "Export Game as File" button in the overall results section on NCT so that it stays within the game window
