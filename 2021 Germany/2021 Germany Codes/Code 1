@@ -1664,7 +1664,6 @@ function paginateContent() {
                     overflow: auto;
                 }
 
-            #overall_result,
             #final_results_description,
             #election_summary,
             #candidate_summary,
@@ -1966,6 +1965,22 @@ function paginateContent() {
             form[name="game_type_selection"],
             #difficulty_level {
               color: white;
+            }
+
+            #overall_result ul:not(#newPollingUL, #switchingEst, #seatEstimateUL) {
+              overflow: auto;
+              height: 64%;
+            }
+
+            #newPollingUL,
+            #switchingEst {
+              overflow: auto;
+              height: 46%;
+            }
+
+            #seatEstimateUL {
+              overflow: auto;
+              height: 60%;
             }
 
             #menu_container {
