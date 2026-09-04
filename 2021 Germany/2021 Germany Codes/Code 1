@@ -476,7 +476,7 @@ if (!element) {
                   z += `<option value='` + i + `'>` + soundtracks[i].name + `</option>`;
               }
             }
-            z += `</select><br><br><b>Tracklist:</b><div id='soundtrackSongs' style='height: 60%;overflow: auto;border: 1px grey solid;background-color: white;color: black;'>`;
+            z += `</select><br><br><b>Tracklist:</b><div id='soundtrackSongs' style='height: 60%;overflow: auto'>`;
                 // <label><input type="radio" name="option" value="option1">Option 1</label><br>
             for (i in soundtracks[e.selectedSoundtrack].tracklist) {
                 let a = soundtracks[e.selectedSoundtrack].tracklist[i];
