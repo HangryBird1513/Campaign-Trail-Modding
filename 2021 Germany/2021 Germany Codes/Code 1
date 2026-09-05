@@ -312,7 +312,7 @@ if (!element) {
                     }
                     newSel = trackIndices[currentIndex - 1];
                 } else {
-                    newSel = selected === 0 ? soundtracks[e.selectedSoundtrack].tracklist.length - 1 : selected - 1;
+                    newSel = selected === 0 ? trackIndices.length - 1 : selected - 1;
                 }
                 document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
             });
@@ -343,7 +343,7 @@ if (!element) {
                     }
                     newSel = trackIndices[currentIndex + 1];
                 } else {
-                    newSel = selected === soundtracks[e.selectedSoundtrack].tracklist.length - 1 ? 0 : selected + 1;
+                    newSel = selected === trackIndices.length - 1 ? 0 : selected + 1;
                 }
                 document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
             });
@@ -533,7 +533,7 @@ if (!element) {
             trackIndices = Array.from({length: soundtracks[e.selectedSoundtrack].tracklist.length}, (_, i) => i);
 
             musicBox.children[2].onended = function() {
-                if (e.music.loopEnabled) {
+                if (e.music.loopEnabled || trackIndices.length === 1) {
                     this.play();  // If loop is enabled, simply play the same track again
                 } else {
                 let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
@@ -546,17 +546,9 @@ if (!element) {
                     }
                     newSel = trackIndices[currentIndex + 1];
                 } else {
-                    newSel = selected + 1 === soundtracks[e.selectedSoundtrack].tracklist.length ? 0 : selected + 1;
+                    newSel = selected === trackIndices.length - 1 ? 0 : selected + 1;
                 }
-                //
-                if (newSel === selected) {
-                    var pausePlayButtonImage = document.querySelector("#pause-play-button img");
-                    pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Play-Button.png";
-                    pausePlayButtonImage.style.marginLeft = "3px";
-                }
-                else {
-                    document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
-                }
+                document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
                 }
             }
             
