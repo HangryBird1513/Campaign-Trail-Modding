@@ -91,10 +91,13 @@ if (campaignTrail_temp.CTS) {
 
   if (achievementsButton) {
     // 
+    const achievementsContainer = document.createElement('div');
+    achievementsContainer.id = 'achievementsContainer';
+    achievementsContainer.style.color = 'white';
+
+    //
     const achievementSettingsContainer = document.createElement('div');
-    achievementSettingsContainer.id = 'achievement_settings';
-    achievementSettingsContainer.style.color = 'white';
-    achievementSettingsContainer.innerHTML = '<br><b style="border-top: 1px solid white;">Achievement Pop-Ups:</b><br>';
+    achievementSettingsContainer.innerHTML = '<b style="border-top: 1px solid white;">Achievement Pop-Ups:</b><br>';
 
     //
     const achievementSettings = document.createElement('select');
@@ -108,13 +111,14 @@ if (campaignTrail_temp.CTS) {
 
     //
     achievementSettingsContainer.appendChild(achievementSettings);
+    achievementsContainer.appendChild(achievementSettingsContainer);
 
     //
-    document.querySelector('.footer').insertBefore(achievementSettingsContainer, achievementsButton);
+    document.querySelector('.footer').insertBefore(achievementsContainer, achievementsButton);
 
     //
     achievementsButton.style.marginBottom = '5px';
-    achievementSettingsContainer.prepend(achievementsButton);
+    achievementsContainer.prepend(achievementsButton);
   }
 }
 
@@ -215,7 +219,7 @@ if (!element) {
             musicPlayerApp.appendChild(musicPlayerAppImage);
 
             //
-            musicPlayerApp.insertAdjacentHTML('beforeend', '<br><b>Music Player</b>');
+            musicPlayerApp.insertAdjacentHTML('beforeend', '<b>Music Player</b>');
           
             //
             document.getElementById("trackSelParent").appendChild(musicPlayerApp);
