@@ -222,6 +222,11 @@ if (!element) {
         }
 
         toTime = (seconds) => {
+            //
+            if (isNaN(seconds) || seconds === null) {
+              return "00:00:00";
+            }
+
             var date = new Date(null);
             date.setSeconds(seconds);
             return date.toISOString().substr(11, 8);
@@ -441,13 +446,18 @@ if (!element) {
             timeTracker.appendChild(musicPlayerButtons);
             timeTracker.appendChild(buttonContainer); // Add the container to timeTracker instead of individual buttons
             timeTracker.appendChild(sliderContainer);
+
+            //
+            positionDisplay.innerHTML = "<br><b></b>";
+            var positionDisplayText = positionDisplay.querySelector("b");
             updatePositionDisplay();
+
             function updatePositionDisplay() {
-                positionDisplay.innerHTML = "<br><b>Time:</b> " + toTime(audio.currentTime);
+                positionDisplayText.innerHTML = toTime(audio.currentTime) + "/" + toTime(audio.duration);
                 timeSlider.value = audio.duration ? audio.currentTime / audio.duration : 0;
             }
             function changeTime() {
-                positionDisplay.innerHTML = "<br><b>Time:</b> " + toTime(audio.currentTime);
+                positionDisplayText.innerHTML = toTime(audio.currentTime) + "/" + toTime(audio.duration);
                 audio.currentTime = timeSlider.value * audio.duration;
             }
             updateVolume = event => {
@@ -538,7 +548,15 @@ if (!element) {
                 } else {
                     newSel = selected + 1 === soundtracks[e.selectedSoundtrack].tracklist.length ? 0 : selected + 1;
                 }
-                document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
+                //
+                if (newSel === selected) {
+                    var pausePlayButtonImage = document.querySelector("#pause-play-button img");
+                    pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Play-Button.png";
+                    pausePlayButtonImage.style.marginLeft = "3px";
+                }
+                else {
+                    document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
+                }
                 }
             }
             
