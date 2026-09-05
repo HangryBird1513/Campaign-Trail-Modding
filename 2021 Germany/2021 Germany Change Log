@@ -20,12 +20,12 @@ List of Changes:
 - Modified formatting of the polling menu container in the electoral map 
 - Replaced broken SPD image
 - Modified formatting of the difficulty options explanation so that the tooltip fits in its outer container
-- Added a header, cover image, "Mute" and "Previous" buttons, and volume indicator to the music player
+- Added a header, cover image, "Mute" and "Previous" buttons, and track length and volume indicator to the music player
 - Renamed "Skip" button in the music player to "Next"
 - Modified "Mute", "Previous", "Play"/"Pause", and "Next" buttons to resemble the buttons from the Tagesschau website
-- Modified time indicator to include the track length
 - Modified "Shuffle" button to also shuffle the order that the tracks physically appear in
 - Fixed track radio buttons so that the "Pause" button is displayed if the music player was previously paused
+- Fixed audio element so that it plays the track again if the playlist has only 1 track 
 - Modified formatting and position of the music player so that it's above the cheat menu and all of its parts are no longer separated 
 - Removed theme picker so that the mod's unique theme cannot be changed 
 - Added achievement pop-up settings on CTS so that pop-ups can be set to appear every time an achievement's unlock conditions are met or only when an achievement is first unlocked
