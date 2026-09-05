@@ -226,10 +226,11 @@ if (!element) {
             if (isNaN(seconds) || seconds === null) {
               return "00:00:00";
             }
-
-            var date = new Date(null);
-            date.setSeconds(seconds);
-            return date.toISOString().substr(11, 8);
+            else {
+              var date = new Date(null);
+              date.setSeconds(seconds);
+              return date.toISOString().substr(11, 8);
+            }
         }
         generateTime = () => {
             // Get the audio element
@@ -457,11 +458,11 @@ if (!element) {
             updatePositionDisplay();
 
             function updatePositionDisplay() {
-                positionDisplayText.innerHTML = toTime(audio.currentTime) + "/" + toTime(audio.duration);
+                positionDisplayText.innerHTML = toTime(audio.currentTime) + " / " + toTime(audio.duration);
                 timeSlider.value = audio.duration ? audio.currentTime / audio.duration : 0;
             }
             function changeTime() {
-                positionDisplayText.innerHTML = toTime(audio.currentTime) + "/" + toTime(audio.duration);
+                positionDisplayText.innerHTML = toTime(audio.currentTime) + " / " + toTime(audio.duration);
                 audio.currentTime = timeSlider.value * audio.duration;
             }
             updateVolume = event => {
