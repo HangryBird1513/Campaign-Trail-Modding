@@ -301,20 +301,22 @@ if (!element) {
             previousSongButton.appendChild(previousSongButtonImage);
 
             previousSongButton.addEventListener("click", event => {
-                event.preventDefault();
-                let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
-                let newSel;
-                if (e.music.shuffleEnabled) {
-                    let currentIndex = trackIndices.findIndex(index => index === selected);
-                    if (currentIndex === 0) {
-                        shuffle(trackIndices);
-                        currentIndex = 1;
+                if (trackIndices.length > 1) {
+                    event.preventDefault();
+                    let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
+                    let newSel;
+                    if (e.music.shuffleEnabled) {
+                        let currentIndex = trackIndices.findIndex(index => index === selected);
+                        if (currentIndex === 0) {
+                            shuffle(trackIndices);
+                            currentIndex = 1;
+                        }
+                        newSel = trackIndices[currentIndex - 1];
+                    } else {
+                        newSel = selected === 0 ? trackIndices.length - 1 : selected - 1;
                     }
-                    newSel = trackIndices[currentIndex - 1];
-                } else {
-                    newSel = selected === 0 ? trackIndices.length - 1 : selected - 1;
+                    document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
                 }
-                document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
             });
 
             // 
@@ -332,20 +334,22 @@ if (!element) {
             nextSongButton.appendChild(nextSongButtonImage);
 
             nextSongButton.addEventListener("click", event => {
-                event.preventDefault();
-                let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
-                let newSel;
-                if (e.music.shuffleEnabled) {
-                    let currentIndex = trackIndices.findIndex(index => index === selected);
-                    if (currentIndex === trackIndices.length - 1) {
-                        shuffle(trackIndices);
-                        currentIndex = -1;
+                if (trackIndices.length > 1) {
+                    event.preventDefault();
+                    let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
+                    let newSel;
+                    if (e.music.shuffleEnabled) {
+                        let currentIndex = trackIndices.findIndex(index => index === selected);
+                        if (currentIndex === trackIndices.length - 1) {
+                            shuffle(trackIndices);
+                            currentIndex = -1;
+                        }
+                        newSel = trackIndices[currentIndex + 1];
+                    } else {
+                        newSel = selected === trackIndices.length - 1 ? 0 : selected + 1;
                     }
-                    newSel = trackIndices[currentIndex + 1];
-                } else {
-                    newSel = selected === trackIndices.length - 1 ? 0 : selected + 1;
+                    document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
                 }
-                document.querySelector(`input[name="trackSelector"][value="${newSel}"]`).click();
             });
 
             var shuffleButton = document.createElement("button");
