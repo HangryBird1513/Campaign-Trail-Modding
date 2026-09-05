@@ -489,20 +489,20 @@ if (!element) {
             trackSel.style.width = "100%";
 
             let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;height:200px; width:473px;background-color:#6699CC;float:right;padding:10px;">`;
-            z += `<b>Playlist:</b><select id='selectSoundtrack' style='width: 100%;'><option value='` + e.selectedSoundtrack + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>";
+            z += `<div><b>Playlist:</b><select id='selectSoundtrack' style='width: 100%;'><option value='` + e.selectedSoundtrack + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>";
             for (i in soundtracks) {
               if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
                   z += `<option value='` + i + `'>` + soundtracks[i].name + `</option>`;
               }
             }
-            z += `</select><br><br><b>Tracklist:</b><div id='soundtrackSongs' style='height: 60%;overflow: auto'>`;
+            z += `</select></div><br><div><b>Tracklist:</b><div id='soundtrackSongs' style='height: 60%;overflow: auto'>`;
                 // <label><input type="radio" name="option" value="option1">Option 1</label><br>
             for (i in soundtracks[e.selectedSoundtrack].tracklist) {
                 let a = soundtracks[e.selectedSoundtrack].tracklist[i];
                 let b = `<label><input class="soundtrackSelector" type="radio" name="trackSelector" value="` + i + `">` + a.name + `</label><br>`;
                 z += b;
             }
-            z += "</div></div>";
+            z += "</div></div></div>";
             trackSel.innerHTML = z;
             musicBox.appendChild(trackSel);
             document.querySelector(`input[name="trackSelector"][value="0"]`).checked = true;
