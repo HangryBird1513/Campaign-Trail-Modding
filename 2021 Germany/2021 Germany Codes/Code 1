@@ -252,7 +252,7 @@ if (!element) {
       padding: 10px;
       `
             $("#trackSelParent")[0].prepend(timeTracker);
-            var positionDisplay = document.createElement("gg");
+            var positionDisplay = document.createElement("b");
             positionDisplay.id = "position-display";
             var timeSlider = document.createElement("input");
             timeSlider.type = "range";
@@ -400,7 +400,7 @@ if (!element) {
                 audio.loop = e.music.loopEnabled;  // Set the audio's loop property
                 event.target.innerHTML = e.music.loopEnabled ? "<b>Unloop</b>" : "<b>Loop</b>";  // Toggle the button text
             });
-            var volumeLabel = document.createElement("gg");
+            var volumeLabel = document.createElement("b");
             volumeLabel.id = "volume-label";
             var volumeSlider = document.createElement("input");
             volumeSlider.type = "range";
@@ -414,7 +414,7 @@ if (!element) {
             volumeSlider.value = audio.volume;
 
             //
-            volumeLabel.innerHTML = "<br><b>Volume:</b> " +  Math.round(volumeSlider.value * 100);
+            volumeLabel.innerHTML = Math.round(volumeSlider.value * 100);
 
             if (audio.volume === 0) {
                 pausePlayButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Play-Button.png";
@@ -443,35 +443,37 @@ if (!element) {
             buttonContainer.appendChild(loopButton);
 
             //
-            var sliderContainer = document.createElement("div");
+            var timeSliderContainer = document.createElement("div");
+            var volumeSliderContainer = document.createElement("div");
 
             //
-            sliderContainer.appendChild(positionDisplay);
-            sliderContainer.appendChild(timeSlider);
-            sliderContainer.appendChild(volumeLabel);
-            sliderContainer.appendChild(volumeSlider);
+            timeSliderContainer.appendChild(positionDisplay);
+            timeSliderContainer.appendChild(timeSlider);
+            volumeSliderContainer.appendChild(volumeLabel);
+            volumeSliderContainer.appendChild(volumeSlider);
 
             // 
             timeTracker.appendChild(musicPlayerButtons);
             timeTracker.appendChild(buttonContainer); // Add the container to timeTracker instead of individual buttons
-            timeTracker.appendChild(sliderContainer);
+            timeTracker.insertAdjacentHTML('beforeend', '<br>');
+            timeTracker.appendChild(timeSliderContainer);
+            timeTracker.insertAdjacentHTML('beforeend', '<br>');
+            timeTracker.appendChild(volumeSliderContainer);
 
             //
-            positionDisplay.innerHTML = "<br><b></b>";
-            var positionDisplayText = positionDisplay.querySelector("b");
             updatePositionDisplay();
 
             function updatePositionDisplay() {
-                positionDisplayText.innerHTML = toTime(audio.currentTime) + " / " + toTime(audio.duration);
+                positionDisplay.innerHTML = toTime(audio.currentTime) + " / " + toTime(audio.duration);
                 timeSlider.value = audio.duration ? audio.currentTime / audio.duration : 0;
             }
             function changeTime() {
-                positionDisplayText.innerHTML = toTime(audio.currentTime) + " / " + toTime(audio.duration);
+                positionDisplay.innerHTML = toTime(audio.currentTime) + " / " + toTime(audio.duration);
                 audio.currentTime = timeSlider.value * audio.duration;
             }
             updateVolume = event => {
                 //
-                volumeLabel.innerHTML = "<br><b>Volume:</b> " +  Math.round(event.target.value * 100);
+                volumeLabel.innerHTML = Math.round(event.target.value * 100);
 
                 audio.volume = event.target.value;
                 e.music.Volume=audio.volume;
