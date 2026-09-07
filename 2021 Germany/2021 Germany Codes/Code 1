@@ -184,7 +184,7 @@ if (!element) {
 
     musicMode()
 
-      })
+    })
     musicMode = () => {
         $("#music_player")[0].children[0].style.display = "none"
         $("#music_player")[0].children[1].style.display = "none"
@@ -194,6 +194,7 @@ if (!element) {
         musicBox.style.display = ""
         //
         document.querySelector('.footer').prepend(musicBox);
+        musicBox.insertAdjacentHTML('afterend', '<br>');
 
         var trackSel;
         e = campaignTrail_temp
@@ -204,7 +205,7 @@ if (!element) {
             // 
             var musicPlayerApp = document.createElement("div");
             musicPlayerApp.id = "musicPlayerApp";
-            musicPlayerApp.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:200px;background-color:#6699CC;float:right;padding:10px;";
+            musicPlayerApp.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:200px;background-color:#6699CC;padding:10px;";
           
             //
             var musicPlayerAppImage = document.createElement("img");
@@ -218,7 +219,7 @@ if (!element) {
             musicPlayerApp.insertAdjacentHTML('beforeend', '<b>Music Player</b>');
           
             //
-            document.getElementById("trackSelParent").appendChild(musicPlayerApp);
+            document.getElementById("trackSelParent").prepend(musicPlayerApp);
         }
 
         toTime = (seconds) => {
@@ -244,10 +245,9 @@ if (!element) {
       height:200px;
       width:200px;
       background-color:#6699CC;
-      float:right;
       padding: 10px;
       `
-            $("#trackSelParent")[0].prepend(timeTracker);
+            $("#trackSelParent")[0].appendChild(timeTracker);
             var positionDisplay = document.createElement("b");
             positionDisplay.id = "position-display";
             var timeSlider = document.createElement("input");
@@ -568,10 +568,10 @@ if (!element) {
             trackSel = document.createElement("div");
             trackSel.id = "trackSelParent";
             //
-            trackSel.style.height = "240px";
-            trackSel.style.width = "100%";
+            trackSel.style.display = "flex";
+            trackSel.style.justifyContent = "space-between";
 
-            let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;height:200px; width:473px;background-color:#6699CC;float:right;padding:10px;">`;
+            let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;height:200px; width:473px;background-color:#6699CC;padding:10px;">`;
             z += `<div><b>Playlist:</b><select id='selectSoundtrack' style='width: 100%;'><option value='` + e.selectedSoundtrack + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>";
             for (i in soundtracks) {
               if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
