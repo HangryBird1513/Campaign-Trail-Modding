@@ -442,8 +442,8 @@ if (!element) {
                 e.music.muted = true;
             }
 
-            volumeButtonImage.style.width = "20px";
-            volumeButtonImage.style.height = "auto";
+            volumeButtonImage.style.width = "auto";
+            volumeButtonImage.style.height = "16px";
             volumeButton.appendChild(volumeButtonImage);
 
             volumeButton.addEventListener("click", event => {
