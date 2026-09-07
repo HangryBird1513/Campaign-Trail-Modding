@@ -435,7 +435,17 @@ if (!element) {
 
             //
             var volumeButtonImage = document.createElement("img");
-            volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Mute-Button.png";
+
+            if (audio.volume > 50) {
+                volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/High-Volume-Button.png";
+            }
+            else if (audio.volume > 0) {
+                volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Low-Volume-Button.png";
+            }
+            else {
+                volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Mute-Button.png";
+            }
+
             volumeButtonImage.style.width = "20px";
             volumeButtonImage.style.height = "auto";
             volumeButton.appendChild(volumeButtonImage);
@@ -536,7 +546,7 @@ if (!element) {
                   z += `<option value='` + i + `'>` + soundtracks[i].name + `</option>`;
               }
             }
-            z += `</select></div><br><div><b>Tracklist:</b><div id='soundtrackSongs' style='height: 60%;overflow: auto'>`;
+            z += `</select></div><br><div><b>Tracklist:</b><div id='soundtrackSongs' style='height: 120px;overflow: auto'>`;
                 // <label><input type="radio" name="option" value="option1">Option 1</label><br>
             for (i in soundtracks[e.selectedSoundtrack].tracklist) {
                 let a = soundtracks[e.selectedSoundtrack].tracklist[i];
