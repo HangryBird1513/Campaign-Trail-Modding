@@ -292,20 +292,20 @@ if (!element) {
             })
 
             // 
-            var previousSongButton = document.createElement("button");
-            previousSongButton.id = "previous-song-button";
-            previousSongButton.style.width = "40px";
-            previousSongButton.style.height = "40px";
-            previousSongButton.style.margin = "7px 5px 10px 2px"; // Add margin
+            var previousTrackButton = document.createElement("button");
+            previousTrackButton.id = "previous-track-button";
+            previousTrackButton.style.width = "40px";
+            previousTrackButton.style.height = "40px";
+            previousTrackButton.style.margin = "7px 5px 10px 2px"; // Add margin
 
             // 
-            var previousSongButtonImage = document.createElement("img");
-            previousSongButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Prev-Button.png";
-            previousSongButtonImage.style.width = "16px";
-            previousSongButtonImage.style.height = "auto";
-            previousSongButton.appendChild(previousSongButtonImage);
+            var previousTrackButtonImage = document.createElement("img");
+            previousTrackButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Prev-Button.png";
+            previousTrackButtonImage.style.width = "16px";
+            previousTrackButtonImage.style.height = "auto";
+            previousTrackButton.appendChild(previousTrackButtonImage);
 
-            previousSongButton.addEventListener("click", event => {
+            previousTrackButton.addEventListener("click", event => {
                 if (trackIndices.length > 1) {
                     event.preventDefault();
                     let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
@@ -325,20 +325,20 @@ if (!element) {
             });
 
             // 
-            var nextSongButton = document.createElement("button");
-            nextSongButton.id = "next-song-button";
-            nextSongButton.style.width = "40px";
-            nextSongButton.style.height = "40px";
-            nextSongButton.style.margin = "7px 2px 10px 2px"; // Add margin
+            var nextTrackButton = document.createElement("button");
+            nextTrackButton.id = "next-track-button";
+            nextTrackButton.style.width = "40px";
+            nextTrackButton.style.height = "40px";
+            nextTrackButton.style.margin = "7px 2px 10px 2px"; // Add margin
 
             // 
-            var nextSongButtonImage = document.createElement("img");
-            nextSongButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Next-Button.png";
-            nextSongButtonImage.style.width = "16px";
-            nextSongButtonImage.style.height = "auto";
-            nextSongButton.appendChild(nextSongButtonImage);
+            var nextTrackButtonImage = document.createElement("img");
+            nextTrackButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Next-Button.png";
+            nextTrackButtonImage.style.width = "16px";
+            nextTrackButtonImage.style.height = "auto";
+            nextTrackButton.appendChild(nextTrackButtonImage);
 
-            nextSongButton.addEventListener("click", event => {
+            nextTrackButton.addEventListener("click", event => {
                 if (trackIndices.length > 1) {
                     event.preventDefault();
                     let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
@@ -363,28 +363,30 @@ if (!element) {
             shuffleButton.style.width = "50%"
             shuffleButton.style.margin = "2px 5px 2px 2px";
             shuffleButton.addEventListener("click", event => {
-                event.preventDefault();
-                e.music.shuffleEnabled = !e.music.shuffleEnabled;
-                event.target.innerHTML = e.music.shuffleEnabled ? "<b>Unshuffle</b>" : "<b>Shuffle</b>";
-                if (e.music.shuffleEnabled) {
-                    //
-                    let soundtrackSongContainer = document.querySelector("#soundtrackSongs");
-                    let currentTrackSelector = soundtrackSongContainer.querySelector('input[name="trackSelector"]:checked');
+                if (trackIndices.length > 1) {
+                    event.preventDefault();
+                    e.music.shuffleEnabled = !e.music.shuffleEnabled;
+                    event.target.innerHTML = e.music.shuffleEnabled ? "<b>Unshuffle</b>" : "<b>Shuffle</b>";
+                    if (e.music.shuffleEnabled) {
+                        //
+                        let soundtrackSongContainer = document.querySelector("#soundtrackSongs");
+                        let currentTrackSelector = soundtrackSongContainer.querySelector('input[name="trackSelector"]:checked');
 
-                    //
-                    let currentTrackIndex = Number(currentTrackSelector.value);
-                    trackIndices = trackIndices.filter(index => index !== currentTrackIndex);
-                    trackIndices.unshift(currentTrackIndex);
+                        //
+                        let currentTrackIndex = Number(currentTrackSelector.value);
+                        trackIndices = trackIndices.filter(index => index !== currentTrackIndex);
+                        trackIndices.unshift(currentTrackIndex);
 
-                    //
-                    soundtrackSongContainer.prepend(currentTrackSelector.parentElement)
+                        //
+                        soundtrackSongContainer.prepend(currentTrackSelector.parentElement)
 
-                    //
-                    shuffle(trackIndices, 1);
-                }
-                else {
-                    //
-                    unshuffle(trackIndices);
+                        //
+                        shuffle(trackIndices, 1);
+                    }
+                    else {
+                        //
+                        unshuffle(trackIndices);
+                    }
                 }
             });
 
@@ -400,6 +402,7 @@ if (!element) {
                 audio.loop = e.music.loopEnabled;  // Set the audio's loop property
                 event.target.innerHTML = e.music.loopEnabled ? "<b>Unloop</b>" : "<b>Loop</b>";  // Toggle the button text
             });
+
             var volumeLabel = document.createElement("b");
             volumeLabel.id = "volume-label";
             var volumeSlider = document.createElement("input");
@@ -408,7 +411,7 @@ if (!element) {
             volumeSlider.max = 1;
             volumeSlider.step = 0.001;
             volumeSlider.value = 0;
-            volumeSlider.style.width = "200px";
+            volumeSlider.style.width = "146px";
             volumeSlider.id = "volume-slider";
             audio.volume= e.music.Volume;
             volumeSlider.value = audio.volume;
@@ -421,6 +424,25 @@ if (!element) {
                 pausePlayButtonImage.style.marginLeft = "3px";
                 audio.pause();
             }
+
+            //
+            var volumeButton = document.createElement("button");
+
+            volumeButton.id = "volume-button";
+            volumeButton.style.width = "40px";
+            volumeButton.style.height = "40px";
+            volumeButton.style.margin = "0px 12px 0px 2px"; // Add margin
+
+            //
+            var volumeButtonImage = document.createElement("img");
+            volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Mute-Button.png";
+            volumeButtonImage.style.width = "20px";
+            volumeButtonImage.style.height = "auto";
+            volumeButton.appendChild(volumeButtonImage);
+
+            volumeButton.addEventListener("click", event => {
+                event.preventDefault();
+            });
             
             //
             var musicPlayerButtons = document.createElement("div");
@@ -429,9 +451,9 @@ if (!element) {
             musicPlayerButtons.style.justifyContent = "space-between";
             
             // 
-            musicPlayerButtons.appendChild(previousSongButton);
+            musicPlayerButtons.appendChild(previousTrackButton);
             musicPlayerButtons.appendChild(pausePlayButton);
-            musicPlayerButtons.appendChild(nextSongButton);
+            musicPlayerButtons.appendChild(nextTrackButton);
 
             //
             var buttonContainer = document.createElement("div");
@@ -444,21 +466,38 @@ if (!element) {
 
             //
             var timeSliderContainer = document.createElement("div");
-            var volumeSliderContainer = document.createElement("div");
 
             //
             timeSliderContainer.appendChild(positionDisplay);
             timeSliderContainer.appendChild(timeSlider);
+
+            //
+            var volumeContainer = document.createElement("div");
+
+            //
+            volumeContainer.className = "musicplayerbuttons";
+            volumeContainer.style.display = "flex"; // Makes children inline
+            volumeContainer.style.justifyContent = "space-between";
+            volumeContainer.style.marginTop = "15px";
+
+            //
+            var volumeSliderContainer = document.createElement("div");
+            volumeSliderContainer.style.width = "146px";
+
+            //
             volumeSliderContainer.appendChild(volumeLabel);
             volumeSliderContainer.appendChild(volumeSlider);
+
+            //
+            volumeContainer.appendChild(volumeButton);
+            volumeContainer.appendChild(volumeSliderContainer);
 
             // 
             timeTracker.appendChild(musicPlayerButtons);
             timeTracker.appendChild(buttonContainer); // Add the container to timeTracker instead of individual buttons
             timeTracker.insertAdjacentHTML('beforeend', '<br>');
             timeTracker.appendChild(timeSliderContainer);
-            timeTracker.insertAdjacentHTML('beforeend', '<br>');
-            timeTracker.appendChild(volumeSliderContainer);
+            timeTracker.appendChild(volumeContainer);
 
             //
             updatePositionDisplay();
