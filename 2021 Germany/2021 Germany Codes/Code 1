@@ -76,7 +76,6 @@ e.realisticPolls = true;
 e.staff_mode = true;
 e.electionNight=true;
 //
-e.music.muted=false;
 e.achievementsEveryTime=true;
 
 // 
@@ -205,7 +204,7 @@ if (!element) {
             // 
             var musicPlayerApp = document.createElement("div");
             musicPlayerApp.id = "musicPlayerApp";
-            musicPlayerApp.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:200px;background-color:#6699CC;padding:10px;";
+            musicPlayerApp.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:200px;padding:10px;";
           
             //
             var musicPlayerAppImage = document.createElement("img");
@@ -244,7 +243,6 @@ if (!element) {
       border-width:3px;
       height:200px;
       width:200px;
-      background-color:#6699CC;
       padding: 10px;
       `
             $("#trackSelParent")[0].appendChild(timeTracker);
@@ -439,7 +437,6 @@ if (!element) {
             }
             else {
                 volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Mute-Button.png";
-                e.music.muted = true;
             }
 
             volumeButtonImage.style.width = "auto";
@@ -449,14 +446,14 @@ if (!element) {
             volumeButton.addEventListener("click", event => {
                 event.preventDefault();
                 let audio = document.getElementById("campaigntrailmusic");
-                if (e.music.muted) {
+                if (audio.volume === 0) {
                     //
-                    if (audio.volume === 0) {
-                        volumeSlider.value = 0.3;
+                    if (e.music.Volume === 0) {
+                        e.music.Volume = 0.3;
+                        volumeSlider.value = e.music.Volume;
                     }
 
                     audio.volume = volumeSlider.value;
-                    e.music.Volume=audio.volume;
                     volumeLabel.innerHTML = Math.round(volumeSlider.value * 100);
                     if (audio.volume > 0.5) {
                         volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/High-Volume-Button.png";
@@ -468,11 +465,9 @@ if (!element) {
                 else {
                     //
                     audio.volume = 0; 
-                    e.music.Volume=audio.volume;
                     volumeLabel.innerHTML = 0;
                     volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Mute-Button.png";
                 }
-                e.music.muted = !e.music.muted;
             });
             
             //
@@ -545,15 +540,12 @@ if (!element) {
                 //
                 if (event.target.value > 0.5) {
                     volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/High-Volume-Button.png";
-                    e.music.muted = false;
                 }
                 else if (event.target.value > 0) {
                     volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Low-Volume-Button.png";
-                    e.music.muted = false;
                 }
                 else {
                     volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Mute-Button.png";
-                    e.music.muted = true;
                 }
                 volumeLabel.innerHTML = Math.round(event.target.value * 100);
                 audio.volume = event.target.value;
@@ -568,10 +560,11 @@ if (!element) {
             trackSel = document.createElement("div");
             trackSel.id = "trackSelParent";
             //
+            trackSel.style.backgroundColor = "#6699CC";
             trackSel.style.display = "flex";
             trackSel.style.justifyContent = "space-between";
 
-            let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;height:200px; width:473px;background-color:#6699CC;padding:10px;">`;
+            let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;height:200px; width:473px;padding:10px;">`;
             z += `<div><b>Playlist:</b><select id='selectSoundtrack' style='width: 100%;'><option value='` + e.selectedSoundtrack + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>";
             for (i in soundtracks) {
               if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
@@ -650,7 +643,7 @@ if (!element) {
            if (previousBgImage) {
               document.getElementById("musicPlayerApp").style.backgroundImage = previousBgImage;
                 document.getElementById("trackSel").style.backgroundImage = previousBgImage;
-                 document.getElementById("timeTracker").style.backgroundImage = previousBgImage;
+                  document.getElementById("timeTracker").style.backgroundImage = previousBgImage;
             }
         }
         clamp = function(a, max, min, overflow = true) {
