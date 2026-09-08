@@ -56,7 +56,7 @@ HistName=["Replace Me"];
 e.collect_results = true;
 $("#game_window")[0].style.backgroundImage = "url(https://i.ibb.co/3p8pgGF/tagesschau.jpg)";
 backgroundGameWindow =  "url(https://i.ibb.co/3p8pgGF/tagesschau.jpg)"
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#070785"
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#070785" // asap
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#031299"
 document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title
 $(".container")[0].style.backgroundColor = "#001f58"
@@ -181,7 +181,7 @@ if (!element) {
     //
     $("#game_window")[0].style.height="auto";
 
-    musicMode()
+    musicMode();
 
     })
     musicMode = () => {
@@ -191,7 +191,9 @@ if (!element) {
         document.getElementById("modloaddiv").style.display = "none"
         musicBox = document.getElementById("music_player")
         musicBox.style.display = ""
-        //
+
+        // asap
+        musicBox.style.backgroundColor = "#5D8FC4";
         document.querySelector('.footer').prepend(musicBox);
         musicBox.insertAdjacentHTML('afterend', '<br>');
 
@@ -559,7 +561,7 @@ if (!element) {
     function newMusicPlayer(previousBgImage = null) {
             trackSel = document.createElement("div");
             trackSel.id = "trackSelParent";
-            //
+            // asap
             trackSel.style.backgroundColor = "#6699CC";
             trackSel.style.display = "flex";
             trackSel.style.justifyContent = "space-between";
