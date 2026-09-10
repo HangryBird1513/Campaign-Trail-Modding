@@ -82,7 +82,7 @@ e.achievementsEveryTime=true;
 const introScreen = document.querySelector('#inner_window_1');
 introScreen.querySelector('h3').innerHTML = `Do you have what it takes to win a Bundestagswahl?`;
 introScreen.querySelector('ul').innerHTML = `
-<li>Select a year, a party, and a chancellor candidate to find out.</li><li>You will answer questions about your platform and positions, and also about your campaign strategy.</li><li>The answers will affect your popularity for better or worse, both nationally and in individual states.</li><li>The answers will also affect other elements of your campaign, leading to unique developments in the election.</li><li>Walk the fine line between appealing to your base and winning the most votes.</li><li>Post-election, negotiate a coalition agreement that will hopefully satisfy you, your partner(s), and the German people.</li><li>Good luck on The Campaign Trail!</li>
+<li>Select a year, a party, and a chancellor candidate to find out.</li><li>You will answer questions about your platform and positions, and also about your campaign strategy.</li><li>The answers will affect your popularity for better or worse, both nationally and in individual states.</li><li>The answers will also affect other elements of your campaign, leading to unique developments in the election.</li><li>Walk the fine line between appealing to your base and winning the most votes.</li><li>Post-election, negotiate a coalition agreement that will hopefully satisfy you, your partner(s), and the German people.</li><li>Good luck on Die Wahlkampf-Tour!</li>
 `;
 
 // 
