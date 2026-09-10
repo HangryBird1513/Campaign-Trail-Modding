@@ -43,8 +43,7 @@ To-Do List:
 - Maybe add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
 
 List of Changes:
-- Renamed HQ button to "Headquarters"
-- Fixed misspellings of Hesse and Rhineland-Palatinate
+- Fixed misspellings of HQ button name, Hesse, and Rhineland-Palatinate
 - Updated Merz's character mechanic description and visualization in the HQ
 - Fixed Merz's character mechanic tooltip in the HQ so that it displays the radicalism amount when cheats are enabled like it's supposed to
 - Renamed various elements that had "Electoral Votes" in their text to have "Seats" instead
@@ -67,3 +66,4 @@ List of Changes:
 - Added all advisors, but without their effects, that were listed in the cutting room floor document
 - Fixed formatting of the "Go to Final Results" button in the election night chart on NCT so that it is below the chart
 - Modified the seat estimate and possible coalitions text in the election night chart on NCT so that both are white
+- Removed the "368 to win" text in the polling menu container during the base, unchanged election night on NCT
