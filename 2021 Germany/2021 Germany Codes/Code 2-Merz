@@ -2015,7 +2015,7 @@ if(!campaignTrail_temp.loaded){
       }
     }
     
-    //
+    // asap
     async function renameElectoralVotes(processedNodes){
         const electoralVoteElements = [
             {elementID: '#overall_result h3', oldText: 'ELECTORAL VOTES', newText: 'NATIONAL RESULTS'},
@@ -2028,9 +2028,16 @@ if(!campaignTrail_temp.loaded){
             let element = document.querySelector(ev.elementID);
         
             if (element && !processedNodes.has(element)){
-                let elementText = element.textContent;
+                let elementText = element.innerHTML;
+
+                if (ev.elementID === '#overall_result p') {
+                    if (elementText.includes('<br>')) {
+                        elementText = elementText.slice(0, elementText.indexOf('<br>'));
+                    }
+                }
+
                 elementText = elementText.replace(ev.oldText, ev.newText);
-                element.textContent = elementText;
+                element.innerHTML = elementText;
                 
                 if (ev.elementID !== '#state_result p:nth-of-type(2)') {
                     processedNodes.add(element);
