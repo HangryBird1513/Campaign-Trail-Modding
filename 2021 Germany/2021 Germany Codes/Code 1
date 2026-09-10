@@ -193,7 +193,7 @@ if (!element) {
         musicBox.style.display = ""
 
         // 
-        musicBox.style.backgroundColor = "#5D8FC4";
+        musicBox.style.border = "3px solid white";
         document.querySelector('.footer').prepend(musicBox);
         musicBox.insertAdjacentHTML('afterend', '<br>');
 
@@ -202,11 +202,27 @@ if (!element) {
         e.selectedSoundtrack = 0
 
         //
+        addMusicPlayerHeader = () => {
+            //
+            var musicPlayerHeader = document.createElement("div");
+            musicPlayerHeader.id = "musicPlayerHeader";
+            musicPlayerHeader.style.cssText = "padding:10px;border-bottom: 3px solid white;background-color:#5D8FC4";
+
+            var musicPlayerHeaderImage = document.createElement("img");
+            musicPlayerHeaderImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/federal-returning-officer-header.png";
+            musicPlayerHeaderImage.style.width = "100%";
+            musicPlayerHeaderImage.style.height = "auto";
+            musicPlayerHeader.appendChild(musicPlayerHeaderImage);
+
+            musicBox.appendChild(musicPlayerHeader);
+        }
+
+        //
         createMusicPlayerApp = () => {
             // 
             var musicPlayerApp = document.createElement("div");
             musicPlayerApp.id = "musicPlayerApp";
-            musicPlayerApp.style.cssText = "text-align:center;border-style:solid;border-width:3px;height:200px; width:200px;padding:10px;";
+            musicPlayerApp.style.cssText = "text-align:center;height:200px; width:200px;padding:10px;";
           
             //
             var musicPlayerAppImage = document.createElement("img");
@@ -234,15 +250,13 @@ if (!element) {
               return date.toISOString().substr(11, 8);
             }
         }
-        generateTime = () => {
+        generateMusicPlayerTime = () => {
             // Get the audio element
             var audio = document.getElementById("campaigntrailmusic");
             timeTracker = document.createElement("div");
             timeTracker.id ='timeTracker'
             timeTracker.style = `
       text-align:left;
-      border-style:solid;
-      border-width:3px;
       height:200px;
       width:200px;
       padding: 10px;
@@ -559,6 +573,9 @@ if (!element) {
         }
 
     function newMusicPlayer() {
+            //
+            addMusicPlayerHeader();
+
             trackSel = document.createElement("div");
             trackSel.id = "trackSelParent";
             // 
@@ -566,7 +583,7 @@ if (!element) {
             trackSel.style.display = "flex";
             trackSel.style.justifyContent = "space-between";
 
-            let z = `<div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;height:200px; width:473px;padding:10px;">`;
+            let z = `<div id='trackSel' style="text-align:left;height:200px; width:477px;padding:10px;border-left: 3px solid white;border-right: 3px solid white;">`;
             z += `<div><b>Playlist:</b><select id='selectSoundtrack' style='width: 100%;'><option value='` + e.selectedSoundtrack + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>";
             for (i in soundtracks) {
               if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
@@ -673,7 +690,7 @@ if (!element) {
             
             //
             createMusicPlayerApp();
-            generateTime();
+            generateMusicPlayerTime();
         }
         clamp = function(a, max, min, overflow = true) {
             if (overflow) {
