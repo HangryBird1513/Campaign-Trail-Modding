@@ -584,11 +584,9 @@ if (!element) {
             trackSel.style.justifyContent = "space-between";
 
             let z = `<div id='trackSel' style="text-align:left;height:200px; width:477px;padding:10px;border-left: 3px solid white;border-right: 3px solid white;">`;
-            z += `<div><b>Playlist:</b><select id='selectSoundtrack' style='width: 100%;'><option value='` + e.selectedSoundtrack + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>";
+            z += `<div><b>Playlist:</b><select id='selectSoundtrack' style='width: 100%;'>`;
             for (i in soundtracks) {
-              if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
-                  z += `<option value='` + i + `'>` + soundtracks[i].name + `</option>`;
-              }
+              z += `<option value='` + i + `'>` + soundtracks[i].name + `</option>`;
             }
             z += `</select></div><br><div><b>Tracklist:</b><div id='soundtrackSongs' style='height: 120px;overflow: auto'>`;
                 // <label><input type="radio" name="option" value="option1">Option 1</label><br>
