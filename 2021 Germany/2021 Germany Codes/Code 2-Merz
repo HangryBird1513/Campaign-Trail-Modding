@@ -2015,7 +2015,7 @@ if(!campaignTrail_temp.loaded){
       }
     }
     
-    // asap
+    //
     async function renameElectoralVotes(processedNodes){
         const electoralVoteElements = [
             {elementID: '#overall_result h3', oldText: 'ELECTORAL VOTES', newText: 'NATIONAL RESULTS'},
