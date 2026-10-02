@@ -208,7 +208,7 @@ if (!element) {
             musicPlayerHeader.id = "musicPlayerHeader";
             musicPlayerHeader.style.cssText = "padding:10px;border-bottom: 3px solid white;background-color:#5D8FC4;text-align: left;display: flex;justify-content: space-between;";
 
-            musicPlayerHeader.innerHTML = `<div style="width: 90%;"><br><h2 style="margin: 0px;">Music Player</h2>Tunes to Hit The Campaign Trail to</div>`;
+            musicPlayerHeader.innerHTML = `<div style="width: 90%;"><h2 style="margin-bottom: 0px;">Music Player</h2>Tunes to Hit The Campaign Trail to</div>`;
 
             var musicPlayerHeaderImage = document.createElement("img");
             musicPlayerHeaderImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/music-player-app-icon.png";
