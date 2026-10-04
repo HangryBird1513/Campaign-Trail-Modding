@@ -20,7 +20,7 @@ List of Changes:
 - Modified formatting of the polling menu container in the electoral map 
 - Replaced broken SPD image
 - Modified formatting of the difficulty options explanation so that the tooltip fits in its outer container
-- Added a header, cover image, "Mute" and "Previous" buttons, and track length and volume indicator to the music player
+- Added a header, track cover images, "Mute" and "Previous" buttons, and track length and volume indicator to the music player
 - Renamed "Skip" button in the music player to "Next"
 - Modified "Mute", "Previous", "Play"/"Pause", and "Next" buttons to resemble the buttons from the Tagesschau website
 - Modified "Shuffle" button to also shuffle the order that the tracks physically appear in
