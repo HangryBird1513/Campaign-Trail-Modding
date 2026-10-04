@@ -222,25 +222,24 @@ if (!element) {
         }
 
         //
-        createMusicPlayerApp = () => {
+        displaySoundtrackImage = () => {
             // 
-            var musicPlayerApp = document.createElement("div");
-            musicPlayerApp.id = "musicPlayerApp";
-            musicPlayerApp.style.cssText = "text-align:center;height:200px; width:200px;padding:10px;";
-          
-            //
-            var musicPlayerAppImage = document.createElement("img");
-            musicPlayerAppImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/tagesschau-app-icon.png";
-            musicPlayerAppImage.style.width = "auto";
-            musicPlayerAppImage.style.height = "85%";
-            musicPlayerAppImage.style.marginBottom = "5px";
-            musicPlayerApp.appendChild(musicPlayerAppImage);
+            var soundtrackImageContainer = document.createElement("div");
+            soundtrackImageContainer.id = "albumCover";
+            soundtrackImageContainer.style.cssText = "text-align:center;height:200px; width:200px;padding:10px;";
 
-            //
-            musicPlayerApp.insertAdjacentHTML('beforeend', '<b>Music Player</b>');
+            var soundtrackImageBackground = document.createElement("div");
+            soundtrackImageBackground.style.cssText = "padding: 20px;border-radius: 10%;background-color: #024683;";
+
+            var soundtrackImage = document.createElement("img");
+            soundtrackImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Tagesthemen%20Intro%20die%20%C3%84rzte.png";
+            soundtrackImage.style.width = "160px";
+            soundtrackImage.style.height = "auto";
+
+            soundtrackImageBackground.appendChild(soundtrackImage);
+            soundtrackImageContainer.appendChild(soundtrackImageBackground);
           
-            //
-            document.getElementById("trackSelParent").prepend(musicPlayerApp);
+            document.getElementById("trackSelParent").prepend(soundtrackImageContainer);
         }
 
         toTime = (seconds) => {
@@ -254,7 +253,7 @@ if (!element) {
               return date.toISOString().substr(11, 8);
             }
         }
-        generateMusicPlayerTime = () => {
+        generateSoundtrackTime = () => {
             // Get the audio element
             var audio = document.getElementById("campaigntrailmusic");
             timeTracker = document.createElement("div");
@@ -691,8 +690,8 @@ if (!element) {
             }
             
             //
-            createMusicPlayerApp();
-            generateMusicPlayerTime();
+            displaySoundtrackImage();
+            generateSoundtrackTime();
         }
         clamp = function(a, max, min, overflow = true) {
             if (overflow) {
