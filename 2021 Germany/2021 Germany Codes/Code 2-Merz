@@ -5474,9 +5474,6 @@ if(!campaignTrail_temp.loaded){
             
                 if (cheatsActive && ach.cannotBeCheated) {
                     console.log(`Would unlock '${name}' but won't because cheating!`);
-                    //
-                    displayCTSAchievement(name, ach);
-
                     return;
                 }
             
