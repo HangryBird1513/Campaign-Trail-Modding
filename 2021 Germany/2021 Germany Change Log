@@ -4,6 +4,7 @@ To-Do List:
 - Update Mützenich's candidate description in the candidate selection section
 - Add additional achievements and tooltips for Merz and Mützenich
 - Add interviews for Merz and Mützenich in the further reading section and replace the broken links there
+- Update music player with an additional bonus song(s)  
 
 List of Changes:
 - Modified width of "Enable Volume" container and position of its checkbox so that it is in the center of the container
@@ -64,6 +65,7 @@ List of Changes:
 - Fixed the "Was it something I said?" achievement on CTS to only unlock when 3 advisors quit like it's supposed to
 - Implemented all endings that were listed in the cutting room floor document
 - Added all advisors, but without their effects, that were listed in the cutting room floor document
+- Modified achievement pop-ups so that they no longer halt the code being executed
 - Fixed formatting of the "Go to Final Results" button in the election night chart on NCT so that it is below the chart
 - Modified the seat estimate and possible coalitions text in the election night chart on NCT so that both are white
 - Removed the "368 to win" text in the polling menu container during the base, unchanged election night on NCT
