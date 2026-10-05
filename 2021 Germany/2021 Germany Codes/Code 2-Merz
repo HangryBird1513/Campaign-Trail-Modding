@@ -5474,11 +5474,14 @@ if(!campaignTrail_temp.loaded){
             
                 if (cheatsActive && ach.cannotBeCheated) {
                     console.log(`Would unlock '${name}' but won't because cheating!`);
+                    //
+                    displayCTSAchievement(name, ach);
+
                     return;
                 }
             
                 if (unlockedAch[name] == null || e.achievementsEveryTime) {
-                    alert("ACHIEVEMENT UNLOCKED: " + name);
+                    displayCTSAchievement(name, ach);
                 }
             
                 unlockedAch[name] = ach;
@@ -5495,6 +5498,61 @@ if(!campaignTrail_temp.loaded){
                 addAllAchievements();
             }
         }
+    }
+
+    //
+    var achievementsQueued = 0;
+    let achievementColors = {
+        mainBg: null,
+        borderColor: null,
+        titleColor: null,
+        textBg: null,
+        textColor: null,
+    }
+    if (campaignTrail_temp.CTS) {
+        achievementColors.mainBg = enhanceUnlockColor(campaignTrail_temp.modBoxTheme.main_color);
+        achievementColors.borderColor = enhanceUnlockColor(campaignTrail_temp.modBoxTheme.secondary_color);
+        achievementColors.titleColor = getContrastingTextColor(achievementColors.mainBg);
+        achievementColors.textBg = enhanceUnlockColor(campaignTrail_temp.modBoxTheme.description_background_color);
+        achievementColors.textColor = campaignTrail_temp.modBoxTheme.description_text_color;
+    }
+
+    function displayCTSAchievement(name, ach) {
+        // 
+        var achBox = document.createElement("div");
+        achBox.className = "achBox";
+        achBox.style.cssText = `background-color: ${achievementColors.mainBg};outline-color: ${achievementColors.borderColor};position: fixed;z-index: 9999;right: 0px;margin: 15px;height: auto;max-height: none;pointer-events: none;`;
+        
+        // 
+        achBox.innerHTML = `
+        <div class="achTitle" style="color:${achievementColors.titleColor};">
+            Achievement Unlocked: ${name}
+        </div>
+        <div class="achImageHolder">
+            <img class="achImage" src="${ach.image}" alt="${name}">
+        </div>
+        <div class="achText" style="background-color:${achievementColors.textBg}; color:${achievementColors.textColor};">
+            ${ach.description}
+        </div>
+        `;
+
+        //
+        document.body.prepend(achBox);
+
+        //
+        setTimeout(() => {
+            achBox.style.transitionDelay = '0.5s';
+            achBox.style.opacity = '1';
+
+            setTimeout(() => {
+                achBox.style.transitionDelay = '0s';
+                achBox.style.opacity = '0';
+                achievementsQueued--;
+            }, 3000);
+
+        }, (4000 * achievementsQueued) + 1000);
+
+        achievementsQueued++;
     }
     
     let finalTrackSet = false; // This seems to be missing from your provided code, so I'm assuming it's defined somewhere in your global scope.
