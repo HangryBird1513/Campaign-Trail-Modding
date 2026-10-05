@@ -232,7 +232,7 @@ if (!element) {
             soundtrackImageBackground.style.cssText = "padding: 20px;border-radius: 10%;background-color: #024683;";
 
             var soundtrackImage = document.createElement("img");
-            soundtrackImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Tagesthemen%20Intro%20die%20%C3%84rzte.png";
+            soundtrackImage.src = soundtracks[0].tracklist[0].image;
             soundtrackImage.style.width = "160px";
             soundtrackImage.style.height = "auto";
 
@@ -593,8 +593,8 @@ if (!element) {
             }
             z += `</select></div><br><div><b>Tracklist:</b><div id='soundtrackSongs' style='height: 120px;overflow: auto'>`;
                 // <label><input type="radio" name="option" value="option1">Option 1</label><br>
-            for (i in soundtracks[e.selectedSoundtrack].tracklist) {
-                let a = soundtracks[e.selectedSoundtrack].tracklist[i];
+            for (i in soundtracks[0].tracklist) {
+                let a = soundtracks[0].tracklist[i];
                 let b = `<label><input class="soundtrackSelector" type="radio" name="trackSelector" value="` + i + `">` + a.name + `</label><br>`;
                 z += b;
             }
@@ -637,6 +637,7 @@ if (!element) {
     
                         audio.src = soundtracks[e.selectedSoundtrack].tracklist[this.value].url;
                         audio.currentTime = 0;
+                        document.querySelector("#albumCover img").src = soundtracks[e.selectedSoundtrack].tracklist[this.value].image;
                     };
                 }
 
@@ -660,14 +661,15 @@ if (!element) {
                       pausePlayButtonImage.style.marginLeft = "0px";
                     }
 
-                    audio.src = soundtracks[e.selectedSoundtrack].tracklist[this.value].url;
+                    audio.src = soundtracks[0].tracklist[this.value].url;
                     audio.currentTime = 0;
+                    document.querySelector("#albumCover img").src = soundtracks[0].tracklist[this.value].image;
                 };
             }
             musicBox.children[2].loop = false
-            musicBox.children[2].src = soundtracks[e.selectedSoundtrack].tracklist[0].url
+            musicBox.children[2].src = soundtracks[0].tracklist[0].url
 
-            trackIndices = Array.from({length: soundtracks[e.selectedSoundtrack].tracklist.length}, (_, i) => i);
+            trackIndices = Array.from({length: soundtracks[0].tracklist.length}, (_, i) => i);
 
             musicBox.children[2].onended = function() {
                 if (e.music.loopEnabled || trackIndices.length === 1) {
@@ -705,11 +707,13 @@ if (!element) {
               tracklist: [
                 {
                   "name": "Tagesthemen Intro die Ärzte",
-                  "url": "https://audio.jukehost.co.uk/ZhbjifIdsjrc5hBuvWg5xhxzkWX8RpWQ"
+                  "url": "https://audio.jukehost.co.uk/ZhbjifIdsjrc5hBuvWg5xhxzkWX8RpWQ",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Tagesthemen%20Intro%20die%20%C3%84rzte.png"
                 },
                 {
                   "name": "Tagesschau Intro",
-                  "url": "https://audio.jukehost.co.uk/qVu0KPk7sb101u4JE4C0H64Q1svdNhpy"
+                  "url": "https://audio.jukehost.co.uk/qVu0KPk7sb101u4JE4C0H64Q1svdNhpy",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Tagesschau%20Intro.png"
                 }
 				]
 			},
@@ -718,27 +722,33 @@ if (!element) {
               tracklist: [
                  {
                   "name": "Tatort Intro",
-                  "url": "https://audio.jukehost.co.uk/NKy8Q93up3YSDPzAb8Iz4AwOl2q128c8"
+                  "url": "https://audio.jukehost.co.uk/NKy8Q93up3YSDPzAb8Iz4AwOl2q128c8",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Tatort%20Intro.png"
                 },
                 {
                   "name": "Lindenstraße Musik",
-                  "url": "https://audio.jukehost.co.uk/ogTTlkQ9ypyBtuxOxriYex1RdVSlt0tr"
+                  "url": "https://audio.jukehost.co.uk/ogTTlkQ9ypyBtuxOxriYex1RdVSlt0tr",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Lindenstra%C3%9Fe%20Musik.png"
                 },
                 {
                   "name": "Löwenzahn Intro",
-                  "url": "https://audio.jukehost.co.uk/Bzr6HolQvwANmVMtTcVH1BFJUr4Voni9"
+                  "url": "https://audio.jukehost.co.uk/Bzr6HolQvwANmVMtTcVH1BFJUr4Voni9",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/L%C3%B6wenzahn%20Intro.png"
                 },
                 {
                   "name": "Das Lied der Deutschen",
-                  "url": "https://audio.jukehost.co.uk/wrZfKjJop7Sf7catdYrrOGFvv6suZ3Z2"
+                  "url": "https://audio.jukehost.co.uk/wrZfKjJop7Sf7catdYrrOGFvv6suZ3Z2",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Das%20Lied%20der%20Deutschen.png"
                 },
                 {
                   "name": "Europahymne",
-                  "url": "https://audio.jukehost.co.uk/F9vTiIJ9bfayOiIUHkPFhhvEkgGPVCah"
+                  "url": "https://audio.jukehost.co.uk/F9vTiIJ9bfayOiIUHkPFhhvEkgGPVCah",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Europahymne.png"
                 },
                 {
                   "name": "Einzug der Götter in Walhall",
-                  "url": "https://audio.jukehost.co.uk/q3EczEBz17qxhVLEcfn8nSHqOvyCw3Ly"
+                  "url": "https://audio.jukehost.co.uk/q3EczEBz17qxhVLEcfn8nSHqOvyCw3Ly",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Einzug%20der%20G%C3%B6tter%20in%20Walhall.png"
                 }
             ]
                 },
@@ -747,39 +757,46 @@ if (!element) {
               tracklist: [
                 {
                   "name": "Nena – 99 Luftballons",
-                  "url": "https://audio.jukehost.co.uk/BkSrZdogzPLCZZF2GfNdeCqxABnR5Kud"
+                  "url": "https://audio.jukehost.co.uk/BkSrZdogzPLCZZF2GfNdeCqxABnR5Kud",                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/99%20Luftballons.png"
                 },
                 {
                   "name": "Trio – Da Da Da",
-                  "url": "https://audio.jukehost.co.uk/HqEHySdEh1jLkanjesmAyqbDuRvgaKrt"
+                  "url": "https://audio.jukehost.co.uk/HqEHySdEh1jLkanjesmAyqbDuRvgaKrt",                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Da%20Da%20Da.png"
                 },
                 {
                   "name": "Kraftwerk – Autobahn",
-                  "url": "https://audio.jukehost.co.uk/qDyd8pdjo9jJWg1i3lPtoqXiR3bV01X4"
+                  "url": "https://audio.jukehost.co.uk/qDyd8pdjo9jJWg1i3lPtoqXiR3bV01X4",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Autobahn.png"
                 },
                 {
-                  "name": "Udo Jürgens – Griechischer Wein ",
-                  "url": "https://audio.jukehost.co.uk/nAAWKs5LTxc79TenwPIktQhPBX0QOCsp"
+                  "name": "Udo Jürgens – Griechischer Wein",
+                  "url": "https://audio.jukehost.co.uk/nAAWKs5LTxc79TenwPIktQhPBX0QOCsp",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Griechischer%20Wein.png"
                 },
                 {
-                  "name": "Udo Lindenberg – Sonderzug nach Pankow ",
-                  "url": "https://audio.jukehost.co.uk/Oa1soEvLXZiY8xEZqDI7jEDH5uS7snkd"
+                  "name": "Udo Lindenberg – Sonderzug nach Pankow",
+                  "url": "https://audio.jukehost.co.uk/Oa1soEvLXZiY8xEZqDI7jEDH5uS7snkd",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Sonderzug%20nach%20Pankow.png"
                 },
                 {
-                  "name": "Nina Hagen – Du hast den Farbfilm vergessen ",
-                  "url": "https://audio.jukehost.co.uk/Mragv7cuEs5hkf3sRqMl3O6eAQNVY2Ps"
+                  "name": "Nina Hagen – Du hast den Farbfilm vergessen",
+                  "url": "https://audio.jukehost.co.uk/Mragv7cuEs5hkf3sRqMl3O6eAQNVY2Ps",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Du%20hast%20den%20Farbfilm%20vergessen.png"
                 },
                 {
                   "name": "Nena – Irgendwie, Irgendwo, Irgendwann",
-                  "url": "https://audio.jukehost.co.uk/VfJopdWYgDwYkCcRXd3RLsqRThzAhY2Z"
+                  "url": "https://audio.jukehost.co.uk/VfJopdWYgDwYkCcRXd3RLsqRThzAhY2Z",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Irgendwie%2C%20Irgendwo%2C%20Irgendwann.png"
                 },
                 {
                   "name": "Die Ärzte - Schrei nach Liebe",
-                  "url": "https://audio.jukehost.co.uk/hLdoDN8cL1hHRtIWnM0zvhaoD8638RzC"
+                  "url": "https://audio.jukehost.co.uk/hLdoDN8cL1hHRtIWnM0zvhaoD8638RzC",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Schrei%20nach%20Liebe.png"
                 },
                 {
                   "name": "Die Ärzte - Deine Schuld",
-                  "url": "https://audio.jukehost.co.uk/QRyxqkjwqA8C2Ot8iBpgPP3np7qdn7KB"
+                  "url": "https://audio.jukehost.co.uk/QRyxqkjwqA8C2Ot8iBpgPP3np7qdn7KB",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Deine%20Schuld.png"
                 }
             ]
                 },
@@ -788,31 +805,38 @@ if (!element) {
               tracklist: [
                 {
                   "name": "Wir sind Helden – Nur Ein Wort",
-                  "url": "https://audio.jukehost.co.uk/qDiDcpB2wBsRWF51s5qzCJDQuFiNLizb"
+                  "url": "https://audio.jukehost.co.uk/qDiDcpB2wBsRWF51s5qzCJDQuFiNLizb",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Nur%20Ein%20Wort.png"
                 },
                 {
                   "name": "AnnenMayKantereit – Oft gefragt",
-                  "url": "https://audio.jukehost.co.uk/JPhDjh5xpnp8RoN8fJmBy0Puflk0kpCj"
+                  "url": "https://audio.jukehost.co.uk/JPhDjh5xpnp8RoN8fJmBy0Puflk0kpCj",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Oft%20gefragt.png"
                 },
                 {
                   "name": "Peter Fox – Schwarz zu Blau",
-                  "url": "https://audio.jukehost.co.uk/GljMxO8sPfXwiw6bd6htTWgnUJGeNyee"
+                  "url": "https://audio.jukehost.co.uk/GljMxO8sPfXwiw6bd6htTWgnUJGeNyee",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Schwarz%20zu%20Blau.png"
                 },
                 {
                   "name": "KRAFTKLUB – Schüsse in die Luft",
-                  "url": "https://audio.jukehost.co.uk/PNAclY6rsyBR9XslSqdJuVjDvnQKORXD"
+                  "url": "https://audio.jukehost.co.uk/PNAclY6rsyBR9XslSqdJuVjDvnQKORXD",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Sch%C3%BCsse%20in%20die%20Luft.png"
                 },
                 {
                   "name": "Andreas Bourani – Auf Uns",
-                  "url": "https://audio.jukehost.co.uk/vTWb79oaljEQA0JlD2CFLOjsDdWv1qHI"
+                  "url": "https://audio.jukehost.co.uk/vTWb79oaljEQA0JlD2CFLOjsDdWv1qHI",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Auf%20Uns.png"
                 },
                 {
-                  "name": "Tim Bendzko – Nur Noch Kurz die Welt retten ",
-                  "url": "https://audio.jukehost.co.uk/QZ5eSsBMUpbtP8hK8lGdlzbVp3xwU203"
+                  "name": "Tim Bendzko – Nur Noch Kurz die Welt retten",
+                  "url": "https://audio.jukehost.co.uk/QZ5eSsBMUpbtP8hK8lGdlzbVp3xwU203",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Nur%20Noch%20Kurz%20die%20Welt%20retten.png"
                 },
                 {
                   "name": "Polarkreis 18 – Allein Allein",
-                  "url": "https://audio.jukehost.co.uk/Hk2WcGPaM4pvk0nFU25Tyc0eDmcCbJzX"
+                  "url": "https://audio.jukehost.co.uk/Hk2WcGPaM4pvk0nFU25Tyc0eDmcCbJzX",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Allein%20Allein.png"
                 }
             ]
                 },
@@ -821,23 +845,28 @@ if (!element) {
               tracklist: [
                 {
                   "name": "Kein Schöner Land in dieser Zeit",
-                  "url": "https://audio.jukehost.co.uk/uIgj0CVfmjCuZXXijb5q5TllO1YCirJ7"
+                  "url": "https://audio.jukehost.co.uk/uIgj0CVfmjCuZXXijb5q5TllO1YCirJ7",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Kein%20Sch%C3%B6ner%20Land%20in%20dieser%20Zeit.png"
                 },
                 {
                   "name": "Die Gedanken sind frei",
-                  "url": "https://audio.jukehost.co.uk/tkDStJdGqTciE32ffGi5KfA5ivXryp0n"
+                  "url": "https://audio.jukehost.co.uk/tkDStJdGqTciE32ffGi5KfA5ivXryp0n",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Die%20Gedanken%20sind%20frei.png"
                 },
                 {
                   "name": "Loreley (Ich weiß nicht, was soll es bedeuten)",
-                  "url": "https://audio.jukehost.co.uk/khDuwgJkQeuMGCDtsj9MZzVR5oXx77m3"
+                  "url": "https://audio.jukehost.co.uk/khDuwgJkQeuMGCDtsj9MZzVR5oXx77m3",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Loreley.png"
                 },
                 {
                   "name": "Du, Du liegst mir im Herzen",
-                  "url": "https://audio.jukehost.co.uk/7vrV36bOAG9NICYU4aaDaCt3f5lQY0Ly"
+                  "url": "https://audio.jukehost.co.uk/7vrV36bOAG9NICYU4aaDaCt3f5lQY0Ly",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Du%2C%20Du%20liegst%20mir%20im%20Herzen.png"
                 },
                 {
                   "name": "Wenn die bunten Fahnen wehen",
-                  "url": "https://audio.jukehost.co.uk/KgRBbjcuWrBMeLKAtaIdCVzsimoJECOJ"
+                  "url": "https://audio.jukehost.co.uk/KgRBbjcuWrBMeLKAtaIdCVzsimoJECOJ",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Wenn%20die%20bunten%20Fahnen%20wehen.png"
                 }
             ]
                 },
@@ -846,23 +875,28 @@ if (!element) {
               tracklist: [
                 {
                   "name": "Gänsehaut - Karl der Käfer",
-                  "url": "https://audio.jukehost.co.uk/tOIQPlaw82UKsHn7uHwiphmLmcN2Nlqi"
+                  "url": "https://audio.jukehost.co.uk/tOIQPlaw82UKsHn7uHwiphmLmcN2Nlqi",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Karl%20der%20K%C3%A4fer.png"
                 },
                 {
                   "name": "Ton Steine Scherben – Keine Macht für niemand",
-                  "url": "https://audio.jukehost.co.uk/5bMPhVJ7nw144ozYr3ZZY3l5y9z2w7mP"
+                  "url": "https://audio.jukehost.co.uk/5bMPhVJ7nw144ozYr3ZZY3l5y9z2w7mP",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Keine%20Macht%20f%C3%BCr%20niemand.png"
                 },
                 {
                   "name": "Bots - Aufstehn",
-                  "url": "https://audio.jukehost.co.uk/NCi34TbOXzSMAyl3zcGpNl8G3xOAPv1w"
+                  "url": "https://audio.jukehost.co.uk/NCi34TbOXzSMAyl3zcGpNl8G3xOAPv1w",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Aufstehn.png"
                 },
                 {
                   "name": "Fehlfarben - Ein Jahr (Es geht voran)",
-                  "url": "https://audio.jukehost.co.uk/V9uOn3Gz8rceMvHzVTNUc810KhumV2DQ"
+                  "url": "https://audio.jukehost.co.uk/V9uOn3Gz8rceMvHzVTNUc810KhumV2DQ",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Ein%20Jahr.png"
                 },
                 {
                   "name": "Teller Bunte Knete - Stadtmensch",
-                  "url": "https://audio.jukehost.co.uk/cx2fCT39iUUKkY7ACs3s1WbZlMzuUFVS"
+                  "url": "https://audio.jukehost.co.uk/cx2fCT39iUUKkY7ACs3s1WbZlMzuUFVS",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Stadtmensch.png"
                 }
             ]
                 },
@@ -871,23 +905,28 @@ if (!element) {
               tracklist: [
                 {
                   "name": "Die Internationale",
-                  "url": "https://audio.jukehost.co.uk/YRSDVAYgnyXHns7vHej9eVxQJuh1fvXG"
+                  "url": "https://audio.jukehost.co.uk/YRSDVAYgnyXHns7vHej9eVxQJuh1fvXG",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Die%20Internationale.png"
                 },
                 {
                   "name": "Wann wir schreiten Seit an Seit",
-                  "url": "https://audio.jukehost.co.uk/sp3u8Dqrxvvd8jqfpObBLiQ2p5wlXfVp"
+                  "url": "https://audio.jukehost.co.uk/sp3u8Dqrxvvd8jqfpObBLiQ2p5wlXfVp",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Wann%20wir%20schreiten%20Seit%20an%20Seit.png"
                 },
                 {
                   "name": "Brüder, zur Sonne, zur Freiheit",
-                  "url": "https://audio.jukehost.co.uk/BsxGlENqGde2gD6v6ordiUSEImHqQBdG"
+                  "url": "https://audio.jukehost.co.uk/BsxGlENqGde2gD6v6ordiUSEImHqQBdG",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Br%C3%BCder%2C%20zur%20Sonne%2C%20zur%20Freiheit.png"
                 },
                 {
                   "name": "Auferstanden aus Ruinen (DDR Anthem)",
-                  "url": "https://audio.jukehost.co.uk/aI0b0qaqzB1wUEwu2vuQHEwzkgLTd7sK"
+                  "url": "https://audio.jukehost.co.uk/aI0b0qaqzB1wUEwu2vuQHEwzkgLTd7sK",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Auferstanden%20aus%20Ruinen.png"
                 },
                 {
                   "name": "Das Einheitsfrontlied",
-                  "url": "https://audio.jukehost.co.uk/1ZqxJuWRqGKhtOKoQJcnZacs5K4xQaFu"
+                  "url": "https://audio.jukehost.co.uk/1ZqxJuWRqGKhtOKoQJcnZacs5K4xQaFu",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Das%20Einheitsfrontlied.png"
                 }
             ]
                 },
@@ -896,7 +935,8 @@ if (!element) {
               tracklist: [
                 {
                   "name": "Long Way - Song of German-Danish friendship, chosen by Onkel Danny",
-                  "url": "https://audio.jukehost.co.uk/9fZ6fLnhCnM5oMfGQQhuWGS68vO5DQRq"
+                  "url": "https://audio.jukehost.co.uk/9fZ6fLnhCnM5oMfGQQhuWGS68vO5DQRq",
+                  "image":"https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Long%20Way.png"
                 }
                 ]
                 }
