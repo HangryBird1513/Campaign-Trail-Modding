@@ -226,14 +226,14 @@ if (!element) {
             // 
             var soundtrackImageContainer = document.createElement("div");
             soundtrackImageContainer.id = "albumCover";
-            soundtrackImageContainer.style.cssText = "text-align:center;height:200px; width:200px;padding:10px;";
+            soundtrackImageContainer.style.cssText = "text-align:center;height:200px;width:200px;padding:10px;";
 
             var soundtrackImageBackground = document.createElement("div");
-            soundtrackImageBackground.style.cssText = "padding: 20px;border-radius: 10%;background-color: #024683;";
+            soundtrackImageBackground.style.cssText = "height:160px;width:160px;padding:20px;border-radius:10%;background-color:#024683;";
 
             var soundtrackImage = document.createElement("img");
             soundtrackImage.src = soundtracks[0].tracklist[0].image;
-            soundtrackImage.style.width = "160px";
+            soundtrackImage.style.width = "100%";
             soundtrackImage.style.height = "auto";
 
             soundtrackImageBackground.appendChild(soundtrackImage);
