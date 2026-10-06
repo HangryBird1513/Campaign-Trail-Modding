@@ -5465,28 +5465,39 @@ if(!campaignTrail_temp.loaded){
     function ctsAchievement(name, difficultyChecker = true){ 
         if (campaignTrail_temp.CTS){
             if((difficultyChecker && campaignTrail_temp.difficulty_level_multiplier<=1)||!difficultyChecker){
-                const ach = findAchievementByName(name);
+                const targetModName = campaignTrail_temp.temp_election_list[0].display_year || null;
+                const { modName, ach } = findAchievement(name, targetModName);
   
                 if (ach == null) {
                     console.log("There is no achievement with the name '" + name + "'");
                     return;
                 }
             
-                if (cheatsActive && ach.cannotBeCheated) {
+                if (typeof cheatsActive !== "undefined" && cheatsActive && ach.cannotBeCheated) {
                     console.log(`Would unlock '${name}' but won't because cheating!`);
                     return;
                 }
-            
-                if (unlockedAch[name] == null || e.achievementsEveryTime) {
+
+                if ( e.achievementsEveryTime || !isAchievementUnlocked(modName, name, ach)) {
                     displayCTSAchievement(name, ach);
                 }
             
-                unlockedAch[name] = ach;
+                // save as "modName:achName"
+                const unlockKey = modName ? `${modName}:${name}` : name;
+                const achRecord = {
+                    ...ach,
+                    modName: modName,
+                    achName: name,
+                };
+
+                unlockedAch[unlockKey] = achRecord;
+
                 try {
                     localStorage.setItem("unlockedAch", JSON.stringify(unlockedAch));
                 } catch (e) {
                     console.error("Error while saving achievements:", e);
                 }
+                window.unlockedAch = createUnlockedAchProxy(unlockedAch);
             
                 // invalidate cache
                 modCompletionCache = null;
