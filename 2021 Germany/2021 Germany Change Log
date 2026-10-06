@@ -63,9 +63,9 @@ List of Changes:
 - Modified formatting of the coalition negotiation section
 - Fixed the 2nd part of the final election results section so that it loads properly when returning to it from another section
 - Fixed the "Was it something I said?" achievement on CTS to only unlock when 3 advisors quit like it's supposed to
+- Modified achievement pop-ups so that they no longer interrupt the code being executed
 - Implemented all endings that were listed in the cutting room floor document
 - Added all advisors, but without their effects, that were listed in the cutting room floor document
-- Modified achievement pop-ups so that they no longer halt the code being executed
 - Fixed formatting of the "Go to Final Results" button in the election night chart on NCT so that it is below the chart
 - Modified the seat estimate and possible coalitions text in the election night chart on NCT so that both are white
 - Removed the "368 to win" text in the polling menu container during the base, unchanged election night on NCT
