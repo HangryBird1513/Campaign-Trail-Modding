@@ -337,9 +337,7 @@ if(!campaignTrail_temp.loaded){
             // Create a new table
             const coalitionTable = document.createElement("table");
             coalitionTable.style.backgroundColor = "white";
-            coalitionTable.style.margin = "0 auto";
-            coalitionTable.style.marginTop = "5px";
-            coalitionTable.style.marginBottom = "5px";
+            coalitionTable.style.margin = "15px auto";
             coalitionTable.style.width = "75%";
             coalitionTable.style.border = "1px solid black";
     
@@ -483,9 +481,6 @@ if(!campaignTrail_temp.loaded){
     
               // Add the container to the coalitionListDiv
               coalitionListDiv.appendChild(container);
-
-              //
-              container.insertAdjacentHTML('afterend', '<br>');
     
               // Add a button to select a coalition
                 const selectButton = document.createElement("button");
@@ -1145,7 +1140,7 @@ if(!campaignTrail_temp.loaded){
             var SSW = "In other news, the SSW, the party of the Danish minority, has won a seat for the first time since 1949. As party of a national minority, they are exempt from the 5% threshold."
     
             if(LeftParty.popular_votes/totalPV<0.0495 && LeftParty.electoral_votes >2){
-                LeftPerformance = "Despite missing the 5% threshold, the Left Party managed to secure three direct mandates, two in Berlin and one in Leipzig. With these three direct mandates, the party will receive seats in proportion to their percentage of the total popular vote."
+                LeftPerformance = " Despite missing the 5% threshold, the Left Party managed to secure three direct mandates, two in Berlin and one in Leipzig. With these three direct mandates, the party will receive seats in proportion to their percentage of the total popular vote."
             }
     
             else if(LeftParty.popular_votes/totalPV<0.05 && LeftParty.electoral_votes >2){
@@ -1157,7 +1152,7 @@ if(!campaignTrail_temp.loaded){
             }
     
             if (!disaster){
-                text = [`<p>${playerPerformance}</p><p>${SSW}${LeftPerformance}</p>`,`<div id="coalitionList"> In the Federal Republic of Germany, the parliamentary multi-party system demands coalition agreements between parties to conjure up workable majority. It's time to negotiate!<br><br></div>` ]
+                text = [`<p>${playerPerformance}</p><p>${SSW}${LeftPerformance}</p>`,`<div id="coalitionList">In the Federal Republic of Germany, the parliamentary multi-party system demands coalition agreements between parties to conjure up workable majority. It's time to negotiate!</div>` ]
                 image.push("https://i.ibb.co/1Rn3Sb0/kuppel.jpg")
             }
     
