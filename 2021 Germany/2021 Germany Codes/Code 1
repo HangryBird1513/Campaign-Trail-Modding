@@ -2218,6 +2218,7 @@ function paginateContent() {
 
             #inner_window_2 {
               position: relative;
+              min-height: auto;
             }
 
             #ExportFileButton {
