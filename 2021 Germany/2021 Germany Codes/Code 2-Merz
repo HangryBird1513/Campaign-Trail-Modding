@@ -532,7 +532,7 @@ if(!campaignTrail_temp.loaded){
                     endingConstructor();
     
                   } else {
-                    alert("No coalition selected");
+                    alert("No coalition selected!");
                   }
                 });
     
