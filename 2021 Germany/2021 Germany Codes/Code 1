@@ -92,7 +92,7 @@ campaignTrail_temp.credits = "<button onclick='openCredits()'>Nina & Jaeckex</bu
       creditsFooter = document.createElement("p");
       creditsFooter.id = "credits_footer";
 
-      creditsFooter.innerHTML = `<button onclick="closeCredits()">Close Credits</button>`;
+      creditsFooter.innerHTML = "<button onclick='closeCredits()'>Close Credits</button>";
 
       electionInnerWindow.appendChild(creditsFooter);
     }
