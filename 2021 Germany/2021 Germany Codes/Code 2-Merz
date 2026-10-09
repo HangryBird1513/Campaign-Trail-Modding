@@ -326,6 +326,7 @@ if(!campaignTrail_temp.loaded){
     function addCoalitions() {
     
           let tableAdded = false;
+          let noCoalitionSelected = false;
     
           const observer = new MutationObserver((mutationsList, observer) => {
     
@@ -527,7 +528,14 @@ if(!campaignTrail_temp.loaded){
                     endingConstructor();
     
                   } else {
-                    alert("No coalition selected!");
+                    //
+                    if (!noCoalitionSelected) {
+                        noCoalitionSelected = true;
+
+                        selectButton.style.marginBottom = "5px";
+
+                        coalitionListDiv.insertAdjacentHTML('beforeend', '<br><b style="color: red;">No coalition selected!</b>');
+                    }
                   }
                 });
     
@@ -541,6 +549,7 @@ if(!campaignTrail_temp.loaded){
                 if(!coalitionListDiv){
                     // reconnect the observer
                     tableAdded=false;
+                    noCoalitionSelected = false;
                 }
               }
     
@@ -5373,13 +5382,9 @@ if(!campaignTrail_temp.loaded){
 
     function createStateTooltipEvents(mapSVGStates) {
 
-        let descriptionElement = mapSVGStates.querySelector('desc');
-        let descriptionElementText = descriptionElement.textContent;
+        if (mapSVGStates.className !== "hasStateTooltips") {
 
-        if (!descriptionElementText.includes(' and contains state tooltips')) {
-            
-            descriptionElementText += ' and contains state tooltips';
-            descriptionElement.textContent = descriptionElementText;
+            mapSVGStates.className = "hasStateTooltips";
 
             mapSVGStates.querySelectorAll('.stateListener').forEach(element => {
     
