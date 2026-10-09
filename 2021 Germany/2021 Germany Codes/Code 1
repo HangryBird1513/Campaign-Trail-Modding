@@ -1419,7 +1419,7 @@ function nextPage() {
     currentPage++;
     displayPage(currentPage);
   } else {
-    alert("You're on the last page");
+    console.log("You're on the last page");
   }
 }
 
@@ -1428,7 +1428,7 @@ function prevPage() {
     currentPage--;
     displayPage(currentPage);
   } else {
-    alert("You're on the first page");
+    console.log("You're on the first page");
   }
 }
 
