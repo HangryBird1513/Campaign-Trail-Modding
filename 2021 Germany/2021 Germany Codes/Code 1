@@ -74,10 +74,11 @@ campaignTrail_temp.credits = "<button onclick='openCredits()'>Nina & Jaeckex</bu
                       <p><b>#1 Achievement Hunter:</b><br>Onkel Danny</p>
                   </div>
               </div>
-              <div>
+              <ul>
                   <h2><b>Miscellaneous</b></h2>
-                  <p>Music Player adapted from 2000N<br>Advisor Mode inspired by Sea to Shining Sea</p>
-              </div>
+                  <li>Music Player adapted from 2000N</li>
+                  <li>Advisor Mode inspired by Sea to Shining Sea</li>
+              </ul>
           </div>
       </div>
       `;
