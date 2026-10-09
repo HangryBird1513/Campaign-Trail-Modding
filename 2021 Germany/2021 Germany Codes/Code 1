@@ -48,7 +48,7 @@ campaignTrail_temp.credits = "<button onclick='openCredits()'>Nina & Jaeckex</bu
     electionInnerWindow.querySelector("#credits").style.display = "none";
 
     var creditsForm = electionInnerWindow.querySelector("#credits_form");
-    var closeCredits = electionInnerWindow.querySelector("#close_credits");
+    var creditsFooter = electionInnerWindow.querySelector("#credits_footer");
 
     if (creditsForm) {
       creditsForm.style.display = "";
@@ -85,16 +85,16 @@ campaignTrail_temp.credits = "<button onclick='openCredits()'>Nina & Jaeckex</bu
       electionInnerWindow.appendChild(creditsForm);    
     }
 
-    if (closeCredits) {
-      closeCredits.style.display = "";
+    if (creditsFooter) {
+      creditsFooter.style.display = "";
     }
     else {
-      closeCredits = document.createElement("p");
-      closeCredits.id = "close_credits";
+      creditsFooter = document.createElement("p");
+      creditsFooter.id = "credits_footer";
 
-      closeCredits.innerHTML = `<button onclick="closeCredits()">Close Credits</button>`;
+      creditsFooter.innerHTML = `<button onclick="closeCredits()">Close Credits</button>`;
 
-      electionInnerWindow.appendChild(closeCredits);
+      electionInnerWindow.appendChild(creditsFooter);
     }
   }
 
@@ -102,7 +102,7 @@ campaignTrail_temp.credits = "<button onclick='openCredits()'>Nina & Jaeckex</bu
     var electionInnerWindow = document.querySelector("#inner_window_2");
 
     electionInnerWindow.querySelector("#credits_form").style.display = "none";
-    electionInnerWindow.querySelector("#close_credits").style.display = "none";
+    electionInnerWindow.querySelector("#credits_footer").style.display = "none";
     electionInnerWindow.querySelector("#election_year_form").style.display = "";
     electionInnerWindow.querySelector("#election_id_button").style.display = "";
     electionInnerWindow.querySelector("#credits").style.display = "";
