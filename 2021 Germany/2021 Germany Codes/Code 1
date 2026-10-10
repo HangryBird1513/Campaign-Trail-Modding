@@ -386,7 +386,7 @@ if (!element) {
                     if (e.music.shuffleEnabled) {
                         let currentIndex = trackIndices.findIndex(index => index === selected);
                         if (currentIndex === 0) {
-                            shuffle(trackIndices);
+                            shuffleSoundtrackSongs(trackIndices);
                             currentIndex = 1;
                         }
                         newSel = trackIndices[currentIndex - 1];
@@ -419,7 +419,7 @@ if (!element) {
                     if (e.music.shuffleEnabled) {
                         let currentIndex = trackIndices.findIndex(index => index === selected);
                         if (currentIndex === trackIndices.length - 1) {
-                            shuffle(trackIndices);
+                            shuffleSoundtrackSongs(trackIndices);
                             currentIndex = -1;
                         }
                         newSel = trackIndices[currentIndex + 1];
@@ -454,11 +454,11 @@ if (!element) {
                         soundtrackSongContainer.prepend(currentTrackSelector.parentElement)
 
                         //
-                        shuffle(trackIndices, 1);
+                        shuffleSoundtrackSongs(trackIndices, 1);
                     }
                     else {
                         //
-                        unshuffle(trackIndices);
+                        unshuffleSoundtrackSongs(trackIndices);
                     }
                 }
             });
@@ -615,7 +615,7 @@ if (!element) {
                 positionDisplay.innerHTML = toTime(audio.currentTime) + " / " + toTime(audio.duration);
                 audio.currentTime = timeSlider.value * audio.duration;
             }
-            updateVolume = event => {
+            adjustVolume = event => {
                 //
                 if (event.target.value > 0.5) {
                     volumeButtonImage.src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/High-Volume-Button.png";
@@ -632,7 +632,7 @@ if (!element) {
             }
             setInterval(updatePositionDisplay, 1000);
             timeSlider.addEventListener("input", changeTime);
-            volumeSlider.addEventListener("input", updateVolume)
+            volumeSlider.addEventListener("input", adjustVolume);
         }
 
     function newMusicPlayer() {
@@ -740,7 +740,7 @@ if (!element) {
                 if (e.music.shuffleEnabled) {
                     let currentIndex = trackIndices.findIndex(index => index === selected);
                     if (currentIndex === trackIndices.length - 1) {
-                        shuffle(trackIndices);
+                        shuffleSoundtrackSongs(trackIndices);
                         currentIndex = -1;
                     }
                     newSel = trackIndices[currentIndex + 1];
@@ -1004,19 +1004,16 @@ if (!element) {
         newMusicPlayer();
       }
 
-          function shuffle(array, currentIndex = 0) {
+          function shuffleSoundtrackSongs(array, currentIndex = 0) {
             // array contains the indices of the soundtrack songs
-            let temporaryValue, randomIndex;
-
-            // 
             let soundtrackSongContainer = document.querySelector("#soundtrackSongs");
             let breakElements = soundtrackSongContainer.querySelectorAll("br");
 
             for (let i = currentIndex; i < array.length; i++) {
                 //
-                randomIndex = Math.floor(Math.random() * (array.length - i) + i);
+                let randomIndex = Math.floor(Math.random() * (array.length - i) + i);
 
-                temporaryValue = array[i];
+                let temporaryValue = array[i];
                 array[i] = array[randomIndex];
                 array[randomIndex] = temporaryValue;
 
@@ -1027,7 +1024,7 @@ if (!element) {
             }
         }
 
-        function unshuffle(array){
+        function unshuffleSoundtrackSongs(array){
           // 
           let soundtrackSongContainer = document.querySelector("#soundtrackSongs");
           let breakElements = soundtrackSongContainer.querySelectorAll("br");
