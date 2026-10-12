@@ -5300,7 +5300,7 @@ if(!campaignTrail_temp.loaded){
 
     function setUpPartyTooltips(partySupportEstimates) {
         
-        partySupportEstimates.querySelectorAll("ul").forEach(element => {
+        partySupportEstimates.querySelectorAll('ul').forEach(element => {
 
             let overallthing = element.innerHTML;
             //                
@@ -5320,12 +5320,10 @@ if(!campaignTrail_temp.loaded){
     function createPartyTooltipEvents(partySupportEstimate) {
 
         partySupportEstimate.querySelectorAll('.mytooltip').forEach(element => {
+            const partyTooltipData = partyTooltips.find(p => p.partyName === element.innerText.trim());
 
-            const partyNameText = element.innerText;
-
-            if (partyNameText){
-                //
-                const partyTooltipObject = partyTooltips.find(p => p.partyName === partyNameText.trim()).tooltipObject;
+            if (partyTooltipData){
+                const partyTooltipObject = partyTooltipData.tooltipObject;
 
                 element.addEventListener('mouseenter', () => {
                     // 
@@ -5382,42 +5380,59 @@ if(!campaignTrail_temp.loaded){
 
     function createStateTooltipEvents(mapSVGStates) {
 
-        if (mapSVGStates.className !== "hasStateTooltips") {
+        if (mapSVGStates.className !== 'hasStateTooltips') {
 
-            mapSVGStates.className = "hasStateTooltips";
+            mapSVGStates.className = 'hasStateTooltips';
 
             mapSVGStates.querySelectorAll('.stateListener').forEach(element => {
-    
                 const stateNameID = element.getAttribute('state-id');
         
                 if (stateNameID){
-                    //
-                    const stateTooltipObject = stateTooltips.find(s => s.stateName === stateNameID.trim()).tooltipObject;
-        
-                    if (element.localName === 'path') {
-                        // 
-                        const elementRect = element.getBoundingClientRect();
-                            
-                        // 
-                        const elementTop = elementRect.top + window.scrollY;
-                        const elementLeft = elementRect.left + window.scrollX;
-                                    
-                        // 
-                        stateTooltipObject.style.left = `${elementLeft - stateTooltipObject.offsetWidth - 10}px`;
-                                    
-                        // 
-                        stateTooltipObject.style.top = `${elementTop + (elementRect.height / 2) - (stateTooltipObject.offsetHeight / 2)}px`;
+                    const stateTooltipData = stateTooltips.find(s => s.stateName === stateNameID.trim());
+
+                    if (stateTooltipData) {
+                        const stateTooltipObject = stateTooltipData.tooltipObject;
+            
+                        if (element.localName === 'path') {
+                            element.addEventListener('mouseenter', () => {
+                                // 
+                                const elementRect = element.getBoundingClientRect();
+                                        
+                                // 
+                                const elementLeft = elementRect.left + window.scrollX;
+                                const elementTop = elementRect.top + window.scrollY;
+                                                
+                                // 
+                                stateTooltipObject.style.left = `${elementLeft - stateTooltipObject.offsetWidth - 10}px`;
+                                stateTooltipObject.style.top = `${elementTop + (elementRect.height / 2) - (stateTooltipObject.offsetHeight / 2)}px`;
+                                
+                                stateTooltipObject.style.transitionDelay = '0.5s';
+                                stateTooltipObject.style.opacity = '1';
+                            });
+                        }
+                        else {
+                            element.addEventListener('mouseenter', () => {
+                                // 
+                                const elementRect = mapSVGStates.querySelector(`path.stateListener[state-id='${stateNameID}']`).getBoundingClientRect();
+                                        
+                                // 
+                                const elementLeft = elementRect.left + window.scrollX;
+                                const elementTop = elementRect.top + window.scrollY;
+                                                
+                                // 
+                                stateTooltipObject.style.left = `${elementLeft - stateTooltipObject.offsetWidth - 10}px`;
+                                stateTooltipObject.style.top = `${elementTop + (elementRect.height / 2) - (stateTooltipObject.offsetHeight / 2)}px`;
+                                
+                                stateTooltipObject.style.transitionDelay = '0.5s';
+                                stateTooltipObject.style.opacity = '1';
+                            });
+                        }
+            
+                        element.addEventListener('mouseleave', () => {
+                            stateTooltipObject.style.transitionDelay = '0s';
+                            stateTooltipObject.style.opacity = '0';
+                        });
                     }
-        
-                    element.addEventListener('mouseenter', () => {
-                        stateTooltipObject.style.transitionDelay = '0.5s';
-                        stateTooltipObject.style.opacity = '1';
-                    });
-        
-                    element.addEventListener('mouseleave', () => {
-                        stateTooltipObject.style.transitionDelay = '0s';
-                        stateTooltipObject.style.opacity = '0';
-                    });
                 }
             });
         }
