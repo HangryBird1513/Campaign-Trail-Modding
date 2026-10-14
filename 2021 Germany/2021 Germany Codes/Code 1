@@ -2270,11 +2270,11 @@ function paginateContent() {
               display: inline-flex;
               justify-content: center;
               align-items: center;
-              background-color: #3b5c70;
+              background-color: #0b5c9d;
               border: 1px solid white;
             }
             .musicplayerbuttons button:hover {
-              background-color: #015999; 
+              background-color: #015796; 
             }
             .musicplayerbuttons button:hover img {
               transform: scale(1.1); 
