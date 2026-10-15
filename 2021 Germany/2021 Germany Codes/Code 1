@@ -1071,7 +1071,7 @@ headerImage = '';
       const heading = document.querySelector("#running_mate_form form h3");
 
       if (heading) {
-        heading.textContent = "Please select your chancellor candidate:";
+        heading.textContent = "Please select your lead candidate:";
       }
     }
 
