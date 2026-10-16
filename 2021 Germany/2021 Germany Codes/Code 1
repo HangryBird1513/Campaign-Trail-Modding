@@ -2219,6 +2219,11 @@ function paginateContent() {
               min-height: auto;
             }
 
+            #inner_window_3,
+            #inner_window_4 {
+              overflow: auto;
+            }
+
             #ExportFileButton {
               position: relative !important;
               margin-left: 0.5em !important;
