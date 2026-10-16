@@ -3041,7 +3041,7 @@ if(!campaignTrail_temp.loaded){
 
         // 
         let patienceLabelTooltip = "Keep your radicalism low if you are running as an insider. Conversely, keep it high if you are running as an outsider.";
-        if (campaignTrail_temp.bigshot_mode || cheatsActive){
+        if (campaignTrail_temp.bigshot_mode || (typeof cheatsActive !== "undefined" && cheatsActive)){
             patienceLabelTooltip += "<br>Current Radicalism: "+ radicalism;
         }
         patienceLabel.innerHTML = "<span class='mytooltip'>Friedrich's Radicalism<span class='mytooltiptext'>" + patienceLabelTooltip + "</span></span>";
@@ -3804,6 +3804,8 @@ if(!campaignTrail_temp.loaded){
         advisorsDiv.style.color = 'black';
         advisorsDiv.style.backgroundImage = "url('https://jetsimon.com/cts-media/public/2021DE_CDU／CSULaschet_7.png')";
         advisorsDiv.style.backgroundSize = 'cover';
+        //
+        advisorsDiv.style.overflow = 'auto';
     
         // Add header
         let header = document.createElement('h1');
