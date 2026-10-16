@@ -32,6 +32,7 @@ List of Changes:
 - Removed theme picker so that the mod's unique theme cannot be changed 
 - Added achievement pop-up settings on CTS so that pop-ups can be set to appear every time an achievement's unlock conditions are met or only when an achievement is first unlocked
 - Fixed the game window so that it expands vertically to accomodate for any content that tries to spill out of it
+- Fixed background color of the party selection, candidate selection, and seat allocation sections on NCT so that it covers the entire sections
 - Fixed formatting of the "Export Game as File" button in the overall results section on NCT so that it stays within the game window
 - Removed the "Blog" and "Modmaker" links, the "Achievements" and "Additional Information" buttons, and the last updated text in the introduction section on NCT
 
@@ -66,6 +67,7 @@ List of Changes:
 - Fixed the 2nd part of the final election results section so that it loads properly when returning to it from another section
 - Fixed the "Was it something I said?" achievement on CTS to only unlock when 3 advisors quit like it's supposed to
 - Modified formatting of achievement pop-ups and no coalition selected pop-up so that they no longer interrupt the code being executed
+- Fixed background color of the "Hire Advisors" section of the HQ so that it covers the entire section
 - Implemented all endings that were listed in the cutting room floor document
 - Added all advisors, but without their effects, that were listed in the cutting room floor document
 - Fixed formatting of the "Go to Final Results" button in the election night chart on NCT so that it is below the chart
