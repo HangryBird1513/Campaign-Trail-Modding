@@ -46,7 +46,6 @@ To-Do List:
 - Maybe add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
 
 List of Changes:
-- ?
 - Fixed misspellings of HQ button name, Hesse, and Rhineland-Palatinate
 - Updated Merz's character mechanic description and visualization in the HQ
 - Fixed Merz's character mechanic tooltip in the HQ so that it displays the radicalism amount when cheats are enabled like it's supposed to
@@ -68,6 +67,7 @@ List of Changes:
 - Fixed the "Was it something I said?" achievement on CTS to only unlock when 3 advisors quit like it's supposed to
 - Modified formatting of achievement pop-ups and no coalition selected pop-up so that they no longer interrupt the code being executed
 - Fixed background of the "Hire Advisors" section of the HQ so that it covers the entire section
+- Modified game window so that it maintains its border and margin when displaying the election night chart 
 - Implemented all endings that were listed in the cutting room floor document
 - Added all advisors, but without their effects, that were listed in the cutting room floor document
 - Fixed formatting of the "Go to Final Results" button in the election night chart on NCT so that it is below the chart
