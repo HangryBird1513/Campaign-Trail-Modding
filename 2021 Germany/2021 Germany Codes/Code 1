@@ -2071,9 +2071,6 @@ function paginateContent() {
 
     height: auto;
 }
-#recommended_reading_box{
-    height: auto;
-}
 .person_button{
     margin-top:0.2em
 }
@@ -2208,6 +2205,10 @@ function paginateContent() {
 
             #main_content_area_reading {
               overflow: auto;
+            }
+
+            #recommended_reading_box{
+              height: auto;
             }
 
             #election_id_button {
