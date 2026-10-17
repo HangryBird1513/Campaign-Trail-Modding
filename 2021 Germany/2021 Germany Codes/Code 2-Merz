@@ -2113,7 +2113,7 @@ if(!campaignTrail_temp.loaded){
     
     async function adjustResultContainerHeight(processedNodes) {
         let results_container = document.getElementById("results_container");
-        let chart = document.getElementById("myChart");
+        let chart = document.getElementById("chartcontainer");
         if (results_container && !processedNodes.has(results_container)) {
             if (!chart) {
                 results_container.style.height = "98%";
@@ -2138,8 +2138,9 @@ if(!campaignTrail_temp.loaded){
             } 
             else {
                 //
-                let chart = document.getElementById("myChart");
-                if (chart) {
+                let chart = document.getElementById("chartcontainer");
+                let seatEstimateContainer = document.getElementById("seat_estimate_container");
+                if (chart && !seatEstimateContainer) {
                     gameWindow.style.height = '48.5em';
                 }
                 else {
@@ -2620,18 +2621,16 @@ if(!campaignTrail_temp.loaded){
         var round1 = true;
     
         function ElectionNightCharting() {
+        var gameWindow = document.getElementById("game_window");
         if(round1){
-            var gameWindow = document.getElementById("game_window");
-            gameWindow.id='not_game_window';
             gameWindow.style.textAlign='center';
             var invisibleDiv = document.createElement('div');
             invisibleDiv.style.display = 'none';
-            invisibleDiv.id='game_window'
+            invisibleDiv.id='game_window';
             document.body.appendChild(invisibleDiv);
                     document.addEventListener('click', (event) => {
                if (event.target.id === 'final_result_button') {
                    if(invisibleDiv){invisibleDiv.remove();}
-                   gameWindow.id='game_window';
                    stopClock();
                    stopImmediate=true;
                }
@@ -2639,15 +2638,12 @@ if(!campaignTrail_temp.loaded){
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter' || event.keyCode === 13) {
                    if(invisibleDiv){invisibleDiv.remove();}
-                   gameWindow.id='game_window';
                    stopClock();
                    stopImmediate=true;
                 }
             }, true);
         }
-        else{
-            var gameWindow = document.getElementById("not_game_window");
-        }
+
         var mainContentArea = document.getElementById("main_content_area");
         var chartContainer = document.getElementById("chartcontainer");
     
