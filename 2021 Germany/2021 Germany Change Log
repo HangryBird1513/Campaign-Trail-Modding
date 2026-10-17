@@ -12,6 +12,7 @@ List of Changes:
 - Modified the game window header text and the header text before the drop-down menu in the candidate selection section
 - Added a "Political Position:" bullet point in the party selection section
 - Modified the text before the "Click here to begin!" button in the introduction section to be more appropriate for the mod's setting
+- Fixed misspellings in Soder's candidate description in the candidate selection section
 - Updated Merz's candidate description in the candidate selection section
 - Fixed text of difficulty options so that it turns white without any delay
 - Modified formatting of the credits so that they no longer interrupt the code being executed
@@ -46,6 +47,7 @@ To-Do List:
 - Maybe add an additional ending slide about how well your coalition does in the lead-up to the 2025 election?
 
 List of Changes:
+- ?
 - Fixed misspellings of HQ button name, Hesse, and Rhineland-Palatinate
 - Updated Merz's character mechanic description and visualization in the HQ
 - Fixed Merz's character mechanic tooltip in the HQ so that it displays the radicalism amount when cheats are enabled like it's supposed to
