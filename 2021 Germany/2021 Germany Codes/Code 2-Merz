@@ -5473,7 +5473,7 @@ if(!campaignTrail_temp.loaded){
     $("#musicPlayerHeader")[0].style.backgroundSize = "cover";
     $("#trackSelParent")[0].style.backgroundImage = "url(https://jetsimon.com/cts-media/public/2021DE_CDU／CSULaschet_9.png)";
     $("#trackSelParent")[0].style.backgroundSize = "cover";
-    $("#header")[0].src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/CDU-Center-Banner.png";
+    $("#header")[0].src = "https://raw.githubusercontent.com/HangryBird1513/Campaign-Trail-Modding/refs/heads/main/2021%20Germany/2021%20Germany%20Images/Banner-CDU-Center.png";
     
     // 
     function ctsAchievement(name, difficultyChecker = true){ 
